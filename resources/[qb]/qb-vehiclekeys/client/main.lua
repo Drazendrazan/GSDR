@@ -98,6 +98,7 @@ CreateThread(function()
 
                     if IsControlJustPressed(0, 74) then
                         Hotwire(vehicle, plate)
+                        TriggerEvent("qb-platescan:client:AddStolenPlate", vehicle, plate)
                     end
                 end
             end

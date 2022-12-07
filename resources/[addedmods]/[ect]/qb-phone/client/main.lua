@@ -31,8 +31,10 @@ PhoneData = {
     ChatRooms = {},
 }
 
-
-
+-- Updates for the plate scanner --
+local function IsPhoneOpen()
+    return PhoneData.isOpen
+end exports("IsPhoneOpen", IsPhoneOpen)
 
 -- Localized Variables --
 local CallVolume = 0.2
