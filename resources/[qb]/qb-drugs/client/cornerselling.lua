@@ -144,7 +144,7 @@ local function SellToPed(ped)
     if bagAmount > 15 then bagAmount = math.random(9, 15) end
 
     currentOfferDrug = availableDrugs[drugType]
-
+    local xppriceadd = exports["mz-skills"]:GetCurrentSkill("Street Reputation")
     local ddata = Config.DrugsPrice[currentOfferDrug.item]
     local randomPrice = math.random(ddata.min, ddata.max) * bagAmount
     if scamChance <= Config.ScamChance then randomPrice = math.random(3, 10) * bagAmount end
@@ -230,6 +230,7 @@ local function SellToPed(ped)
 					    disableCombat = false,
 					    }, {}, {}, {}, function()
                                                 TriggerServerEvent('qb-drugs:server:sellCornerDrugs', drugType, bagAmount, randomPrice)
+                                                exports["mz-skills"]:UpdateSkill("Street Reputation", bagAmount)
                                                 hasTarget = false
                                                 LoadAnimDict("gestures@f@standing@casual")
                                                 TaskPlayAnim(PlayerPedId(), "gestures@f@standing@casual", "gesture_point", 3.0, 3.0, -1, 49, 0, 0, 0, 0)
@@ -267,6 +268,7 @@ local function SellToPed(ped)
                             exports['qb-core']:DrawText(Lang:t("info.drug_offer", {bags = bagAmount, drugLabel = currentOfferDrug.label, randomPrice = randomPrice}))
                         end
                         if IsControlJustPressed(0, 38) then
+                            exports["mz-skills"]:UpdateSkill("Street Reputation", bagAmount)
 			    if IsPedInAnyVehicle(PlayerPedId(), false) then
 			        QBCore.Functions.Notify(Lang:t("error.in_vehicle"), 'error')
 				exports['qb-core']:KeyPressed()
