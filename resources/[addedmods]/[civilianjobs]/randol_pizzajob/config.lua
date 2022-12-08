@@ -10,7 +10,7 @@ Config.Vehicle = "surge"
 
 Config.VehicleSpawn = vector4(535.3, 95.58, 96.32, 159.15)
 
-Config.FuelScript = 'cdn-fuel'
+Config.FuelScript = 'ps-fuel'
 
 Config.JobLocs = { -- Random delivery houses.
     vector3(224.11, 513.52, 140.92),
