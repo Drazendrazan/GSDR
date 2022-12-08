@@ -3,9 +3,9 @@
 Config = {}
 
 -- Base configurations
-Config.StartLocation = vector4(-78.10, -1392.16, 30.32, 178.21)
+Config.StartLocation = vector4(-109.04, -2491.03, 6.01, 63.01)
 Config.StartPedModel = "g_m_y_lost_01"
-Config.AddBlip = true
+Config.AddBlip = false
 Config.UseTarget = true
 Config.PayoutMethod = "cash"
 Config.PayoutBasedOnDistance = true

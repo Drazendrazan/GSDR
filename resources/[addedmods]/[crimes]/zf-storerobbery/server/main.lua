@@ -72,7 +72,7 @@ end
 local function AddMoney(pid, amount, type)
     if Config.Framework == 'qb-core' then
         local Player = QBCore.Functions.GetPlayer(pid)
-        Player.Functions.AddMoney(type, amount)
+        exports['cx-payslip']:AddMoney(cid, amount)
     elseif Config.Framework == 'esx' then
         local Player = ESX.GetPlayerFromId(pid)
         Player.addMoney(amount, 'heist')

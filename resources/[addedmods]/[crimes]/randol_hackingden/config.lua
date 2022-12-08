@@ -9,7 +9,7 @@ Config.MHacking = true -- You should have the mhacking resource by default. Used
 Config.FingerPrint = true -- [[https://github.com/utkuali/Finger-Print-Hacking-Game]] -- Download from here.
 
 Config.Blip = {
-    Enable = true,
+    Enable = false,
     coords = vector3(751.04, -1906.62, 29.46),
 }
 
