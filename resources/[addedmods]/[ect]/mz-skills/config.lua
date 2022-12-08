@@ -47,18 +47,6 @@ Config.Skills = {
         ["Stat"] = "RUNNER_ABILITY",
         ['icon'] = 'fas fa-car',
     }, 
-    ["Hitman"] = {
-        ["Current"] = 0,
-        ["RemoveAmount"] = 0,
-        ["Stat"] = "HITMAN_ABILITY",
-        ['icon'] = 'fas fa-skull',
-    }, 
-    ["Driving"] = {
-        ["Current"] = 0,
-        ["RemoveAmount"] = 0,
-        ["Stat"] = "DRIVER_ABILITY",
-        ['icon'] = 'fas fa-car-alt',
-    }, 
     ["Lumberjack"] = {
         ["Current"] = 0,
         ["RemoveAmount"] = 0,
