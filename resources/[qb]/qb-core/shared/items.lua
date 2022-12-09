@@ -737,4 +737,6 @@ QBShared.Items = {
 	['funkopop_moaningmertle']		= {['name'] = 'funkopop_moaningmertle',	['label'] = 'Moaning Mertle Funkopop',		['weight'] = 0,		['type'] = 'item',		['image'] = 'funkopop_moaningmertle.png',	['unique'] = false,		['useable'] = false,		['shouldClose'] = false,	['combinable'] = nil,	['description'] = 'Moaning Mertle Funkopop Toy'},
 	['funkopop_voldemort']			= {['name'] = 'funkopop_voldemort',		['label'] = 'Voldemort Funkopop',			['weight'] = 0,		['type'] = 'item',		['image'] = 'funkopop_voldemort.png',		['unique'] = false,		['useable'] = false,		['shouldClose'] = false,	['combinable'] = nil,	['description'] = 'Voldemort Funkopop Toy'},
 	['funkopop_snape']				= {['name'] = 'funkopop_snape',			['label'] = 'Severus Snape Funkopop',		['weight'] = 0,		['type'] = 'item',		['image'] = 'funkopop_snape.png',			['unique'] = false,		['useable'] = false,		['shouldClose'] = false,	['combinable'] = nil,	['description'] = 'Severus Snape Funkopop Toy'},
+
+	["notepad"]    		= {["name"] = "notepad",    		["label"] = "Notepad",			["weight"] = 100,  ["type"] = "item",  ["image"] = "notepad.png",		["useable"] = 1,    ["shouldClose"] = 1,["description"] = ""},
 }
