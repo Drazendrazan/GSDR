@@ -125,7 +125,7 @@ function QBCore.Player.CheckPlayerData(source, PlayerData)
         ['business'] = false,
         ['weapon'] = false
         ['fly_permit'] = false,
-        ['fly'] = false
+        ['fly'] = false,
     }
     PlayerData.metadata['inside'] = PlayerData.metadata['inside'] or {
         house = nil,
