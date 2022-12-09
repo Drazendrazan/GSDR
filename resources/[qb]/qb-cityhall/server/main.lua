@@ -79,8 +79,6 @@ RegisterNetEvent('qb-cityhall:server:requestId', function(identityData)
         info.lastname = Player.PlayerData.charinfo.lastname
         info.birthdate = Player.PlayerData.charinfo.birthdate
         info.type = "Pilots Permit"
-    else
-        return DropPlayer(src, 'Attempted exploit abuse')
     end
 
     Player.Functions.AddItem(identityData.item, 1, nil, info)
