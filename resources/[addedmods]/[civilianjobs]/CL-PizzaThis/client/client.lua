@@ -275,7 +275,7 @@ RegisterNetEvent("CL-Pizzeria:Drink", function(item, ischampagne, itemname, anim
 end)
 
 RegisterNetEvent("CL-Pizzeria:Grab", function(data)
-    QBCore.Functions.Progressbar("grab_"..data.gdrink, "Grabing " ..data.gdrinkname, data.time, false, true, {
+    QBCore.Functions.Progressbar("grab_"..data.gdrink, "Grabbing " ..data.gdrinkname, data.time, false, true, {
         disableMovement = true,
         disableCarMovement = false,
         disableMouse = false,

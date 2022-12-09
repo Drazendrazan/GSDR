@@ -389,6 +389,15 @@ Config.Items = {
             type = "item",
             slot = 17,
             authorizedJobGrades = {0, 1, 2, 3, 4}
+        },
+        [18] = {
+            name = "bodycam",
+            price = 0,
+            amount = 50,
+            info = {},
+            type = "item",
+            slot = 18,
+            authorizedJobGrades = {0, 1, 2, 3, 4}
         }
     }
 }

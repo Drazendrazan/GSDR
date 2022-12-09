@@ -816,4 +816,7 @@ QBShared.Items = {
 	['pmushroomspizzaslice'] 	 	 = {['name'] = 'pmushroomspizzaslice',			['label'] = 'Fungi slice',		['weight'] = 1000, 		['type'] = 'item', 		['image'] = 'ppizzaslice.png',	['unique'] = false, 		['useable'] = true, 	['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = 'Fungi Slice'},
 	['pseafoodslice'] 	 		 	 = {['name'] = 'pseafoodslice',					['label'] = 'Seafood Slice',	['weight'] = 1000, 		['type'] = 'item', 		['image'] = 'ppizzaslice.png',	['unique'] = false, 		['useable'] = true, 	['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = 'Seafood Slice'},
 	['pvegpizzaslice'] 	 		 	 = {['name'] = 'pvegpizzaslice',				['label'] = 'Vegi Slice',		['weight'] = 1000, 		['type'] = 'item', 		['image'] = 'ppizzaslice.png',	['unique'] = false, 		['useable'] = true, 	['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = 'Vegi Slice'},
+
+	--Bodycam
+	["bodycam"] 		 			 = {["name"] = "bodycam",       	    	["label"] = "PD Body Camera",	 				["weight"] = 20, 		["type"] = "item", 		["image"] = "bodycam.png", 			["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,   ["combinable"] = nil,   ["description"] = "Body Camera"},
 }
