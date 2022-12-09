@@ -81,6 +81,34 @@ ConsumablesAlcohol = {
     ["tq_redhot_daquiri"] = math.random(20, 40),
 }
 
+ConsumeablesEatSuperDonut = {
+    ["superdonut"] = math.random(5, 30),
+}
+
+ConsumeablesSlushy = {
+    ["redslushy"] = math.random(15, 25),
+    ["orangeslushy"] = math.random(15, 25),
+    ["blueslushy"] = math.random(15, 25),
+    ["yellowslushy"] = math.random(15, 25),
+    ["greenslushy"] = math.random(15, 25),
+    ["rainbowslushy"] = math.random(15, 25),
+}
+
+ConsumeablesEatIceCream = {
+    ["vanillaicecream"] = math.random(12, 20),
+    ["chocolateicecream"] = math.random(12, 20),
+    ["minticecream"] = math.random(15, 24),
+    ["cookiesandcreamicecream"] = math.random(18, 26),
+}
+
+ConsumeablesEatGumBall = {
+    ["bubblegum_gumball"] = math.random(6, 8),
+    ["blueberry_gumball"] = math.random(6, 8),
+    ["banana_gumball"] = math.random(6, 8),
+    ["mint_gumball"] = math.random(6, 8),
+    ["cherry_gumball"] = math.random(6, 8),
+}
+
 ConsumablesFireworks = {
     "firework1",
     "firework2",
