@@ -126,7 +126,7 @@ Config.Shops = {
         }
     }, -- Add your next table under this comma
     ['boats'] = {
-        ['Type'] = 'free-use', -- no player interaction is required to purchase a vehicle
+        ['Type'] = 'managed', -- no player interaction is required to purchase a vehicle
         ['Zone'] = {
             ['Shape'] = {--polygon that surrounds the shop
                 vector2(-729.39, -1315.84),
@@ -138,7 +138,7 @@ Config.Shops = {
             ['maxZ'] = 5.0, -- max height of the shop zone
             ['size'] = 6.2 -- size of the vehicles zones
         },
-        ['Job'] = 'none', -- Name of job or none
+        ['Job'] = 'boatshop', -- Name of job or none
         ['ShopLabel'] = 'Marina Shop', -- Blip name
         ['showBlip'] = true, -- true or false
         ['blipSprite'] = 410, -- Blip sprite
