@@ -267,6 +267,12 @@ RegisterNUICallback('requestLicenses', function(_, cb)
     for license, data in pairs(availableLicenses) do
         if data.metadata and not licensesMeta[data.metadata] then
             availableLicenses[license] = nil
+        elseif type == "fly" then
+            licenseType = "fly"
+            label = "Pilots License"
+        elseif type == "fly_permit" then
+            licenseType = "fly_permit"
+            label = "Pilots Permit"
         end
     end
     cb(availableLicenses)

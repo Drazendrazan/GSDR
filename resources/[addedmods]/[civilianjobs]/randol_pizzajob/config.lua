@@ -6,7 +6,7 @@ Config.Payment = 105 -- Per Delivery. Totals up and get paid when you return the
 
 Config.BossCoords = vector4(538.35, 101.8, 95.54, 164.05) -- The Blip also uses these coords.
 
-Config.Vehicle = "surge"
+Config.Vehicle = "faggio3"
 
 Config.VehicleSpawn = vector4(535.3, 95.58, 96.32, 159.15)
 

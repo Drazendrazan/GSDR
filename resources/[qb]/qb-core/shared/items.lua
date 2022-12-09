@@ -723,6 +723,8 @@ QBShared.Items = {
 	["ice-tea-limao"]     = {["name"] = "ice-tea-limao", 				    ["label"] = "Lemon Ice Tea", 					["weight"] = 1000, 		["type"] = "item", 			["image"] = "icetea.png", 		    ["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = ""},
 	["ice-tea-pessego"]     = {["name"] = "ice-tea-pessego", 				    ["label"] = "Peach Ice Tea", 					["weight"] = 1000, 		["type"] = "item", 			["image"] = "icetea.png", 		    ["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = ""},
 
+	['fly_permit']						 = {['name'] = 'fly_permit',						['label'] = 'Pilots Permit',			['weight'] = 0,			['type'] = 'item',		['image'] = 'id_card.png',				['unique'] = true,		['useable'] = true,		['shouldClose'] = false,   ['combinable'] = nil,   ['description'] = 'A Pilots permit to show you can fly a plane as long as you have a passenger with a valid Pilots License'},
+	['fly_license']						       = {['name'] = 'fly',						      ['label'] = 'Pilots License',			['weight'] = 0,			['type'] = 'item',		['image'] = 'id_card.png',				['unique'] = true,		['useable'] = true,		['shouldClose'] = false,   ['combinable'] = nil,   ['description'] = 'A Pilots permit to show you can fly a plane as long as you have a passenger with a valid Pilots License'},
 	
 
 }

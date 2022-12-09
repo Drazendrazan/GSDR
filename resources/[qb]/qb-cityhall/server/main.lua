@@ -54,34 +54,38 @@ end)
 
 -- Events
 
-RegisterNetEvent('qb-cityhall:server:requestId', function(item, hall)
+RegisterNetEvent('qb-cityhall:server:requestId', function(identityData)
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
-    if not Player then return end
-    local itemInfo = Config.Cityhalls[hall].licenses[item]
-    if not Player.Functions.RemoveMoney("cash", itemInfo.cost) then return TriggerClientEvent('QBCore:Notify', src, ('You don\'t have enough money on you, you need %s cash'):format(itemInfo.cost), 'error') end
     local info = {}
-    if item == "id_card" then
+    if identityData.item == "id_card" then
         info.citizenid = Player.PlayerData.citizenid
         info.firstname = Player.PlayerData.charinfo.firstname
         info.lastname = Player.PlayerData.charinfo.lastname
         info.birthdate = Player.PlayerData.charinfo.birthdate
         info.gender = Player.PlayerData.charinfo.gender
         info.nationality = Player.PlayerData.charinfo.nationality
-    elseif item == "driver_license" then
+    elseif identityData.item == "driver_license" then
         info.firstname = Player.PlayerData.charinfo.firstname
         info.lastname = Player.PlayerData.charinfo.lastname
         info.birthdate = Player.PlayerData.charinfo.birthdate
         info.type = "Class C Driver License"
-    elseif item == "weaponlicense" then
+    elseif identityData.item == "fly" then
         info.firstname = Player.PlayerData.charinfo.firstname
         info.lastname = Player.PlayerData.charinfo.lastname
         info.birthdate = Player.PlayerData.charinfo.birthdate
+    elseif identityData.item == "fly_permit" then
+        info.firstname = Player.PlayerData.charinfo.firstname
+        info.lastname = Player.PlayerData.charinfo.lastname
+        info.birthdate = Player.PlayerData.charinfo.birthdate
+        info.type = "Pilots Permit"
     else
         return DropPlayer(src, 'Attempted exploit abuse')
     end
-    if not Player.Functions.AddItem(item, 1, nil, info) then return end
-    TriggerClientEvent('inventory:client:ItemBox', src, QBCore.Shared.Items[item], 'add')
+
+    Player.Functions.AddItem(identityData.item, 1, nil, info)
+    TriggerClientEvent('inventory:client:ItemBox', src, QBCore.Shared.Items[identityData.item], 'add')
+    Player.Functions.RemoveMoney("cash", 50)
 end)
 
 RegisterNetEvent('qb-cityhall:server:sendDriverTest', function(instructors)

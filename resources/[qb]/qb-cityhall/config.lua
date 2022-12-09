@@ -28,6 +28,14 @@ Config.Cityhalls = {
                 cost = 50,
                 metadata = "weapon"
             },
+            ["fly_permit"] = {
+                label = "Pilots Permit",
+                item = "fly_permit"
+            },
+            ["fly"] = {
+                label = "Pilots License",
+                item = "fly"
+            }
         }
     },
 }
