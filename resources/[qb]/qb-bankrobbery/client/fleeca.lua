@@ -270,7 +270,8 @@ RegisterNetEvent('electronickit:UseElectronickit', function()
                             TriggerEvent("mhacking:show")
                             TriggerEvent("mhacking:start", math.random(6, 7), math.random(12, 15), OnHackDone)
                             if copsCalled or not Config.SmallBanks[closestBank]["alarm"] then return end
-                            TriggerServerEvent("qb-bankrobbery:server:callCops", "small", closestBank, pos)
+                            exports['ps-dispatch']:FleecaBankRobbery(v.camId)
+                            --TriggerServerEvent("qb-bankrobbery:server:callCops", "small", closestBank, pos)
                             copsCalled = true
                             SetTimeout(60000 * Config.OutlawCooldown, function() copsCalled = false end)
                         end, function() -- Cancel

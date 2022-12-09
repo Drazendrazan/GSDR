@@ -446,6 +446,7 @@ function Hotwire(vehicle, plate)
 
     SetVehicleAlarm(vehicle, true)
     SetVehicleAlarmTimeLeft(vehicle, hotwireTime)
+    exports['ps-dispatch']:VehicleTheft()
     QBCore.Functions.Progressbar("hotwire_vehicle", Lang:t("progress.hskeys"), hotwireTime, false, true, {
         disableMovement = true,
         disableCarMovement = true,
