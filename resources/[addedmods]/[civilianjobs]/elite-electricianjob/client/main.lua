@@ -1,4 +1,7 @@
 local QBCore = exports['qb-core']:GetCoreObject()
+
+local spawnedPeds = {}
+local ped = PlayerPedId()
 local PlayerJob = {}
 CompleteRepairs = 0
 JobsinSession = {}
@@ -23,9 +26,9 @@ local function SetJobBlip(title)
     local JobBlip = AddBlipForCoord(Config.Locations[title].coords.x, Config.Locations[title].coords.y, Config.Locations[title].coords.z)
     SetBlipSprite(JobBlip, 354)
     SetBlipDisplay(JobBlip, 4)
-    SetBlipScale(JobBlip, 0.8)
+    SetBlipScale(JobBlip, 0.9)
     SetBlipAsShortRange(JobBlip, true)
-    SetBlipColour(JobBlip, 5)
+    SetBlipColour(JobBlip, 1)
     BeginTextCommandSetBlipName("STRING")
     AddTextComponentSubstringPlayerName(Config.Locations[title].label)
     EndTextCommandSetBlipName(JobBlip)
@@ -35,17 +38,17 @@ end
 local function SetWorkBlip(d)
     for k, v in pairs(Config.Locations["jobset" ..d]) do
         WorkBlip = AddBlipForCoord(v.coords.x, v.coords.y, v.coords.z)
-        SetBlipSprite(WorkBlip, 143)
+        SetBlipSprite(WorkBlip, 456)
         SetBlipDisplay(WorkBlip, 4)
         SetBlipScale(WorkBlip, 0.5)
         SetBlipAsShortRange(WorkBlip, true)
-        SetBlipColour(WorkBlip, 26)
+        SetBlipColour(WorkBlip, 1)
         BeginTextCommandSetBlipName("STRING")
         AddTextComponentSubstringPlayerName(v.name)
         EndTextCommandSetBlipName(WorkBlip)
         table.insert(JobsinSession, {id = k, x = v.coords.x, y = v.coords.y, z = v.coords.z, BlipId = WorkBlip})
     end
-    TriggerEvent('qb-electrician:client:JobMarkers')
+    TriggerEvent('elite-electrician:client:JobMarkers')
 end
 
 
@@ -61,15 +64,17 @@ local function VehicleCheck(vehicle)
     return retval
 end
 
+
+
 RegisterNetEvent('QBCore:Client:OnPlayerLoaded', function()
     PlayerJob = QBCore.Functions.GetPlayerData().job
 end)
 
--- Randomly selects a Vehicle from the Config List
-RegisterNetEvent('qb-electrician:client:VehPick', function()
+
+RegisterNetEvent('elite-electrician:client:VehPick', function()
     local choice = math.random(1, #Config.JobVehicles)
     ElecVeh = Config.JobVehicles[choice]
-    TriggerEvent('qb-electrician:client:SpawnVehicle', ElecVeh)
+    TriggerEvent('elite-electrician:client:SpawnVehicle', ElecVeh)
 end)
 
 CreateThread(function()
@@ -78,21 +83,44 @@ CreateThread(function()
     end
 end)
 
--- Markers for Job Vehicle
+
+function Tok()
+    local chance  = math.random(0,100)
+    if chance < 100 then
+    TokAnim()
+    exports['mythic_notify']:DoHudText('error', Lang:t("error.beware"))
+    elseif chance < 2 then
+        exports['mythic_notify']:DoHudText('error', Lang:t("error.buckle"))
+        TriggerEvent('hospital:client:KillPlayer', PlayerPedId())
+    end
+
+end
+
+function TokAnim()
+    local ped = PlayerPedId()
+    LoadAnim('melee@unarmed@streamed_variations')
+    TaskPlayAnim(ped, 'melee@unarmed@streamed_variations', 'victim_takedown_front_slap', 6.0, -6.0, 6000, 2, 0, 0, 0, 0)
+end
+
+-- // За да се заредят анимациите //
+function LoadAnim(dict)
+    while not HasAnimDictLoaded(dict) do
+        RequestAnimDict(dict)
+        Citizen.Wait(1)
+    end
+end
+
 CreateThread(function()
     local inRange = false
     while true do
         Wait(0)
         local pos = GetEntityCoords(PlayerPedId())
-        -- if PlayerJob.name == "electrician" then
             if #(pos - vector3(Config.Locations["vehicle"].coords.x, Config.Locations["vehicle"].coords.y, Config.Locations["vehicle"].coords.z)) < 10 then
                 inRange = true
                 DrawMarker(2, Config.Locations["vehicle"].coords.x, Config.Locations["vehicle"].coords.y, Config.Locations["vehicle"].coords.z, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.3, 0.2, 0.15, 200, 200, 200, 222, false, false, false, true, false, false, false)
                 if #(pos - vector3(Config.Locations["vehicle"].coords.x, Config.Locations["vehicle"].coords.y, Config.Locations["vehicle"].coords.z)) < 1.5 then
                     if IsPedInAnyVehicle(PlayerPedId(), false) then
-                        DrawText3D(Config.Locations["vehicle"].coords.x, Config.Locations["vehicle"].coords.y, Config.Locations["vehicle"].coords.z, "~g~E~w~ - Store Vehicle")
-                    else
-                        DrawText3D(Config.Locations["vehicle"].coords.x, Config.Locations["vehicle"].coords.y, Config.Locations["vehicle"].coords.z, "~g~E~w~ - Retrieve Vehicle")
+                        DrawText3D(Config.Locations["vehicle"].coords.x, Config.Locations["vehicle"].coords.y, Config.Locations["vehicle"].coords.z, Lang:t("info.store_veh"))
                     end
                     if IsControlJustReleased(0, 38) then
                         if IsPedInAnyVehicle(PlayerPedId(), false) then
@@ -103,13 +131,11 @@ CreateThread(function()
                                         RemoveBlip(v.BlipId)
                                     end
                                 else
-                                    QBCore.Functions.Notify('This is not an electrician vehicle!', 'error')
+                                    exports['mythic_notify']:DoHudText('error', Lang:t("info.not_serv_veh"))
                                 end
                             else
-                                QBCore.Functions.Notify('You must be the driver to do this!', 'error')
+                                exports['mythic_notify']:DoHudText('error', Lang:t("info.driver"))
                             end
-                        else
-                            TriggerEvent('qb-electrician:client:VehPick')
                         end
                     end  
                 end
@@ -117,15 +143,17 @@ CreateThread(function()
             if not inRange then
                 Wait(1000)
             end
-        -- end
+
     end
 end)
 
--- Spawns Electrician Vehicle
-RegisterNetEvent('qb-electrician:client:SpawnVehicle', function(vehicleInfo)
+
+
+
+RegisterNetEvent('elite-electrician:client:SpawnVehicle', function(vehicleInfo)
     local coords = Config.Locations["vehicle"].coords
     QBCore.Functions.SpawnVehicle(vehicleInfo, function(veh)
-        SetVehicleNumberPlateText(veh, "ELEC"..tostring(math.random(1000, 9999)))
+        SetVehicleNumberPlateText(veh, "ELEC")
         SetEntityHeading(veh, coords.w)
         exports['LegacyFuel']:SetFuel(veh, 100.0)
         TaskWarpPedIntoVehicle(PlayerPedId(), veh, -1)
@@ -140,11 +168,11 @@ end)
 function StartJobLocations()
     jobchoice = math.random(1,5)
     SetWorkBlip(jobchoice)
-    QBCore.Functions.Notify("Your jobs have been added to your GPS - Go and complete your work.", "primary")
+    exports['mythic_notify']:DoHudText('inform', Lang:t("info.gps"))
 end
 
 -- Individual Job Site Interactions
-RegisterNetEvent('qb-electrician:client:JobMarkers', function(k, v)
+RegisterNetEvent('elite-electrician:client:JobMarkers', function(k, v)
     local inRange = false
     CompleteRepairs = 0
     while true do
@@ -157,33 +185,32 @@ RegisterNetEvent('qb-electrician:client:JobMarkers', function(k, v)
                         inRange = true
                         DrawMarker(2, v.x, v.y, v.z, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.3, 0.2, 0.15, 200, 200, 200, 222, false, false, false, true, false, false, false)
                         if #(pos - vector3(v.x, v.y, v.z)) < 1.5 then
-                            DrawText3D(v.x, v.y, v.z, "~g~E~w~ - Repair Electrical Fault")
+                            DrawText3D(v.x, v.y, v.z, Lang:t("info.dashboard"))
                             if IsControlJustReleased(0, 38) then
-                                QBCore.Functions.Progressbar("repair_work", "Repairing Fault...", math.random(10000, 12000), false, true, {
-                                    disableMovement = true,
-                                    disableCarMovement = true,
-                                    disableMouse = false,
-                                    disableCombat = true,
-                                }, {
-                                    animDict = "anim@amb@clubhouse@tutorial@bkr_tut_ig3@",
-                                    anim = "machinic_loop_mechandplayer",
-                                    flags = 49,
-                                }, {}, {}, function() -- Done
-                                    CompleteRepairs = CompleteRepairs + 1
-                                    print(CompleteRepairs)
-                                    if CompleteRepairs <= 4 then
-                                        QBCore.Functions.Notify("You've repaired the electrical fault. Head to the next job.")
+                                TriggerEvent('animations:client:EmoteCommandStart', {"weld"})
+                                exports['ps-ui']:Circle(function(success)
+                                    if success then
+                                        if CompleteRepairs <= 4 then
+                                            exports['mythic_notify']:DoHudText('inform', Lang:t("info.nextd"))
+                                            TriggerServerEvent("elite-electrician:server:Reward"); 
+                                            TriggerServerEvent("elite-electrician:server:Payslip");
+
+                                        else 
+                                            exports['mythic_notify']:DoHudText('inform', Lang:t("info.finished"))
+                                            TriggerServerEvent("elite-electrician:server:Payslip");
+
+                                        end
+                                        RemoveBlip(v.BlipId)
+                                        TriggerEvent('animations:client:EmoteCommandStart', {"c"})
+                                        table.remove(JobsinSession, k)
                                     else
-                                        QBCore.Functions.Notify("You've finished all your jobs - Return your vehicle and collect your payslip.")
+                                        Tok()
                                     end
-                                    RemoveBlip(v.BlipId)
-                                    table.remove(JobsinSession, k)
-                                end, function() -- Cancel
-                                    StopAnimTask(PlayerPedId(), "anim@amb@clubhouse@tutorial@bkr_tut_ig3@", "machinic_loop_mechandplayer", 1.0)
-                                    QBCore.Functions.Notify("Cancelled..", "error")
-                                end)
+                                end, 5, 8) -- NumberOfCircles, MS
+
                             end  
                         end
+ 
                     end
                     if not inRange then
                         Wait(1000)
@@ -194,35 +221,78 @@ RegisterNetEvent('qb-electrician:client:JobMarkers', function(k, v)
     end
 end)
 
-CreateThread(function()
-    local pos = GetEntityCoords(PlayerPedId())
-    local inRange = false
-    while true do
-        Wait(0)
-        local pos = GetEntityCoords(PlayerPedId())
-        -- if PlayerJob.name == "electrician" then
-            if #(pos - vector3(Config.Locations["payslip"].coords.x, Config.Locations["payslip"].coords.y, Config.Locations["payslip"].coords.z)) < 10 then
-                inRange = true
-                DrawMarker(2, Config.Locations["payslip"].coords.x, Config.Locations["payslip"].coords.y, Config.Locations["payslip"].coords.z, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.3, 0.2, 0.15, 200, 200, 200, 222, false, false, false, true, false, false, false)
-                if #(pos - vector3(Config.Locations["payslip"].coords.x, Config.Locations["payslip"].coords.y, Config.Locations["payslip"].coords.z)) < 1.5 then
-                    DrawText3D(Config.Locations["payslip"].coords.x, Config.Locations["payslip"].coords.y, Config.Locations["payslip"].coords.z, "~g~E~w~ - Payslip")
-                    if IsControlJustReleased(0, 38) then
-                        if CompleteRepairs ~= 0 then
-                            TriggerServerEvent('qb-electrician:server:Payslip', CompleteRepairs)
-                            CompleteRepairs = 0
-                            for k,v in ipairs(JobsinSession) do
-                                RemoveBlip(v.BlipId)
-                            end
-                        else
-                            QBCore.Functions.Notify("You haven't done any jobs yet!", "error")
-                        end
-                        
-                    end  
-                end
-            end
-            if not inRange then
-                Wait(1000)
-            end
-        -- end
-    end
+
+Citizen.CreateThread(function()
+	while true do
+		Citizen.Wait(500)
+		for k,v in pairs(Config.PedList) do
+			local playerCoords = GetEntityCoords(PlayerPedId())
+			local distance = #(playerCoords - v.coords.xyz)
+
+			if distance < Config.DistanceSpawn and not spawnedPeds[k] then
+				local spawnedPed = NearPed(v.model, v.coords, v.gender, v.animDict, v.animName, v.scenario)
+				spawnedPeds[k] = { spawnedPed = spawnedPed }
+			end
+
+			if distance >= Config.DistanceSpawn and spawnedPeds[k] then
+				if Config.FadeIn then
+					for i = 255, 0, -51 do
+						Citizen.Wait(50)
+						SetEntityAlpha(spawnedPeds[k].spawnedPed, i, false)
+					end
+				end
+				DeletePed(spawnedPeds[k].spawnedPed)
+				spawnedPeds[k] = nil
+			end
+		end
+	end
 end)
+
+function NearPed(model, coords, gender, animDict, animName, scenario)
+	RequestModel(model)
+	while not HasModelLoaded(model) do
+		Citizen.Wait(50)
+	end
+
+	if Config.MinusOne then
+		spawnedPed = CreatePed(Config.GenderNumbers[gender], model, coords.x, coords.y, coords.z - 1.0, coords.w, false, true)
+	else
+		spawnedPed = CreatePed(Config.GenderNumbers[gender], model, coords.x, coords.y, coords.z, coords.w, false, true)
+	end
+
+	SetEntityAlpha(spawnedPed, 0, false)
+
+	if Config.Frozen then
+		FreezeEntityPosition(spawnedPed, true)
+	end
+
+	if Config.Invincible then
+		SetEntityInvincible(spawnedPed, true)
+	end
+
+	if Config.Stoic then
+		SetBlockingOfNonTemporaryEvents(spawnedPed, true)
+	end
+
+	if animDict and animName then
+		RequestAnimDict(animDict)
+		while not HasAnimDictLoaded(animDict) do
+			Citizen.Wait(50)
+		end
+
+		TaskPlayAnim(spawnedPed, animDict, animName, 8.0, 0, -1, 1, 0, 0, 0)
+	end
+
+    if scenario then
+        TaskStartScenarioInPlace(spawnedPed, scenario, 0, true)
+    end
+
+	if Config.FadeIn then
+		for i = 0, 255, 51 do
+			Citizen.Wait(50)
+			SetEntityAlpha(spawnedPed, i, false)
+		end
+	end
+
+	return spawnedPed
+end
