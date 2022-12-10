@@ -35,7 +35,7 @@ Config.Cityhalls = {
             },
             ["fly"] = {
                 label = "Pilots License",
-                item = "fly"
+                item = "fly",
                 cost = 250000
             }
         }
