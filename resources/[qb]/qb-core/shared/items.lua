@@ -844,5 +844,14 @@ QBShared.Items = {
     ["mint_gumball"] = {    ["name"] = "mint_gumball",    ["label"] = "Mint GumBall",    ["weight"] = 50,    ["type"] = "item",    ["image"] = "mint_gumball.png",    ["unique"] = false,    ["useable"] = true,    ["shouldClose"] = true,    ["combinable"] = nil,    ["description"] = "A Mint GumBall from the local Store!",    ["created"] = nil,    ["decay"] = 6.5 },
     ["cherry_gumball"] = {    ["name"] = "cherry_gumball",    ["label"] = "Cherry GumBall",    ["weight"] = 50,    ["type"] = "item",    ["image"] = "cherry_gumball.png",    ["unique"] = false,    ["useable"] = true,    ["shouldClose"] = true,    ["combinable"] = nil,    ["description"] = "A Cherry GumBall from the local Store!",    ["created"] = nil,    ["decay"] = 6.5 },
 
-
+	['chicken'] = {['name'] = 'chicken', ['label'] = 'Chicken', ['weight'] = 0, ['type'] = 'item', ['image'] = 'chicken.png', ['unique'] = false, ['useable'] = false, ['shouldClose'] = true, ['combinable'] = nil, ['description'] = 'A piece of chicken.'},
+	['bread'] = {['name'] = 'bread', ['label'] = 'Bread', ['weight'] = 0, ['type'] = 'item', ['image'] = 'bread.png', ['unique'] = false, ['useable'] = false, ['shouldClose'] = true, ['combinable'] = nil, ['description'] = 'A slice of bread.'},
+	['meat'] = {['name'] = 'meat', ['label'] = 'Meat', ['weight'] = 0, ['type'] = 'item', ['image'] = 'meat.png', ['unique'] = false, ['useable'] = false, ['shouldClose'] = true, ['combinable'] = nil, ['description'] = 'A slice of meat.'},
+	['lettuce'] = {['name'] = 'lettuce', ['label'] = 'Lettuce', ['weight'] = 0, ['type'] = 'item', ['image'] = 'lettuce.png', ['unique'] = false, ['useable'] = false, ['shouldClose'] = true, ['combinable'] = nil, ['description'] = 'Lettuce'},
+	['tomato'] = {['name'] = 'tomato', ['label'] = 'Tomato', ['weight'] = 0, ['type'] = 'item', ['image'] = 'tomato.png', ['unique'] = false, ['useable'] = false, ['shouldClose'] = true, ['combinable'] = nil, ['description'] = "Tomato"},
+	['onion'] = {['name'] = 'onion', ['label'] = 'Onion', ['weight'] = 0, ['type'] = 'item', ['image'] = 'onion.png', ['unique'] = false, ['useable'] = false, ['shouldClose'] = true, ['combinable'] = nil, ['description'] = "Onion"},
+	['cheese'] = {['name'] = 'cheese', ['label'] = 'Cheese', ['weight'] = 0, ['type'] = 'item', ['image'] = 'cheese.png', ['unique'] = false, ['useable'] = false, ['shouldClose'] = true, ['combinable'] = nil, ['description'] = "Cheese"},
+	['pepperoni'] = {['name'] = 'pepperoni', ['label'] = 'Pepperoni', ['weight'] = 0, ['type'] = 'item', ['image'] = 'pepperoni.png', ['unique'] = false, ['useable'] = false, ['shouldClose'] = true, ['combinable'] = nil, ['description'] = "Pepperoni"},
+	['hotdog'] = {['name'] = 'hotdog', ['label'] = 'Hotdog', ['weight'] = 0, ['type'] = 'item', ['image'] = 'hotdog.png', ['unique'] = false, ['useable'] = false, ['shouldClose'] = true, ['combinable'] = nil, ['description'] = "Hotdog"},
+	
 }
