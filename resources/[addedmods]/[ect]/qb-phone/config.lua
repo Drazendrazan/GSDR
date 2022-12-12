@@ -389,11 +389,6 @@ Config.JobCenter = {
         label = "Truck Driver",
         Coords = {925.83, -1560.23},
     },
-    [6] = {
-        job = "lumberjack",
-        label = "Logger",
-        Coords = {1167.73, -1347.27},
-    },
 }
 
 Config.TaxiJob = {
