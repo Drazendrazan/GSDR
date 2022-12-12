@@ -9,6 +9,7 @@
                                                                                 |___/                                            
 -- Converted by ViRuS for QBCore Framework - https://github.com/qbcore-framework --
 ]]
+local QBCore = exports['qb-core']:GetCoreObject()
 local truck,truck_blip,trailer,trailer_blip,rentTruck,route_blip
 menuactive = false
 empresaAtual = nil

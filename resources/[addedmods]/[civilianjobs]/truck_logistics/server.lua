@@ -9,7 +9,7 @@
                                                                                 |___/                                            
 -- Converted by ViRuS for QBCore Framework - https://github.com/qbcore-framework --
 ]]
-QBCore = nil
+local QBCore = exports['qb-core']:GetCoreObject()
 TriggerEvent('QBCore:GetObject', function(obj) QBCore = obj end)
 
 local isOpen = {}
