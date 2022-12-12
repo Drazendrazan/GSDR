@@ -15,7 +15,6 @@ menuactive = false
 empresaAtual = nil
 loading = false
 cooldown = nil
-QBCore = nil
 CreateThread(function()
     while QBCore == nil do
         TriggerEvent('QBCore:GetObject', function(obj) QBCore = obj end)

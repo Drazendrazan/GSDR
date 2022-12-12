@@ -11,7 +11,6 @@
 ]]
 local QBCore = exports['qb-core']:GetCoreObject()
 TriggerEvent('QBCore:GetObject', function(obj) QBCore = obj end)
-
 local isOpen = {}
 local debug_cooldown = {}
 local vrp_ready = nil
