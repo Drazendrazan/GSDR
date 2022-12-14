@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Gold Standard Roleplay - Spawnlocation</title>
+    <title>QBCore - Spawnlocation</title>
     <link rel="stylesheet" type="text/css" href="reset.css"> <!-- RESET CSS -->
     <link rel="stylesheet" type="text/css" href="style.css"> <!-- STYLE CSS -->
 
@@ -18,7 +18,7 @@
         <v-app data-app>
             <div id="app" class="noselect">
                 <div class="spawn-locations" :class="{'slide-top-fade-leave-active': show == false, 'slide-top-fade-leave-to': show == false}">
-                    <div class="spawn_locations-header"><p><span id="null">Where would you like to start?</span></p></div>
+                    <div class="spawn_locations-header"><p><span id="null">Where would you like to start ?</span></p></div>
 
                     <v-btn 
                         elevation="0" color="#00000000" v-if="newChar !== true" class="location" x-large v-ripple 
@@ -40,11 +40,11 @@
                         </v-btn>
                     </div>
 
-                    <v-btn @click="submit_spawn" v-ripple x-large class="submit-spawn" v-if="selectedValue.type !== '' && selectedValue.name !== ''">Confirm</v-btn>
+                    <v-btn @click="submit_spawn" v-ripple x-large class="submit-spawn" v-if="selectedValue.type !== '' && selectedValue.name !== ''">CONFIRM</v-btn>
                 </div>
             </div>
         </v-app>
-
+        
         <script>
             const viewmodel = new Vue({
                 el: "#app",

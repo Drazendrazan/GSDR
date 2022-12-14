@@ -853,5 +853,8 @@ QBShared.Items = {
 	['cheese'] = {['name'] = 'cheese', ['label'] = 'Cheese', ['weight'] = 0, ['type'] = 'item', ['image'] = 'cheese.png', ['unique'] = false, ['useable'] = false, ['shouldClose'] = true, ['combinable'] = nil, ['description'] = "Cheese"},
 	['pepperoni'] = {['name'] = 'pepperoni', ['label'] = 'Pepperoni', ['weight'] = 0, ['type'] = 'item', ['image'] = 'pepperoni.png', ['unique'] = false, ['useable'] = false, ['shouldClose'] = true, ['combinable'] = nil, ['description'] = "Pepperoni"},
 	['hotdog'] = {['name'] = 'hotdog', ['label'] = 'Hotdog', ['weight'] = 0, ['type'] = 'item', ['image'] = 'hotdog.png', ['unique'] = false, ['useable'] = false, ['shouldClose'] = true, ['combinable'] = nil, ['description'] = "Hotdog"},
-	
+
+	-- mz-storerobbery
+	["liquorkey"] 					 = {["name"] = "liquorkey", 					["label"] = "Liquor Storeroom", 		["weight"] = 200, 		["type"] = "item", 		["image"] = "liquorkey.png", 			["unique"] = false, 		["useable"] = true, 	["shouldClose"] = false,   ["combinable"] = nil,   ["description"] = "A curious key with the label 'Liquor Storeroom'."},
+	["dirtymoney"]                   = {["name"] = "dirtymoney",                    ["label"] = "Dirty Money",              ["weight"] = 0,         ["type"] = "item",      ["image"] = "dirtymoney.png",           ["unique"] = false,		["useable"] = true,     ["shouldClose"] = false,    ["combinable"] = nil,  ["description"] = "The ill-gotten proceeds of criminal activity."},  
 }
