@@ -2,9 +2,9 @@ Config = {}
 Config.OSCoreName = "QBCore"
 Config.OSCommunityMenuKey = 121 -- This is "INS" button
 Config.OSCommunityFont = 1 -- 4 is default
-Config.OSCommunityLocale	= "os" 
-Config.OSCommunityActionText = "Document Actions" 
-
+Config.OSCommunityLocale  = "os"
+Config.OSCommunityActionText = "Document Actions"
+ 
 Config.OSr = 155
 Config.OSg = 5
 Config.OSb = 5
@@ -14,11 +14,11 @@ Config.OScol2 = 0
 Config.OScol3 = 0
 Config.OSWid = 0.50069
 Config.OShei = 0.040000000069
-
-Config.UseOSCustomFonts 	= false -- If you need custom font turn ON
-Config.CustomOSFontFile 	= "greek" -- only if you turn custom fonts on.
-Config.CustomOSFontId 	= "OpenSans" -- only if you turn custom fonts on.
-
+ 
+Config.UseOSCustomFonts   = false -- If you need custom font turn ON
+Config.CustomOSFontFile   = "greek" -- only if you turn custom fonts on.
+Config.CustomOSFontId   = "OpenSans" -- only if you turn custom fonts on.
+ 
 Config.OSCommunity = {
       ["public"] = {
         {
@@ -40,7 +40,7 @@ Config.OSCommunity = {
           headerTitle = "Motor Vehicle Bill of Sale",
           headerSubtitle = "Bill of Sale",
           elements = {
-            { label = "VIN", type = "input", value = "", can_be_emtpy = false },
+            { label = "COME", type = "input", value = "", can_be_emtpy = false },
             { label = "Full Name", type = "input", value = "", can_be_emtpy = false },
             { label = "Agreed Price", type = "input", value = "", can_be_empty = false },
             { label = "Other Information", type = "textarea", value = "", can_be_emtpy = true },
@@ -53,18 +53,18 @@ Config.OSCommunity = {
             { label = "First Name", type = "input", value = "", can_be_emtpy = false },
             { label = "Last Name", type = "input", value = "", can_be_emtpy = false },
             { label = "Due Amount", type = "input", value = "", can_be_empty = false },
-            { label = "ДО ДАТА", type = "input", value = "", can_be_empty = false },
-            { label = "ДРУГА ИНФОРМАЦИЯ", type = "textarea", value = "", can_be_emtpy = true },
+            { label = "TO DATE", type = "input", value = "", can_be_empty = false },
+            { label = "OTHER INFORMATION", type = "textarea", value = "", can_be_emtpy = true },
           }
         },
         {
-          headerTitle = "ДЕКЛАРАЦИЯ ЗА ИЗПЛАЩАНЕ НА КРЕДИТ",
+          headerTitle = "LOAN PAYMENT DECLARATION",
           headerSubtitle = "",
           elements = {
-            { label = "ИМЕ НА ДЛЪЖНИКА", type = "input", value = "", can_be_emtpy = false },
-            { label = "ФАМИЛИЯ НА ДЛЪЖНИКА", type = "input", value = "", can_be_emtpy = false },
-            { label = "ДЪЛЖИМА СУМА", type = "input", value = "", can_be_empty = false },
-            { label = "ДРУГА ИНФОРМАЦИЯ", type = "textarea", value = "ДЕКЛАРИРАМ, ЧЕ ДЛЪЖНИКА СИ Е ИЗПЛАТИЛ КРЕДИТА.", can_be_emtpy = false, can_be_edited = false },
+            { label = "NAME OF DEBTOR", type = "input", value = "", can_be_emtpy = false },
+            { label = "LAST NAME OF DEBTOR", type = "input", value = "", can_be_emtpy = false },
+            { label = "DUE AMOUNT", type = "input", value = "", can_be_empty = false },
+            { label = "OTHER INFORMATION", type = "textarea", value = "I DECLARE THAT THE DEBTOR HAS PAID HIS LOAN.", can_be_emtpy = false, can_be_edited = false },
           }
         }
       },
@@ -80,58 +80,59 @@ Config.OSCommunity = {
           }
         },
         {
-          headerTitle = "ИЗЧИСТВАНЕ НА КРИМИНАЛНО ДОСИЕ",
+          headerTitle = "CRIMINAL RECORD CLEARANCE",
           headerSubtitle = "",
           elements = {
-            { label = "ИМЕ НА ГРАЖДАНИНА", type = "input", value = "", can_be_emtpy = false },
-            { label = "ФАМИЛИЯ НА ГРАЖДАНИНА", type = "input", value = "", can_be_emtpy = false },
-            { label = "ВАЛИДНО ДО", type = "input", value = "", can_be_empty = false },
-            { label = "RECORD", type = "textarea", value = "ПОЛИЦИЯТА ДЕКЛАРИРА, ЧЕ ГРАЖДАНИНА ИМА ЧИСТО ДОСИЕ ДО КРАЯ НА ВАЛИДНОСТТА НА ДОКУМЕНТА.", can_be_emtpy = false, can_be_edited = false },
+            { label = "NAME OF CITIZEN", type = "input", value = "", can_be_emtpy = false },
+            { label = "CITIZEN'S SURNAME", type = "input", value = "", can_be_emtpy = false },
+            { label = "VALID TILL", type = "input", value = "", can_be_empty = false },
+            { label = "RECORD", type = "textarea", value = "POLICE DECLARED THAT CITIZEN HAS A CLEAN RECORD UNTIL DOCUMENT EXPIRES.", can_be_emtpy = false, can_be_edited = false },
           }         }
       },
       ["ambulance"] = {
         {
-          headerTitle = "МЕДИЦИНСКИ ДОКЛАД - ПАТОЛОГИЯ",
-          headerSubtitle = "Официален медицински доклад предоставен от патолог.",
+          headerTitle = "MEDICAL REPORT - PATHOLOGY",
+          headerSubtitle = "Official medical report provided by a pathologist.",
           elements = {
-            { label = "ИМЕ НА ГРАЖДАНИНА", type = "input", value = "", can_be_emtpy = false },
-            { label = "ФАМИЛИЯ НА ГРАЖДАНИНА", type = "input", value = "", can_be_emtpy = false },
-            { label = "ВАЛИДНО ДО", type = "input", value = "", can_be_empty = false },
-            { label = "МЕДИЦИНСКИ ЗАПИСКИ", type = "textarea", value = "Гореспоменатият гражданин беше прегледан от служител на здравеопазването и е определен здрав без открити дългосрочни заболявания. Този доклад е валиден до споменатата дата.", can_be_emtpy = false },
+            { label = "NAME OF CITIZEN", type = "input", value = "", can_be_emtpy = false },
+            { label = "CITIZEN'S SURNAME", type = "input", value = "", can_be_emtpy = false },
+            { label = "VALID TILL", type = "input", value = "", can_be_empty = false },
+            { label = "MEDICAL RECORDS", type = "textarea", value = "The aforementioned citizen was examined by a health officer and determined to be healthy with no detectable long-term illnesses. This report is valid until the date mentioned.", can_be_emtpy = false },
           }
         },
         {
-          headerTitle = "МЕДИЦИНСКИ ДОКЛАД - ПСИХОТЕСТ",
-          headerSubtitle = "Официален медицински доклад предоставен от психолог.",
+          headerTitle = "MEDICAL REPORT - PSYCHO TEST",
+          headerSubtitle = "Official Medical Report Provided by a Psychologist.",
           elements = {
             { label = "INSURED FIRSTNAME", type = "input", value = "", can_be_emtpy = false },
             { label = "INSURED LASTNAME", type = "input", value = "", can_be_emtpy = false },
             { label = "VALID UNTIL", type = "input", value = "", can_be_empty = false },
-            { label = "MEDICAL NOTES", type = "textarea", value = "Гореспоменатият гражданин беше прегледан от служител на здравеопазването и е определен психически здрав от най-ниско одобрените стандарти. Този доклад е валиден до споменатата дата.", can_be_emtpy = false },
+            { label = "MEDICAL NOTES", type = "textarea", value = "The above-mentioned citizen was examined by a health officer and determined to be mentally fit to the lowest approved standards. This report is valid until the date mentioned.", can_be_emtpy = false },
           }
         },
         {
-          headerTitle = "МЕДИЦИНСКИ ДОКЛАД - ОЧЕН СПЕЦИАЛИСТ",
-          headerSubtitle = "Официален медицински доклад предоставен от очен специалист.",
+          headerTitle = "MEDICAL REPORT - EYE SPECIALIST",
+          headerSubtitle = "Official medical report provided by an eye specialist.",
           elements = {
             { label = "INSURED FIRSTNAME", type = "input", value = "", can_be_emtpy = false },
             { label = "INSURED LASTNAME", type = "input", value = "", can_be_emtpy = false },
             { label = "VALID UNTIL", type = "input", value = "", can_be_empty = false },
-            { label = "MEDICAL NOTES", type = "textarea", value = "Гореспоменатият гражданин беше прегледан от служител на здравеопазването и е определен здрав без открити очни болести. Този доклад е валиден до споменатата дата.", can_be_emtpy = false },
+            { label = "MEDICAL NOTES", type = "textarea", value = "The above-mentioned citizen was examined by a health officer and found to be healthy with no eye disease detected. This report is valid until the date mentioned.", can_be_emtpy = false },
           }
         },
-
+ 
       ["lawyer"] = {
         {
-          headerTitle = "ДОГОВОР ЗА ПРАВНИ УСЛУГИ",
-          headerSubtitle = "Договор за правни услуги направен от адвокат.",
+          headerTitle = "LEGAL SERVICES AGREEMENT",
+          headerSubtitle = "A contract for legal services made by a lawyer.",
           elements = {
-            { label = "ИМЕ НА ГРАЖДАНИНА", type = "input", value = "", can_be_emtpy = false },
-            { label = "ФАМИЛИЯ НА ГРАЖДАНИНА", type = "input", value = "", can_be_emtpy = false },
-            { label = "ВАЛИДНО ДО", type = "input", value = "", can_be_empty = false },
-            { label = "ИНФОРМАЦИЯ", type = "textarea", value = "THIS DOCUMENT IS PROOF OF LEGAL REPRESANTATION AND COVERAGE OF THE AFOREMENTIONED CITIZEN. LEGAL SERVICES ARE VALID UNTIL THE AFOREMENTIONED EXPIRATION DATE.", can_be_emtpy = false },
+            { label = "NAME OF CITIZEN", type = "input", value = "", can_be_emtpy = false },
+            { label = "CITIZEN'S SURNAME", type = "input", value = "", can_be_emtpy = false },
+            { label = "VALID TILL", type = "input", value = "", can_be_empty = false },
+            { label = "INFO", type = "textarea", value = "THIS DOCUMENT IS PROOF OF LEGAL REPRESANTATION AND COVERAGE OF THE AFOREMENTIONED CITIZEN. LEGAL SERVICES ARE VALID UNTIL THE AFOREMENTIONED EXPIRATION DATE.", can_be_emtpy = false },
           }
         }
       }
     }
   }
+
