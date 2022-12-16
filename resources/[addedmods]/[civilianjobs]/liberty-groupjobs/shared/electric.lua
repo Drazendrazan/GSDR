@@ -15,7 +15,7 @@ Electric.WorkTimeMin = 3 -- Minumum time for a repair to take times the multipli
 Electric.WorkTimeMax = 6 -- Maximum time for a repair to take times the multiplier. So thh maximum progress bar time for this would be 30 seconds.
 -- ^ This will set the progress bar time for repairs either 15, 20, 25, or 30 seconds
 
-Electric.JobPayout = 550 -- Amount of cash to pay per job site finished. This is divided evenly among group members.
+Electric.JobPayout = 900 -- Amount of cash to pay per job site finished. This is divided evenly among group members.
 
 Electric.MaxJobs1Person = 4 -- 1 person in group. Amount of jobsites completed before the script sends them to return to the depot and end the run
 Electric.MaxJobs2People = 6 -- 2 people in group. Amount of jobsites completed before the script sends them to return to the depot and end the run
