@@ -73,7 +73,7 @@ RegisterServerEvent("delivery:stopGroupJob", function(groupID)
                 if Delivery.BuffsEnabled and exports["ps-buffs"]:HasBuff(cid, "oiler") then
                     payout = payout * 1.2
                 end
-                Player.Functions.AddMoney(type, amount)
+                exports['7rp-payslip']:AddMoney(cid, payout)
                 TriggerClientEvent("QBCore:Notify", members[i], "$"..payout.." added to your pay check for the work you've done.", "success")
             end
         end
@@ -107,7 +107,7 @@ RegisterServerEvent("delivery:NewDelivery", function(groupID)
             if exports["ps-buffs"]:HasBuff(cid, "oiler") then
                 payout = payout * 1.2
             end
-            Player.Functions.AddMoney(type, payout)
+            exports['7rp-payslip']:AddMoney(cid, payout)
             TriggerClientEvent("QBCore:Notify", members[i], "You got $"..payout.." added to your pay check for the On a Delivery Run", "success")
             Wait(500)
             TriggerClientEvent("QBCore:Notify", members[i], "Load up your van again and head to the new delivery", "primary")

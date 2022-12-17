@@ -87,7 +87,7 @@ RegisterServerEvent("towing:stopGroupJob", function(groupID)
                     payout = payout * ((Config.BuffAmount/100) + 1)
                 end
                 if Config.Payslip then
-                    Player.Functions.AddMoney(type, payout)
+                    exports['7rp-payslip']:AddMoney(cid, payout)
                     TriggerClientEvent("QBCore:Notify", members[i], "You got $"..payout.." added to your pay check for the towing work you've done", "success")
                 else
                     m.Functions.AddMoney(Config.PayoutType, payout, 'Towing')
