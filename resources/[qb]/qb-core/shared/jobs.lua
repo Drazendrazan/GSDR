@@ -41,6 +41,51 @@ QBShared.Jobs = {
             },
         },
 	},
+    ['bcso'] = {
+        label = 'Law Enforcement',
+        type = "leo",
+        defaultDuty = true,
+        offDutyPay = false,
+        grades = {
+            ['0'] = {
+                name = 'Cadet',
+                payment = 450
+            },
+            ['1'] = {
+                name = 'Deputy',
+                payment = 475
+            },
+            ['2'] = {
+                name = 'Senior Deputy',
+                payment = 500
+            },
+            ['3'] = {
+                name = 'Corporal',
+                payment = 525
+            },
+            ['4'] = {
+                name = 'Sergeant',
+                payment = 550
+            },
+            ['5'] = {
+                name = 'Lieutenant',
+                payment = 600
+            },
+            ['6'] = {
+                name = 'Captain',
+                payment = 625
+            },
+            ['7'] = {
+                name = 'Undersheriff',
+                payment = 675
+            },
+            ['8'] = {
+                name = 'Sheriff',
+                isboss = true,
+                payment = 700
+            },
+        },
+    },
 	['ambulance'] = {
 		label = 'EMS',
 		defaultDuty = true,

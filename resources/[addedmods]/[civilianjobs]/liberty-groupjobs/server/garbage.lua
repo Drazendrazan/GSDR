@@ -84,7 +84,7 @@ RegisterServerEvent("garbage:stopGroupJob", function(groupID)
                 if Garbage.BuffsEnabled and exports["ps-buffs"]:HasBuff(cid, "oiler") then
                     payout = payout * 1.2
                 end
-                exports['7rp-payslip']:AddMoney(cid, payout)
+                Player.Functions.AddMoney(type, payout)
                 TriggerClientEvent("QBCore:Notify", members[i], "You got $"..payout.." added to payslip for your garbage run", "success")
             end
         end
