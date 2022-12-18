@@ -82,7 +82,21 @@ Config.TargetBones = {
 }
 
 Config.TargetModels = {
-
+	["gunnarstacosgarage"] = {
+		models = {
+			"ig_floyd"
+		},
+		options = {
+			{
+				type = "client",
+				event = "garage:GunnarsTacosGarage",
+				icon = "fas fa-car",
+				label = "Gunnars Tacos Garage",
+				job = "gt",
+			}
+		},
+	distance = 2.5,
+	},
 }
 
 Config.GlobalPedOptions = {

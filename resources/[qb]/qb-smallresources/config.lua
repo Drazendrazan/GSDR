@@ -37,6 +37,12 @@ ConsumablesEat = {
 	["tq_banana_nut"] = math.random(20, 40),
 	["tq_chocolatecup"] = math.random(20, 40),
 	["tq_strawberrycup"] = math.random(20, 40),
+    ["gt-beef_taco"] = math.random(40, 60),
+    ["gt-chicken_taco"] = math.random(40, 60),
+    ["gt-burrito"] = math.random(50, 80),
+    ["gt-enchilada"] = math.random(40, 60),
+    ["gt-quesadilla"] = math.random(40, 60),
+    ["gt-nachos"] = math.random(50, 80),
 }
 
 ConsumablesDrink = {
@@ -63,6 +69,8 @@ ConsumablesDrink = {
     ["tq_kiwi_juice"] = math.random(20, 40),
     ["tq_strawberry_juice"] = math.random(20, 40),
     ["tq_orange_juice"] = math.random(20, 40),
+    ["gt-soda"] = math.random(40, 50),
+    ["gt-coffee"] = math.random(40, 50),
 }
 
 ConsumablesAlcohol = {
