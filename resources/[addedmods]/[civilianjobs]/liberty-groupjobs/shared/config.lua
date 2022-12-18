@@ -10,7 +10,7 @@ Config = {
     Distance = 40.0,
     MinusOne = true,
 }
-Config.BuffsEnabled = true -- If you use the ps-buffs or not and want the payout to be altered by a buff
+Config.BuffsEnabled = false -- If you use the ps-buffs or not and want the payout to be altered by a buff
 Config.BuffName = "oiler" -- Name of the buff
 Config.BuffAmount = 20 -- Percent
 Config.PedList = {
