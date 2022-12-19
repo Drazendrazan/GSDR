@@ -1,14 +1,14 @@
 Config = Config or {}
 
 --NOTIFICATIONS TYPE
-Config.NotifyType = 'okok' -- notification type: 'qb' for qb-core standard notifications, 'okok' for okokNotify notifications
+Config.NotifyType = 'qb' -- notification type: 'qb' for qb-core standard notifications, 'okok' for okokNotify notifications
 
 --TREE SET UP
 Config.Choptime = 20 -- Time (in seconds) to cut tree (with 2 loot parses). Do not change unless you are also going to change how the resource loots.
 Config.Timeout = 5 * (60 * 1000)  -- Time (in minutes) that it takes for trees to regenerate.
 
 --SKILLCHECK FOR TREE CHOPPING
-Config.Axeskillcheck = false -- Change to "false" if you do not want to have a skillcheck before cutting down a tree.
+Config.Axeskillcheck = true -- Change to "false" if you do not want to have a skillcheck before cutting down a tree.
 --If the above is set to "true", the following parameters apply:
 Config.lowparse = 1
 Config.highparse = 2
@@ -18,7 +18,7 @@ Config.skillfailXP = 1
 
 --AXE CONFIGURATIONS
 Config.Axe = {
-    [`weapon_battleaxe`] = {}
+    [`weapon_hatchet`] = {}
 }
 Config.Axebreak = true -- Change to "false" if you do not want the axe to break.
 Config.Axebreakchance = 1 -- Chance for the axe to break (in percentage, e.g. 1 = 1%)
