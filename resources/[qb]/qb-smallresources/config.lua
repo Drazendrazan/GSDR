@@ -43,6 +43,13 @@ ConsumablesEat = {
     ["gt-enchilada"] = math.random(40, 60),
     ["gt-quesadilla"] = math.random(40, 60),
     ["gt-nachos"] = math.random(50, 80),
+    ["b-hotdog"] = math.random(35, 54),
+    ["b-burger"] = math.random(35, 54),
+    ["b-brisket"] = math.random(35, 54),
+    ["b-chicken"] = math.random(35, 54),
+    ["b-ribs"] = math.random(35, 54),
+    ["b-jacket"] = math.random(35, 54),
+
 }
 
 ConsumablesDrink = {
