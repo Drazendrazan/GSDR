@@ -3,7 +3,7 @@ Config = Config or {}
 Config = {
     RockSpawn = vector3(2947.22, 2789.96, 40.54),
     PedLocation = vector4(2965.99, 2754.16, 42.22, 264.26),
-    SellerPedLocation = vector4(1232.9, -2921.3, 9.32, 123.54),
+    SellerPedLocation = vector4(-618.18, -227.85, 37.06, 126.42),
     WashStone = vector3(1093.53, 4211.85, 30.94),
     SellerLocation = vector3(-618.18, -227.86, 38.06),
     MeltLocation = vector3(1111.55, -2009.33, 30.89),
@@ -70,7 +70,7 @@ Config.Sell = {
 }
 
 Config.MiningShop = {
-    label = "Mining Shop",
+    label = "Minging Shop",
     slots = 10,
     items = {
         [1] = {
