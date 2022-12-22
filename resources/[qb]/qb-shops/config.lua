@@ -270,6 +270,31 @@ Config.Products = {
             type = "item",
             slot = 17,
         },
+        [18] = {
+            name = "screwdriver",
+            price = 250,
+            amount = 50,
+            info = {},
+            type = "item",
+            slot = 18,
+        },
+        [19] = {
+            name = "wd40",
+            price = 40,
+            amount = 50,
+            info = {},
+            type = "item",
+            slot = 19,
+        },
+        [20] = {
+            name = "blowtorch",
+            price = 1000,
+            amount = 50,
+            info = {},
+            type = "item",
+            slot = 20,
+        },		
+
     },
     ["weedshop"] = {
         [1] = {
