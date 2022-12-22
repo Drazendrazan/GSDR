@@ -21,7 +21,7 @@ local ItemList = {
 QBCore.Functions.CreateCallback('mz-lumberjack:axe', function(source, cb)
     local Player = QBCore.Functions.GetPlayer(source)
     if Player ~= nil then
-        if Player.Functions.GetItemByName("weapon_battleaxe") ~= nil then
+        if Player.Functions.GetItemByName("weapon_hatchet") ~= nil then
             cb(true)
         else
             cb(false)

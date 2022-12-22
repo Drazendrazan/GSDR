@@ -263,7 +263,7 @@ Config.Products = {
             slot = 16,
         },
         [17] = {
-            name = "mulch_bag",
+            name = "emptymulchbag",
             price = 500,
             amount = 50,
             info = {},

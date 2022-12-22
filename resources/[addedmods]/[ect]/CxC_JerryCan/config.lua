@@ -7,7 +7,7 @@ Config.ScriptAuthor = "CxCCore.xyz" -- Don't touch this or the script won't work
 Config.ScriptDiscord = "Dsc.gg/CxCCore" -- Don't touch this or the script won't work
 
 --Fuel script settings
-Config.FuelScript = "LegacyFuel" -- Your server fuel script name / uses export['scriptname']:setfuel()
+Config.FuelScript = "ps-fuel" -- Your server fuel script name / uses export['scriptname']:setfuel()
 
 --Fill time settings
 Config.BoatFillTime = 15000 -- 15Seconds

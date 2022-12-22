@@ -24,7 +24,7 @@
  
  qb-radialmenu | https://github.com/qbcore-framework/qb-radialmenu
  
- lj-fuel | https://github.com/loljoshie/lj-fuel
+ ps-fuel | https://github.com/loljoshie/ps-fuel
  
 # Installation
 

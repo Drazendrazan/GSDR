@@ -140,7 +140,7 @@ RegisterNetEvent('mr-mining:server:mrsellmelt', function(args)
 	if args == 1 then 
 		local ironbar = Player.Functions.GetItemByName("mining_ironbar")
 		if ironbar ~= nil then
-			local payment = math.random(100,200)
+			local payment = math.random(50,75)
 			Player.Functions.RemoveItem("mining_ironbar", 1, k)
 			Player.Functions.AddMoney('bank', payment , "ironbar_sell")
 			TriggerClientEvent('inventory:client:ItemBox', source, QBCore.Shared.Items['mining_ironbar'], "remove", 1)
@@ -151,7 +151,7 @@ RegisterNetEvent('mr-mining:server:mrsellmelt', function(args)
 	elseif args == 2 then
 		local copperbar = Player.Functions.GetItemByName("mining_copperbar")
 		if copperbar ~= nil then
-			local payment = math.random(200,300)
+			local payment = math.random(75,100)
 			Player.Functions.RemoveItem("mining_copperbar", 1, k)
 			Player.Functions.AddMoney('bank', payment , "copperbar_sell")
 			TriggerClientEvent('inventory:client:ItemBox', source, QBCore.Shared.Items['mining_copperbar'], "remove", 1)
@@ -162,7 +162,7 @@ RegisterNetEvent('mr-mining:server:mrsellmelt', function(args)
 	elseif args == 3 then
 		local goldbar = Player.Functions.GetItemByName("mining_goldbar")
 		if goldbar ~= nil then
-			local payment = math.random(300,400)
+			local payment = math.random(125,175)
 			Player.Functions.RemoveItem("mining_goldbar", 1, k)
 			Player.Functions.AddMoney('bank', payment , "goldbar_sell")
 			TriggerClientEvent('inventory:client:ItemBox', source, QBCore.Shared.Items['mining_goldbar'], "remove", 1)

@@ -943,6 +943,9 @@ QBShared.Items = {
 	["pistol4"] 					 = {["name"] = "pistol4", 						["label"] = "Pistol Chassis", 			["weight"] = 100, 		["type"] = "item", 		["image"] = "pistol4.png", 				["unique"] = false, 		["useable"] = false, 	["shouldClose"] = false,   ["combinable"] = nil,   ["description"] = "The chassis of a Walther P-99 Pistol."},
 
 	["syphoningkit"]				 = {["name"] = "syphoningkit", 					["label"] = "Syphoning Kit", 			["weight"] = 5000, 		["type"] = "item", 		["image"] = "syphoningkit.png", 		["unique"] = true, 		["useable"] = true, 	["shouldClose"] = false,   ["combinable"] = nil,   ["description"] = "A kit made to siphon gasoline from vehicles."},
+
+	['blowtorch'] 				 	 = {['name'] = 'blowtorch', 			    	['label'] = 'Blowtorch', 				['weight'] = 3500, 		['type'] = 'item', 		['image'] = 'blowtorch.png', 			['unique'] = true, 		['useable'] = false, 	['shouldClose'] = false,   ['combinable'] = nil,   ['description'] = 'A high propane instrument used for welding and other things...'},
+
 }
 		
 

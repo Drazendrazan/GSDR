@@ -47,4 +47,4 @@ Config.UseReturnDistance = true
 
 -- Misc
 Config.MinPayout = 100
-Config.MaxPayout = 300
+Config.MaxPayout = 250
