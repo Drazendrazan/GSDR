@@ -941,7 +941,8 @@ QBShared.Items = {
 	["pistol2"] 					 = {["name"] = "pistol2", 						["label"] = "Slide Assembly", 			["weight"] = 100, 		["type"] = "item", 		["image"] = "pistol2.png", 				["unique"] = false, 		["useable"] = false, 	["shouldClose"] = false,   ["combinable"] = nil,   ["description"] = "The frame of a Walther P-99 Pistol."},
 	["pistol3"] 					 = {["name"] = "pistol3", 						["label"] = "Slide", 					["weight"] = 100, 		["type"] = "item", 		["image"] = "pistol3.png", 				["unique"] = false, 		["useable"] = false, 	["shouldClose"] = false,   ["combinable"] = nil,   ["description"] = "The grip of a Walther P-99 Pistol."},
 	["pistol4"] 					 = {["name"] = "pistol4", 						["label"] = "Pistol Chassis", 			["weight"] = 100, 		["type"] = "item", 		["image"] = "pistol4.png", 				["unique"] = false, 		["useable"] = false, 	["shouldClose"] = false,   ["combinable"] = nil,   ["description"] = "The chassis of a Walther P-99 Pistol."},
-		
+
+	["syphoningkit"]				 = {["name"] = "syphoningkit", 					["label"] = "Syphoning Kit", 			["weight"] = 5000, 		["type"] = "item", 		["image"] = "syphoningkit.png", 		["unique"] = true, 		["useable"] = true, 	["shouldClose"] = false,   ["combinable"] = nil,   ["description"] = "A kit made to siphon gasoline from vehicles."},
 }
 		
 

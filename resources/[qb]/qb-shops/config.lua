@@ -294,7 +294,14 @@ Config.Products = {
             type = "item",
             slot = 20,
         },		
-
+        [21] = {
+            name = "syphoningkit",
+            price = 5000,
+            amount = 5,
+            info = { gasamount = 0 },
+            type = "item",
+            slot = 21,
+        }, -- Example for Required Job 
     },
     ["weedshop"] = {
         [1] = {
