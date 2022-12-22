@@ -98,6 +98,7 @@ function setRadioChannel(channel)
 	if GetConvarInt('voice_enableRadios', 1) ~= 1 then return end
 	type_check({channel, "number"})
 	TriggerServerEvent('pma-voice:setPlayerRadio', channel)
+	TriggerServerEvent('qb-pmi:server:setOfficerRadio', channel)
 	radioChannel = channel
 end
 

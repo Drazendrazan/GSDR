@@ -152,6 +152,7 @@ function TakeOutVehicle(vehicleInfo)
             TriggerEvent("vehiclekeys:client:SetOwner", QBCore.Functions.GetPlate(veh))
             TriggerServerEvent("inventory:server:addTrunkItems", QBCore.Functions.GetPlate(veh), Config.CarItems)
             SetVehicleEngineOn(veh, true, true)
+            TriggerServerEvent("qb-pmi:server:vehicleTakeout", GetVehicleNumberPlateText(veh), vehicleInfo)
         end, vehicleInfo, coords, true)
     end
 end

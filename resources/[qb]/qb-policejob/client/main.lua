@@ -219,3 +219,11 @@ CreateThread(function()
         EndTextCommandSetBlipName(blip)
     end
 end)
+
+RegisterNetEvent('police:client:setDuty')
+AddEventHandler('police:client:setDuty', function(duty)
+    if(PlayerJob.name == nil) then
+        PlayerJob = QBCore.Functions.GetPlayerData().job
+    end
+    onDuty = duty
+end)
