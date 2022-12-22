@@ -155,7 +155,7 @@ end
 --===================================================
 
 CreateThread(function()
-	RequestModel(GetHashKey("s_m_m_postal_01"))
+	RequestModel(GetHashKey("s_m_m_postal_02"))
 	while not HasModelLoaded(GetHashKey("s_m_m_postal_01")) do
 		Wait(1)
 	end
@@ -168,7 +168,7 @@ CreateThread(function()
 	SetEntityInvincible(ped, true)
 	FreezeEntityPosition(ped, true)	
 	
-	exports['qb-target']:AddTargetModel('s_m_m_postal_01', {
+	exports['qb-target']:AddTargetModel('s_m_m_postal_02', {
 		options = {
 			{ 
 				type = "client",

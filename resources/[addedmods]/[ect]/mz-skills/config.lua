@@ -65,6 +65,12 @@ Config.Skills = {
         ["Stat"] = "DIVING_ABILITY",
         ['icon'] = 'fas fa-water',
     }, 
+    ["Fishing"] = {
+        ["Current"] = 0,
+        ["RemoveAmount"] = 0,
+        ["Stat"] = "FISHING_ABILITY",
+        ['icon'] = 'fas fa-water',
+    }, 
 }
 
 ----------------------------------------------------------------------

@@ -4,7 +4,7 @@ Config = {}
 --MZ-STOREROBBERY--
 -------------------
 
-Config.NotifyType = 'okok'                      -- Notification type (set to 'qbcore' to use qb-core standard notifications.)
+Config.NotifyType = 'qbcore'                      -- Notification type (set to 'qbcore' to use qb-core standard notifications.)
 
 Config.UsingSkills = true                       -- Set to 'false' if you do not wish to use this resource with mz-skills
 --if "Config.UsingSkills = true", then the following parameters apply: 

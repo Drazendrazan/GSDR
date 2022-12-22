@@ -52,7 +52,7 @@ RegisterNetEvent('chase-fishing:client:ShopMenu', function(data)
 
         {
             header = "Rent a Boat",
-            txt = "Price: <br> 250$",
+            txt = "Price: <br> 5000$",
             params = {
                 event = "chase-fishing:client:RentBoat",
             }

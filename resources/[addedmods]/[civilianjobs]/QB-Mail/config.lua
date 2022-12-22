@@ -1,8 +1,8 @@
 Config = Config or {}
 
 -- Peds
-Config.StartJobPedSpawn = vector4(81.28, 81.97, 78.62, 34.26)
-Config.StartJobPedModel = "s_m_m_ups_01"
+Config.StartJobPedSpawn = vector4(82.87, 110.09, 79.21, 229.78)
+Config.StartJobPedModel = "s_m_m_postal_02"
 
 Config.PedModels = {
     [1] = "a_f_y_business_01",
@@ -36,11 +36,11 @@ Config.DropOffLocations = {
 }
 
 -- Vehicle
-Config.JobVehicleModel = "mule3"
-Config.UseDeposit = true
+Config.JobVehicleModel = "boxville2"
+Config.UseDeposit = false
 Config.DepositAmount = 10000
 
-Config.VehicleSpawnLocation = vector4(81.07, 95.39, 78.76, 67.7)
+Config.VehicleSpawnLocation = vector4(82.86, 105.49, 79.18, 250.93)
 
 Config.ReturnDistance = 30
 Config.UseReturnDistance = true

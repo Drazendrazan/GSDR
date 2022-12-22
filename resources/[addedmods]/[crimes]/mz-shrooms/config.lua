@@ -13,7 +13,7 @@ Config.ShroomRounded = 19                                   -- Round the shroom 
 
 Config.ShroomProp = `prop_stoneshroom1`                     -- GTA V prop asset to be collected
 
-Config.NotifyType = "okok"                                  -- Notification type: 'qb' for qb-core standard notifications, 'okok' for okokNotify notifications
+Config.NotifyType = "qb"                                  -- Notification type: 'qb' for qb-core standard notifications, 'okok' for okokNotify notifications
 
 Config.mzskills = true                                      -- Change to "false" to run resource without regard to mz-skills "Drug Manufacturing"
 -- if Config.mzskills = true, then the following parameters apply: 

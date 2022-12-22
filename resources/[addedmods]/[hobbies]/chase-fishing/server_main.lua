@@ -446,7 +446,7 @@ end)
 RegisterNetEvent('chase-fishing:server:RemovePlayerMoney', function()
 	local src = source
 	local cash = 'bank'
-	local price = 250
+	local price = 5000
 	local Player = QBCore.Functions.GetPlayer(src)
 		
 	Player.Functions.RemoveMoney(cash, price)

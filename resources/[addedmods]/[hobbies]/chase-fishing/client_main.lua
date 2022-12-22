@@ -35,7 +35,7 @@ Citizen.CreateThread(function()
 end)
 
 RegisterNetEvent('chase-fishing:client:RentBoat', function(data)
-    local vehicle = 'dinghy'
+    local vehicle = 'shitzu'
     local coords = vector4(-1600.0, 5211.65, 0.15, 115.64)
     TriggerServerEvent('chase-fishing:server:RemovePlayerMoney')
     QBCore.Functions.SpawnVehicle(vehicle, function(veh)
