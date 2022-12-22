@@ -254,6 +254,22 @@ Config.Products = {
             slot = 15,
             requiredJob = { "mechanic" }
         },
+        [16] = {
+            name = "mining_drill",
+            price = 500,
+            amount = 50,
+            info = {},
+            type = "item",
+            slot = 16,
+        },
+        [17] = {
+            name = "mulch_bag",
+            price = 500,
+            amount = 50,
+            info = {},
+            type = "item",
+            slot = 17,
+        },
     },
     ["weedshop"] = {
         [1] = {
