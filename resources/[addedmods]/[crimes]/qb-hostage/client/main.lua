@@ -40,7 +40,7 @@ function takeHostage()
 					NoWeapon = false
 					break
 				else
-					TriggerClientEvent('QBCore:Notify', src, 'Vous n\'avez pas de munitions !', 'error')
+					TriggerClientEvent('QBCore:Notify', src, 'No Ammunition!', 'error')
 					return			
 				end	
 			else
@@ -49,7 +49,7 @@ function takeHostage()
 		end
 
 		if NoWeapon then
-			TriggerClientEvent('QBCore:Notify', src, 'Vous ne pouvez pas utiliser cette arme pour prendre des otages !', 'error')
+			TriggerClientEvent('QBCore:Notify', src, 'You cannot use this weapon to take hostages!', 'error')
 			return
 		end
 
@@ -74,7 +74,7 @@ function takeHostage()
 			TriggerServerEvent('cmg3_animations:sync', closestPlayer, lib,lib2, anim1, anim2, distans, distans2, height,target,length,spin,controlFlagMe,controlFlagTarget,animFlagTarget,attachFlag, false)
 		end
 	else
-		TriggerClientEvent('QBCore:Notify', src, 'Personne aux alentours !', 'error')
+		TriggerClientEvent('QBCore:Notify', src, 'No one Near you!', 'error')
 	end
 	canTakeHostage = false 
 end 
@@ -220,7 +220,7 @@ Citizen.CreateThread(function()
 			DisableControlAction(0,58,true) -- disable weapon
 			DisablePlayerFiring(GetPlayerPed(-1),true)
 			local playerCoords = GetEntityCoords(GetPlayerPed(-1))
-			DrawText3D(playerCoords.x,playerCoords.y,playerCoords.z,"[G] libérer, [H] Abattre")
+			DrawText3D(playerCoords.x,playerCoords.y,playerCoords.z,"[G] Let go, [H] Execute")
 			if IsDisabledControlJustPressed(0,47) then --release	
 				holdingHostage = false
 				holdingHostageInProgress = false 
