@@ -1,5 +1,4 @@
--- // Load CORE
-QBCore = nil
+local QBCore = exports['qb-core']:GetCoreObject()
 
 Citizen.CreateThread(function()
     while true do
