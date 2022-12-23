@@ -302,6 +302,14 @@ Config.Products = {
             type = "item",
             slot = 21,
         }, -- Example for Required Job 
+        [22] = {
+            name = "weapon_hatchet",
+            price = 200,
+            amount = 1,
+            info ={},
+            type = "item",
+            slot = 22,
+        },
     },
     ["weedshop"] = {
         [1] = {
