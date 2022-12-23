@@ -49,6 +49,13 @@ ConsumablesEat = {
     ["b-chicken"] = math.random(35, 54),
     ["b-ribs"] = math.random(35, 54),
     ["b-jacket"] = math.random(35, 54),
+    ["crisps"] = math.random(10, 20),
+	["hamburger"] = math.random(10, 20),
+	["heartysandwich"] = math.random(10, 20),
+	["hotdog"] = math.random(10, 20),
+	["pizzaslice"] = math.random(10, 20),
+	["rabbitfood"] = math.random(10, 20),
+
 
 }
 
@@ -78,6 +85,19 @@ ConsumablesDrink = {
     ["tq_orange_juice"] = math.random(20, 40),
     ["gt-soda"] = math.random(40, 50),
     ["gt-coffee"] = math.random(40, 50),
+    ["dvrcocktail"] = math.random(5, 15),
+	["milkdragon"] = math.random(5, 15),
+	["jbcocktail"] = math.random(5, 15),
+	["scarcolada"] = math.random(5, 15),
+	["opmcocktail"] = math.random(5, 15),
+	["dbcocktail"] = math.random(5, 15),
+	["hulkcocktail"] = math.random(5, 15),
+	["vitodaiquiri"] = math.random(5, 15),
+	["marvelcocktail"] = math.random(5, 15),
+	["yoshishooter"] = math.random(5, 15),
+	["patochebeer"] = math.random(5, 15),
+	["duffbeer"] = math.random(5, 15),
+
 }
 
 ConsumablesAlcohol = {

@@ -487,4 +487,38 @@ QBShared.Jobs = {
             },
         },
 	},
+    ["cyberbar"] = {
+		label = "Cyber Bar",
+		grades = {
+			['0'] = {
+				name = "Employee",
+				payment = 35
+			},
+			['1'] = {
+				name = "Employee 2",
+				payment = 50
+			},
+			['2'] = {
+				name = "Manager",
+				payment = 65
+			},
+			['3'] = {
+				name = "Supervisor",
+				isboss = true,
+				payment = 80
+			},
+			['4'] = {
+				name = "Owner",
+				isboss = true,
+				payment = 100
+			},
+		},
+		["coords"] = {
+			[1] = {x = 324.04, y = -927.41, z = 29.25, h = 268.80}, 
+		},
+		["boss"] = {
+			[1] = {x = 324.04, y = -927.41, z = 29.25, h = 268.80}, 
+		},
+		defaultDuty = true,
+	},
 }
