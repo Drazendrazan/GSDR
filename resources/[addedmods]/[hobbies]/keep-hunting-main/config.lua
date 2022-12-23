@@ -141,14 +141,14 @@ Config.HuntingArea = {
         coord = vector3(-840.6, 4183.3, 215.29),
         radius = 1000.0,
         llegal = true,
-        showBlip = true
+        showBlip = false
     },
     {
         name = "illlegal hunting Area",
         coord = vector3(870.01, 5158.01, 452.54),
         radius = 500.0,
         llegal = false,
-        showBlip = true
+        showBlip = false
     }
 }
 
