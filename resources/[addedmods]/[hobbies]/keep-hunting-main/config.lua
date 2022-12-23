@@ -9,7 +9,7 @@ Config.SlughterEveryAnimal = true
 
 -- protection system againts players
 -- if hunters have this weapons they can't shoot players with it!
-Config.ShootingProtection = false
+Config.ShootingProtection = true
 Config.ProtectedWeapons = { 'weapon_musket' }
 -- End
 

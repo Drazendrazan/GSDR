@@ -310,6 +310,62 @@ Config.Products = {
             type = "item",
             slot = 22,
         },
+        [23] = {
+            name = "corn_seed",
+            price = 200,
+            amount = 100,
+            info ={},
+            type = "item",
+            slot = 22,
+        },
+        [24] = {
+            name = "tomato_seed",
+            price = 200,
+            amount = 100,
+            info ={},
+            type = "item",
+            slot = 23,
+        },
+        [25] = {
+            name = "wheat_seed",
+            price = 200,
+            amount = 100,
+            info ={},
+            type = "item",
+            slot = 24,
+        },
+        [26] = {
+            name = "broccoli_seed",
+            price = 200,
+            amount = 100,
+            info ={},
+            type = "item",
+            slot = 25,
+        },
+        [26] = {
+            name = "carrot_seed",
+            price = 200,
+            amount = 100,
+            info ={},
+            type = "item",
+            slot = 26,
+        },
+        [27] = {
+            name = "potato_seed",
+            price = 200,
+            amount = 100,
+            info ={},
+            type = "item",
+            slot = 27,
+        },
+        [28] = {
+            name = "pickle_seed",
+            price = 200,
+            amount = 100,
+            info ={},
+            type = "item",
+            slot = 28,
+        },
     },
     ["weedshop"] = {
         [1] = {
@@ -674,6 +730,21 @@ Config.Locations = {
         ["blipcolor"] = 0
     },
 
+    ["247supermarket10"] = {
+        ["label"] = "24/7 Supermarket",
+        ["coords"] = vector4(161.03, 6641.72, 31.7, 229.21),
+        ["ped"] = 'mp_m_shopkeep_01',
+        ["scenario"] = "WORLD_HUMAN_STAND_MOBILE",
+        ["radius"] = 1.5,
+        ["targetIcon"] = "fas fa-shopping-basket",
+        ["targetLabel"] = "Open Shop",
+        ["products"] = Config.Products["normal"],
+        ["showblip"] = true,
+        ["blipsprite"] = 52,
+        ["blipscale"] = 0.6,
+        ["blipcolor"] = 0
+    },
+
     -- LTD Gasoline Locations
     ["ltdgasoline"] = {
         ["label"] = "LTD Gasoline",
@@ -826,6 +897,21 @@ Config.Locations = {
         ["blipcolor"] = 0
     },
 
+    ["robsliquor6"] = {
+        ["label"] = "Rob's Liqour",
+        ["coords"] = vector4(-160.77, 6320.74, 31.59, 322.87),
+        ["ped"] = 'mp_m_shopkeep_01',
+        ["scenario"] = "WORLD_HUMAN_STAND_MOBILE",
+        ["radius"] = 1.5,
+        ["targetIcon"] = "fas fa-shopping-basket",
+        ["targetLabel"] = "Open Shop",
+        ["products"] = Config.Products["liquor"],
+        ["showblip"] = true,
+        ["blipsprite"] = 52,
+        ["blipscale"] = 0.6,
+        ["blipcolor"] = 0
+    },
+
     -- Hardware Store Locations
     ["hardware"] = {
         ["label"] = "Hardware Store",
@@ -860,6 +946,21 @@ Config.Locations = {
     ["hardware3"] = {
         ["label"] = "Hardware Store",
         ["coords"] = vector4(-421.83, 6136.13, 31.88, 228.2),
+        ["ped"] = 'mp_m_waremech_01',
+        ["scenario"] = "WORLD_HUMAN_CLIPBOARD",
+        ["radius"] = 1.5,
+        ["targetIcon"] = "fas fa-wrench",
+        ["targetLabel"] = "Hardware Store",
+        ["products"] = Config.Products["hardware"],
+        ["showblip"] = true,
+        ["blipsprite"] = 402,
+        ["blipscale"] = 0.8,
+        ["blipcolor"] = 0
+    },
+
+    ["hardware4"] = {
+        ["label"] = "Hardware Store",
+        ["coords"] = vector4(-11.08, 6499.21, 31.51, 48.93),
         ["ped"] = 'mp_m_waremech_01',
         ["scenario"] = "WORLD_HUMAN_CLIPBOARD",
         ["radius"] = 1.5,

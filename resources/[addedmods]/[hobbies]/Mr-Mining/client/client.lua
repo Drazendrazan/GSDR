@@ -11,7 +11,7 @@ if Config.UseBlips then
         SetBlipAsShortRange(MRblip, true)
         SetBlipColour(MRblip, 21)
         BeginTextCommandSetBlipName("STRING")
-        AddTextComponentSubstringPlayerName('Mining Sport')
+        AddTextComponentSubstringPlayerName('Mining Quarry')
         EndTextCommandSetBlipName(MRblip)
 
 		MRblip = AddBlipForCoord(1086.7, 4205.58, 30.67)
@@ -31,7 +31,7 @@ if Config.UseBlips then
         SetBlipAsShortRange(MRblip, true)
         SetBlipColour(MRblip, 21)
         BeginTextCommandSetBlipName("STRING")
-        AddTextComponentSubstringPlayerName('Melt Factory')
+        AddTextComponentSubstringPlayerName('Mining Smelter')
         EndTextCommandSetBlipName(MRblip)
 
 		MRblip = AddBlipForCoord(-620.2, -229.5, 38.06)
