@@ -219,7 +219,7 @@ local function InjuriedPerson()
             z = currentPos.z
         },
         dispatchMessage = _U('persondown'), -- message
-        job = { "ambulance" , "police" } -- jobs that will get the alerts
+        job = { "ambulance" } -- jobs that will get the alerts
     })
 end
 
@@ -245,7 +245,7 @@ local function DeceasedPerson()
             z = currentPos.z
         },
         dispatchMessage = "Civilian Bled Out", -- message
-        job = { "ambulance" , "police" } -- jobs that will get the alerts
+        job = { "ambulance" } -- jobs that will get the alerts
     })
 end
 
