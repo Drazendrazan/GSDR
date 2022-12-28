@@ -737,11 +737,11 @@ function playAnim(upper, seq, looping)
               if not first then inspeed = 2.0001 end
               if not last then outspeed = 2.0001 end
 
-              TaskPlayAnim(GetPlayerPed(-1),dict,name,inspeed,outspeed,-1,flags,0,0,0,0)
+              TaskPlayAnim(PlayerPedId(),dict,name,inspeed,outspeed,-1,flags,0,0,0,0)
             end
 
             Citizen.Wait(0)
-            while GetEntityAnimCurrentTime(GetPlayerPed(-1),dict,name) <= 0.95 and IsEntityPlayingAnim(GetPlayerPed(-1),dict,name,3) and anims[id] do
+            while GetEntityAnimCurrentTime(PlayerPedId(),dict,name) <= 0.95 and IsEntityPlayingAnim(PlayerPedId(),dict,name,3) and anims[id] do
               Citizen.Wait(0)
             end
           end
@@ -751,9 +751,9 @@ end
 function stopAnim(upper)
 	anims = {} -- stop all sequences
 	if upper then
-	  	ClearPedSecondaryTask(GetPlayerPed(-1))
+	  	ClearPedSecondaryTask(PlayerPedId())
 	else
-	  	ClearPedTasks(GetPlayerPed(-1))
+	  	ClearPedTasks(PlayerPedId())
 	end
 end
 
