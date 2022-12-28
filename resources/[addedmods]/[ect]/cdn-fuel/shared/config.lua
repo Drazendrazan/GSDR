@@ -21,7 +21,7 @@ Config.SyphonPoliceCallChance = 25 -- Math.Random(1, 100) Default: 25%
 Config.SyphonDispatchSystem = "qb-default" -- Options: "ps-dispatch", "qb-dispatch", "qb-default" (just blips) or "custom" (Custom: you must configure yourself!)
 
 --- Jerry Can ----- 
-Config.UseJerryCan = false -- Enable the Jerry Can functionality. Will only work if properly installed.
+Config.UseJerryCan = true -- Enable the Jerry Can functionality. Will only work if properly installed.
 Config.JerryCanCap = 50 -- Maximum amount (in L) the jerrycan can fit! (Default: 50L)
 Config.JerryCanPrice = 750 -- The price of a jerry can, not including tax. 
 Config.JerryCanGas = 0 -- The amount of Gas that the Jerry Can you purchase comes with. This should not be bigger that your Config.JerryCanCap!
@@ -51,7 +51,7 @@ Config.NameChangeMinChar = 10 -- This is the minimum length that a Gas Station's
 Config.NameChangeMaxChar = 25 -- This is the maximum length that a Gas Station's name must be.
 
 -- Phone --
-Config.RenewedPhonePayment = false -- When true, payments will be sent to the players phone with a notification, giving them the opportunity to accept or decline payment. If the cancel after paying for fuel, money will be returned. 
+Config.RenewedPhonePayment = true -- When true, payments will be sent to the players phone with a notification, giving them the opportunity to accept or decline payment. If the cancel after paying for fuel, money will be returned. 
 
 --- Electric Vehicles
 Config.ElectricVehicleCharging = true -- When true, electric vehicles will actually consume resources and decrease 'Fuel / Battery' while driving. This means players will have to recharge their vehicle!
