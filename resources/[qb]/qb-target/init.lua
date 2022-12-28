@@ -15,6 +15,9 @@ end
 -- Settings
 -------------------------------------------------------------------------------
 
+local Allowrefuel = false
+local AllowElectricRefuel = false
+
 Config = {}
 
 -- It's possible to interact with entities through walls so this should be low
@@ -247,3 +250,19 @@ function CheckOptions(data, entity, distance)
 	if data.canInteract and not data.canInteract(entity, distance, data) then return false end
 	return true
 end
+
+local function AllowRefuel(state, electric) 
+    if state then
+		if electric then
+			AllowElectricRefuel = true
+		else
+        	Allowrefuel = true
+		end
+    else
+		if electric then
+			AllowElectricRefuel = false
+		else
+			Allowrefuel = false
+		end
+    end
+end exports('AllowRefuel', AllowRefuel)
