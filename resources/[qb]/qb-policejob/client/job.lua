@@ -1104,3 +1104,10 @@ CreateThread(function()
     end)
 end)
 
+RegisterNetEvent('qb-police:stash', function()
+    if onDuty then
+        TriggerServerEvent("inventory:server:OpenInventory", "stash",
+            "policestash_" .. QBCore.Functions.GetPlayerData().citizenid)
+        TriggerEvent("inventory:client:SetCurrentStash", "policestash_" .. QBCore.Functions.GetPlayerData().citizenid)
+    end
+end)

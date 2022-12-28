@@ -73,7 +73,87 @@ Config.CircleZones = {
 }
 
 Config.BoxZones = {
+    ["mrpdsignin"] = {
+        name = "mrpdsignin",
+        coords = vector3(441.85, -981.92, 30.69),
+        length = 0.9,
+        width = 0.5,
+        heading = 0,
+        debugPoly = false,
+        minZ = 29.69,
+        maxZ = 31.69,
+        options = {
+            {
+              type = "client",
+              event = "qb-policejob:ToggleDuty",
+              icon = "fas fa-sign-in-alt",
+              label = "Sign In / Out",
+              job = "police",
+            },
+        },
+        distance = 1.5
+    },
+    ["mrpdarmory"] = {
+        name = "mrpdarmory",
+        coords = vector3(482.55, -994.76, 30.69),
+        length = 0.6,
+        width = 1,
+        heading = 180,
+        debugPoly = false,
+        minZ = 29.69,
+        maxZ = 31.69,
+        options = {
+            {
+              type = "client",
+              event = "qb-police:client:openArmoury",
+              icon = "fa-solid fa-person-military-rifle",
+              label = "Open Police Armory",
+              job = "police"
+            }
+        },
+        distance = 1.5
+    },
 
+    ["mrpdstash"] = {
+        name = "mrpdstash",
+        coords = vector3(474.08, -1004.53, 26.27),
+        length = 3.8,
+        width = 1,
+        heading = 270,
+        debugPoly = false,
+        minZ = 25.27,
+        maxZ = 29.27,
+        options = {
+            {
+              type = "client",
+              event = "qb-police:stash",
+              icon = "fa-solid fa-box",
+              label = "Open Police Stash",
+              job = "police"
+            }
+        },
+        distance = 1.5
+    },
+    ["mrpdprints"] = {
+        name = "mrpdprints",
+        coords = vector3(473.07, -1006.87, 26.27),
+        length = 0.85,
+        width = 0.5,
+        heading = 270,
+        debugPoly = false,
+        minZ = 25.27,
+        maxZ = 27.47,
+        options = {
+            {
+              type = "client",
+              event = "qb-police:client:scanFingerPrint",
+              icon = "fa-solid fa-fingerprint",
+              label = "Scan Prints",
+              job = "police"
+            }
+        },
+        distance = 1.5
+    },
 }
 
 Config.PolyZones = {
