@@ -48,7 +48,6 @@ Config.Locations = {
     ["evidence"] = {
         [1] = vector3(474.9, -996.73, 26.27),
         [2] = vector3(334.64, -593.54, 43.28),
-        [3] = vector3(455.1456, -985.462, 30.689),
     },
     ["stations"] = {
         [1] = {label = "Police Station", coords = vector4(428.23, -984.28, 29.76, 3.5)},
