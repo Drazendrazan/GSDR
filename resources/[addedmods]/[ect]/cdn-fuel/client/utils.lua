@@ -24,53 +24,47 @@ function Round(num, numDecimalPlaces)
 	return math.floor(num * mult + 0.5) / mult
 end
 
-function CreateBlip(coords)
+function GetCurrentVehicleType(vehicle)
+	if not vehicle then 
+		vehicle = GetVehiclePedIsIn(PlayerPedId(), true)
+	end
+	if not vehicle then return false end
+	local vehiclename = GetEntityModel(vehicle)
+	for _, currentCar in pairs(Config.ElectricVehicles) do
+		if currentCar == vehiclename or GetHashKey(currentCar) == vehiclename then
+			if Config.FuelDebug then print('Car is climate friendly') end
+		  	return 'electricvehicle'
+		end
+	end
+	if Config.FuelDebug then print("Car is economically unviable.") end
+	return 'gasvehicle'
+end
+
+function CreateBlip(coords, label)
 	local blip = AddBlipForCoord(coords)
-	SetBlipSprite(blip, 361)
+	local vehicle = GetCurrentVehicleType()
+	local electricbolt = Config.ElectricSprite -- Sprite
+	if vehicle == 'electricvehicle' then
+		SetBlipSprite(blip, electricbolt) -- This is where the fuel thing will get changed into the electric bolt instead of the pump.
+		SetBlipColour(blip, 5)
+	else
+		SetBlipColour(blip, 4)
+		SetBlipSprite(blip, 361)
+	end
 	SetBlipScale(blip, 0.6)
-	SetBlipColour(blip, 4)
 	SetBlipDisplay(blip, 4)
 	SetBlipAsShortRange(blip, true)
 	BeginTextCommandSetBlipName("STRING")
-	AddTextComponentString("Gas Station")
+	AddTextComponentString(label)
 	EndTextCommandSetBlipName(blip)
 	return blip
 end
 
-function FindNearestFuelPump()
-	local coords = GetEntityCoords(PlayerPedId())
-	local fuelPumps = {}
-	local handle, object = FindFirstObject()
-	local success
-
-	repeat
-		if Config.PumpModels[GetEntityModel(object)] then
-			fuelPumps[#fuelPumps+1] = object
-		end
-		success, object = FindNextObject(handle, object)
-	until not success
-
-	EndFindObject(handle)
-
-	local pumpObject = 0
-	local pumpDistance = 1000
-
-	for _, fuelPumpObject in pairs(fuelPumps) do
-		local dstcheck = #(coords - GetEntityCoords(fuelPumpObject))
-
-		if dstcheck < pumpDistance then
-			pumpDistance = dstcheck
-			pumpObject = fuelPumpObject
-		end
-	end
-
-	return pumpObject, pumpDistance
-end
 
 function isCloseVeh()
     local ped = PlayerPedId()
     coordA = GetEntityCoords(ped, 1)
-    coordB = GetOffsetFromEntityInWorldCoords(ped, 0.0, 100.0, 0.0)
+    coordB = GetOffsetFromEntityInWorldCoords(ped, 0.0, 200.0, 0.0)
     vehicle = getVehicleInDirection(coordA, coordB)
     if DoesEntityExist(vehicle) and NetworkHasControlOfEntity(vehicle) then
         return true
