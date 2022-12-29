@@ -2,7 +2,7 @@ Config = {}
 
 Config.Phone = 'gksphone' -- currently supporting gksphone and qb-core phone
 Config.BankScript = 'renewed' -- currently supporting renewed or qb-core banking
-Config.FuelSystem = 'ps-fuel'
+Config.FuelSystem = 'cdn-fuel'
 
 Config.TowingZone = {
     vector2(-363.95, -113.22),

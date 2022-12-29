@@ -18,7 +18,7 @@ Config.SyphonDebug = true -- Used for Debugging the syphon portion!
 Config.SyphonFuelDecor = Config.FuelDecor -- Do not touch! (Default: "_FUEL_LEVEL")
 Config.SyphonKitCap = 50 -- Maximum amount (in L) the syphon kit can fit!
 Config.SyphonPoliceCallChance = 25 -- Math.Random(1, 100) Default: 25% 
-Config.SyphonDispatchSystem = "qb-default" -- Options: "ps-dispatch", "qb-dispatch", "qb-default" (just blips) or "custom" (Custom: you must configure yourself!)
+Config.SyphonDispatchSystem = "ps-dispatch" -- Options: "ps-dispatch", "qb-dispatch", "qb-default" (just blips) or "custom" (Custom: you must configure yourself!)
 
 --- Jerry Can ----- 
 Config.UseJerryCan = true -- Enable the Jerry Can functionality. Will only work if properly installed.
@@ -229,10 +229,10 @@ Config.GasStations = { -- Configuration options for various gas station related 
         cost = 100000,
         shutoff = false,
         pedcoords = {
-            x = 288.83, 
-            y = -1267.01,
-            z = 28.44,
-            h = 93.81,
+            x = 301.19, 
+            y = -1272.84,
+            z = 29.52,
+            h = 82,
         },
         electriccharger = nil,
         electricchargercoords = vector4(279.79, -1237.35, 28.35, 181.07),
