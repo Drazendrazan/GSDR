@@ -14,11 +14,20 @@ return {
 		blip = {
 			id = 59, colour = 69, scale = 0.8
 		}, inventory = {
-			{ name = 'burger', price = 10 },
-			{ name = 'water', price = 10 },
-			{ name = 'cola', price = 10 },
+			{ name = 'tosti', price = 10 },
+			{ name = 'water_bottle', price = 10 },
+			{ name = 'kurkakola', price = 10 },
+			{ name = 'twerks_candy', price = 10 },
+			{ name = 'snikkel_candy', price = 10 },
+			{ name = 'sandwich', price = 10 },
+			{ name = 'beer', price = 10 },
+			{ name = 'whiskey', price = 10 },
+			{ name = 'vodka', price = 10 },
+			{ name = 'lighter', price = 10 },
+			{ name = 'bandage', price = 10 },
+			{ name = 'rolling_paper', price = 10 },
 		}, locations = {
-			vec3(25.7, -1347.3, 29.49),
+			vec3(24.47, -1346.62, 29.5),
 			vec3(-3038.71, 585.9, 7.9),
 			vec3(-3241.47, 1001.14, 12.83),
 			vec3(1728.66, 6414.16, 35.03),
@@ -27,7 +36,7 @@ return {
 			vec3(547.79, 2671.79, 42.15),
 			vec3(2679.25, 3280.12, 55.24),
 			vec3(2557.94, 382.05, 108.62),
-			vec3(373.55, 325.56, 103.56),
+			vec3(373.55, 325.56, 103.56)
 		}, targets = {
 			{ loc = vec3(25.06, -1347.32, 29.5), length = 0.7, width = 0.5, heading = 0.0, minZ = 29.5, maxZ = 29.9, distance = 1.5 },
 			{ loc = vec3(-3039.18, 585.13, 7.91), length = 0.6, width = 0.5, heading = 15.0, minZ = 7.91, maxZ = 8.31, distance = 1.5 },
@@ -41,15 +50,29 @@ return {
 			{ loc = vec3(373.13, 326.29, 103.57), length = 0.6, width = 0.5, heading = 345.0, minZ = 103.57, maxZ = 103.97, distance = 1.5 },
 		}
 	},
-
+	Hunting = {
+		name = 'Hunting Shop',
+		blip = {
+			id = 93, colour = 1 , scale = 0.8
+		}, inventory = {
+			{name = 'weapon_musket', price = 1500},
+			{name = 'shotgun_ammo', price = 100},
+			{name = 'huntingbait', price = 150},
+			{name = 'weapon_knife', price = 500}
+		}, locations = {
+			vec3(-679.47, 5834.49, 17.33)
+		}, targets = {
+			{loc = vec3(-679.47, 5834.49, 17.33), length = 0.6, width = 0.6, heading = 200.0, minZ = 35.0, maxZ = 35.4, distance = 1.5}
+		}
+	},
 	Liquor = {
 		name = 'Liquor Store',
 		blip = {
 			id = 93, colour = 69, scale = 0.8
 		}, inventory = {
-			{ name = 'water', price = 10 },
-			{ name = 'cola', price = 10 },
-			{ name = 'burger', price = 15 },
+			{ name = 'beer', price = 10 },
+			{ name = 'whiskey', price = 10 },
+			{ name = 'vodka', price = 15 },
 		}, locations = {
 			vec3(1135.808, -982.281, 46.415),
 			vec3(-1222.915, -906.983, 12.326),
@@ -73,10 +96,40 @@ return {
 		blip = {
 			id = 402, colour = 69, scale = 0.8
 		}, inventory = {
-			{ name = 'lockpick', price = 10 }
+			{ name = 'lockpick', price = 200 },
+			{ name = 'weapon_wrench', price = 250 },
+			{ name = 'weapon_hammer', price = 250 },
+			{ name = 'repairkit', price = 250 },
+			{ name = 'screwdriverset', price = 350 },
+			{ name = 'phone', price = 850 },
+			{ name = 'radio', price = 250 },
+			{ name = 'binoculars', price = 50 },
+			{ name = 'firework1', price = 50 },
+			{ name = 'firework2', price = 50 },
+			{ name = 'firework3', price = 50 },
+			{ name = 'firework4', price = 50 },
+			{ name = 'fitbit', price = 400 },
+			{ name = 'cleaningkit', price = 150 },
+			{ name = 'mining_drill', price = 500 },
+			{ name = 'emptymulchbag', price = 500 },
+			{ name = 'screwdriver', price = 250 },
+			{ name = 'wd40', price = 40 },
+			{ name = 'blowtorch', price = 1000 },
+			{ name = 'syphoningkit', price = 5000 },
+			{ name = 'weapon_hatchet', price = 200 },
+			{ name = 'corn_seed', price = 200 },
+			{ name = 'tomato_seed', price = 200 },
+			{ name = 'wheat_seed', price = 200 },
+			{ name = 'broccoli_seed', price = 200 },
+			{ name = 'carrot_seed', price = 200 },
+			{ name = 'potato_seed', price = 200 },
+			{ name = 'pickle_seed', price = 200 }
 		}, locations = {
-			vec3(2748.0, 3473.0, 55.67),
-			vec3(342.99, -1298.26, 32.51)
+			vec3(45.68, -1749.04, 29.61),
+			vec3(2747.71, 3472.85, 55.67),
+			vec3(-421.83, 6136.13, 31.88),
+			vec3(-11.08, 6499.21, 31.51),
+			vec3(2747.71, 3472.85, 55.67),
 		}, targets = {
 			{ loc = vec3(2746.8, 3473.13, 55.67), length = 0.6, width = 3.0, heading = 65.0, minZ = 55.0, maxZ = 56.8, distance = 3.0 }
 		}

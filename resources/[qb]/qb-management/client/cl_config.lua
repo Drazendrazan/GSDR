@@ -25,6 +25,9 @@ Config.BossMenus = {
     ['gt'] = {
         vector3(20.45, -1602.09, 29.38),
     },
+    ['guncrafter'] = {
+        vector3(11.54, -1108.4, 29.8),   ---------in office extension at the desk
+    },
 }
 
 Config.BossMenuZones = {
@@ -46,6 +49,10 @@ Config.BossMenuZones = {
     ['mechanic'] = {
         { coords = vector3(-339.53, -156.44, 44.59), length = 1.15, width = 2.6, heading = 353.0, minZ = 43.59, maxZ = 44.99 },
     },
+    ['guncrafter'] = {
+        { coords = vector3(11.54, -1108.4, 29.8), length = 1.0, width = 1.0, heading = 63.21, minZ = 29, maxZ = 31 },
+    },
+
 }
 
 Config.GangMenus = {
