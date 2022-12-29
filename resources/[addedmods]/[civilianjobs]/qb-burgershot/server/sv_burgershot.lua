@@ -1,5 +1,16 @@
 local QBCore = exports['qb-core']:GetCoreObject()
 
+local function HasItem(pid, item)
+    if Config.OxInventory == 'started' then
+        return exports.ox_inventory:Search(pid, 'count', item)
+    elseif Config.Framework == 'qb-core' then
+        return QBCore.Functions.HasItem(pid, item, 1)
+    elseif Config.Framework == 'esx' then
+        local Player = ESX.GetPlayerFromId(pid)
+        return Player.hasItem(item)
+    end
+end
+
 RegisterNetEvent('qb-burgershot:server:makeBleeder', function()
     local Player = QBCore.Functions.GetPlayer(source)
     if not Player then return end
