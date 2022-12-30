@@ -302,7 +302,7 @@ end)
 RegisterNetEvent('mz-lumberjack:client:MulchBark')
 AddEventHandler('mz-lumberjack:client:MulchBark', function()
     if not treebarkprocess then 
-        if exports.ox_inventory:Search(source, "treebark", nil, true) then
+        if exports.ox_inventory:Search(source, 'count', 'treebark') then
             TriggerServerEvent("mz-lumberjack:server:MulchBark")
         else
             local requiredItems = {
