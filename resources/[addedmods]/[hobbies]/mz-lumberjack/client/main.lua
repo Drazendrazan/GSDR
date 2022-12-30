@@ -302,7 +302,7 @@ end)
 RegisterNetEvent('mz-lumberjack:client:MulchBark')
 AddEventHandler('mz-lumberjack:client:MulchBark', function()
     if not treebarkprocess then 
-        if QBCore.Functions.HasItem("treebark") then
+        if exports.ox_inventory:GetItem(source, "treebark", nil, true) then
             TriggerServerEvent("mz-lumberjack:server:MulchBark")
         else
             local requiredItems = {
@@ -446,8 +446,8 @@ end)
 RegisterNetEvent('mz-lumberjack:client:BagMulch')
 AddEventHandler('mz-lumberjack:client:BagMulch', function()
     if not baggingmulch then 
-        if QBCore.Functions.HasItem("treemulch") then
-            if QBCore.Functions.HasItem("emptymulchbag") then
+        if exports.ox_inventory:GetItem(source, "treemulch", nil, true) then
+            if exports.ox_inventory:GetItem(source, "emptymulchbag", nil, true) then
                 TriggerServerEvent("mz-lumberjack:server:BagMulch")
             else
                 local requiredItems = {
@@ -606,7 +606,7 @@ end)
 RegisterNetEvent('mz-lumberjack:client:ProcessWoodWedge')
 AddEventHandler('mz-lumberjack:client:ProcessWoodWedge', function()
     if not woodwedgeprocess then 
-        if QBCore.Functions.HasItem("woodwedge") then
+        if exports.ox_inventory:GetItem(source, "woodwedge",nil ,true) then
             TriggerServerEvent("mz-lumberjack:server:ProcessWoodWedge")
         else
             local requiredItems = {
@@ -750,7 +750,7 @@ end)
 RegisterNetEvent('mz-lumberjack:client:ProcessThinLogs')
 AddEventHandler('mz-lumberjack:client:ProcessThinLogs', function()
     if not thinlogprocess then 
-        if QBCore.Functions.HasItem("thinlog") then
+        if exports.ox_inventory:GetItem(source, "thinlog", nil, true) then
             TriggerServerEvent("mz-lumberjack:server:ProcessThinLogs")
         else
             local requiredItems = {
@@ -894,7 +894,7 @@ end)
 RegisterNetEvent('mz-lumberjack:client:ProcessMidLogs')
 AddEventHandler('mz-lumberjack:client:ProcessMidLogs', function()
     if not midlogprocess then 
-        if QBCore.Functions.HasItem("midlog") then
+        if exports.ox_inventory:GetItem(source, "midlog",nil ,true) then
             TriggerServerEvent("mz-lumberjack:server:ProcessMidLogs")
         else
             local requiredItems = {
@@ -1038,7 +1038,7 @@ end)
 RegisterNetEvent('mz-lumberjack:client:ProcessThickLogs')
 AddEventHandler('mz-lumberjack:client:ProcessThickLogs', function()
     if not thicklogprocess then 
-        if QBCore.Functions.HasItem("thicklog") then
+        if exports.ox_inventory:GetItem(source, "thicklog", nil, true) then
             TriggerServerEvent("mz-lumberjack:server:ProcessThickLogs")
         else
             local requiredItems = {
@@ -1182,7 +1182,7 @@ end)
 RegisterNetEvent('mz-lumberjack:client:ProcessThickerLogs')
 AddEventHandler('mz-lumberjack:client:ProcessThickerLogs', function()
     if not thickerlogprocess then     
-        if QBCore.Functions.HasItem("thickerlog") then
+        if exports.ox_inventory:GetItem(source, "thickerlog", nil, true) then
             TriggerServerEvent("mz-lumberjack:server:ProcessThickerLogs")
         else
             local requiredItems = {
@@ -1326,8 +1326,8 @@ end)
 RegisterNetEvent('mz-lumberjack:client:MakePallet')
 AddEventHandler('mz-lumberjack:client:MakePallet', function()
     if not makepalletprocess then 
-        if QBCore.Functions.HasItem("rustynails") then
-            if QBCore.Functions.HasItem("woodenplanks") then
+        if exports.ox_inventory:GetItem(source, "rustynails", nil, true) then
+            if exports.ox_inventory:GetItem(source, "woodenplanks", nil, true) then
                 TriggerServerEvent("mz-lumberjack:server:MakePallet")
             else
                 local requiredItems = {
@@ -1486,7 +1486,7 @@ end)
 RegisterNetEvent('mz-lumberjack:client:MakeMulchBags')
 AddEventHandler('mz-lumberjack:client:MakeMulchBags', function()
     if not makemulchbagprocess then 
-        if QBCore.Functions.HasItem("plastic") then
+        if exports.ox_inventory:GetItem(source, "plastic", nil, true) then
             TriggerServerEvent("mz-lumberjack:server:MakeMulchBags")
         else
             local requiredItems = {
