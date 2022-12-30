@@ -303,27 +303,21 @@ end)
 RegisterNetEvent('mz-lumberjack:client:MulchBark')
 AddEventHandler('mz-lumberjack:client:MulchBark', function(source, amount)
     if not treebarkprocess then 
-        if ox_inventory:GetItem(source, 'treebark', nil, true) > amount then
+        local count = exports.ox_inventory:Search('count', 'treebark')
+        print(count)
+        if count > amount then
             TriggerServerEvent("mz-lumberjack:server:MulchBark")
         else
-            local requiredItems = {
-                [1] = {name = QBCore.Shared.Items["treebark"]["name"], image = QBCore.Shared.Items["treebark"]["image"]}, 
-            }  
-            if Config.NotifyType == 'qb' then
-                QBCore.Functions.Notify('You need bark to mulch...', "error", 3500)
-            elseif Config.NotifyType == "okok" then
-                exports['okokNotify']:Alert("NEED TREE BARK", "You need bark to mulch...", 3500, "error")
-            end   
-            TriggerEvent('inventory:client:requiredItems', requiredItems, true)
-            Wait(3000)
-            TriggerEvent('inventory:client:requiredItems', requiredItems, false)
+            lib.notify({
+                description = 'You need more treebark to mulch!',
+                type = 'error'
+            })  
         end
     else
-        if Config.NotifyType == 'qb' then
-            QBCore.Functions.Notify('You are already doing something... Slow down!', "error", 3500)
-        elseif Config.NotifyType == "okok" then
-            exports['okokNotify']:Alert("CONCENTRATE", 'You are already doing something... Slow down!', 3500, "error")
-        end   
+        lib.notify({
+            description = 'You are already doing something... Slow down!',
+            type = 'error'
+        })  
     end
 end)
 
@@ -445,45 +439,30 @@ CreateThread(function()
 end)
 
 RegisterNetEvent('mz-lumberjack:client:BagMulch')
-AddEventHandler('mz-lumberjack:client:BagMulch', function()
+AddEventHandler('mz-lumberjack:client:BagMulch', function(source, amount)
     if not baggingmulch then 
-        if ox_inventory:Search(source, "treemulch", nil, true) then
-            if ox_inventory:Search(source, "emptymulchbag", nil, true) then
+        local mulchBag = exports.ox_inventory:Search('count', 'emptymulchbag')
+        local mulchCount = exports.ox_inventory:Search('count', 'treemulch')
+        if mulchBag then
+            if mulchCount > amount then
                 TriggerServerEvent("mz-lumberjack:server:BagMulch")
             else
-                local requiredItems = {
-                    [1] = {name = QBCore.Shared.Items["treemulch"]["name"], image = QBCore.Shared.Items["treemulch"]["image"]}, 
-                    [2] = {name = QBCore.Shared.Items["emptymulchbag"]["name"], image = QBCore.Shared.Items["emptymulchbag"]["image"]}, 
-                }  
-                if Config.NotifyType == 'qb' then
-                    QBCore.Functions.Notify('You need a bag and some mulch...', "error", 3500)
-                elseif Config.NotifyType == "okok" then
-                    exports['okokNotify']:Alert("NEED MATERIALS", "You need a bag and some mulch...", 3500, "error")
-                end   
-                TriggerEvent('inventory:client:requiredItems', requiredItems, true)
-                Wait(3000)
-                TriggerEvent('inventory:client:requiredItems', requiredItems, false)
+                lib.notify({
+                    description = 'You need a bag and some mulch',
+                    type = 'error'
+                })
             end
         else
-            local requiredItems = {
-                [1] = {name = QBCore.Shared.Items["treemulch"]["name"], image = QBCore.Shared.Items["treemulch"]["image"]}, 
-                [2] = {name = QBCore.Shared.Items["emptymulchbag"]["name"], image = QBCore.Shared.Items["emptymulchbag"]["image"]}, 
-            }  
-            if Config.NotifyType == 'qb' then
-                QBCore.Functions.Notify('You need a bag and some mulch...', "error", 3500)
-            elseif Config.NotifyType == "okok" then
-                exports['okokNotify']:Alert("NEED MATERIALS", "You need a bag and some mulch...", 3500, "error")
-            end   
-            TriggerEvent('inventory:client:requiredItems', requiredItems, true)
-            Wait(3000)
-            TriggerEvent('inventory:client:requiredItems', requiredItems, false)
-        end 
+            lib.notify({
+                description = 'You need a bag ',
+                type = 'error'
+            })
+        end
     else
-        if Config.NotifyType == 'qb' then
-            QBCore.Functions.Notify('You are already doing something... Slow down!', "error", 3500)
-        elseif Config.NotifyType == "okok" then
-            exports['okokNotify']:Alert("CONCENTRATE", 'You are already doing something... Slow down!', 3500, "error")
-        end   
+        lib.notify({
+            description = 'You are already doing something'
+            type = 'error
+        })
     end
 end)
 
@@ -537,8 +516,6 @@ function BagMulchMinigame(source)
     end, function()
         if Config.NotifyType == 'qb' then
             QBCore.Functions.Notify('You tear a hole in the bag... Nice work...', "error", 3500)
-        elseif Config.NotifyType == "okok" then
-            exports['okokNotify']:Alert("BAG RUINED", "You tear a hole in the bag... Nice work...", 3500, "error")
         end
         Wait(500)
         local deteriorate = -Config.bagmulchXPloss
@@ -607,30 +584,23 @@ end)
 RegisterNetEvent('mz-lumberjack:client:ProcessWoodWedge')
 AddEventHandler('mz-lumberjack:client:ProcessWoodWedge', function()
     if not woodwedgeprocess then 
-        if ox_inventory:Search(source, "woodwedge",nil ,true) then
-            TriggerServerEvent("mz-lumberjack:server:ProcessWoodWedge")
+        local count = exports.ox_inventory:Search('count', {'woodwedge'})
+        print(count)
+            if count > amount then
+                TriggerServerEvent("mz-lumberjack:server:ProcessWoodWedge")
+            else
+                lib.notify({
+                    description = 'You need a bag and some mulch',
+                    type = 'error'
+                })
+            end
         else
-            local requiredItems = {
-                [1] = {name = QBCore.Shared.Items["woodwedge"]["name"], image = QBCore.Shared.Items["woodwedge"]["image"]}, 
-            }  
-            if Config.NotifyType == 'qb' then
-                QBCore.Functions.Notify('You need wooden wedges to process...', "error", 3500)
-            elseif Config.NotifyType == "okok" then
-                exports['okokNotify']:Alert("NEED WEDGES", "You need wooden wedges to process...", 3500, "error")
-            end   
-            TriggerEvent('inventory:client:requiredItems', requiredItems, true)
-            Wait(3000)
-            TriggerEvent('inventory:client:requiredItems', requiredItems, false)
+            lib.notify({
+                description = 'You are already doing something'
+                type = 'error
+            })
         end
-    else
-        if Config.NotifyType == 'qb' then
-            QBCore.Functions.Notify('You are already doing something... Slow down!', "error", 3500)
-        elseif Config.NotifyType == "okok" then
-            exports['okokNotify']:Alert("CONCENTRATE", 'You are already doing something... Slow down!', 3500, "error")
-        end   
-    end
-end)
-
+    end)
 RegisterNetEvent('mz-lumberjack:client:ProcessWoodWedgeMinigame')
 AddEventHandler('mz-lumberjack:client:ProcessWoodWedgeMinigame', function(source)
     TriggerEvent('animations:client:EmoteCommandStart', {"mechanic"})
