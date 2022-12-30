@@ -1,4 +1,5 @@
 local QBCore = exports['qb-core']:GetCoreObject()
+local ox_inventory = ox_inventory
 local chopping = false
 local NeededAttempts = 0
 local SucceededAttempts = 0
@@ -300,9 +301,9 @@ CreateThread(function()
 end)
 
 RegisterNetEvent('mz-lumberjack:client:MulchBark')
-AddEventHandler('mz-lumberjack:client:MulchBark', function()
+AddEventHandler('mz-lumberjack:client:MulchBark', function(source, amount)
     if not treebarkprocess then 
-        if exports.ox_inventory:Search(source, 'count', 'treebark') then
+        if ox_inventory:GetItem(source, 'treebark', nil, true) > amount then
             TriggerServerEvent("mz-lumberjack:server:MulchBark")
         else
             local requiredItems = {
@@ -446,8 +447,8 @@ end)
 RegisterNetEvent('mz-lumberjack:client:BagMulch')
 AddEventHandler('mz-lumberjack:client:BagMulch', function()
     if not baggingmulch then 
-        if exports.ox_inventory:Search(source, "treemulch", nil, true) then
-            if exports.ox_inventory:Search(source, "emptymulchbag", nil, true) then
+        if ox_inventory:Search(source, "treemulch", nil, true) then
+            if ox_inventory:Search(source, "emptymulchbag", nil, true) then
                 TriggerServerEvent("mz-lumberjack:server:BagMulch")
             else
                 local requiredItems = {
@@ -606,7 +607,7 @@ end)
 RegisterNetEvent('mz-lumberjack:client:ProcessWoodWedge')
 AddEventHandler('mz-lumberjack:client:ProcessWoodWedge', function()
     if not woodwedgeprocess then 
-        if exports.ox_inventory:Search(source, "woodwedge",nil ,true) then
+        if ox_inventory:Search(source, "woodwedge",nil ,true) then
             TriggerServerEvent("mz-lumberjack:server:ProcessWoodWedge")
         else
             local requiredItems = {
@@ -750,7 +751,7 @@ end)
 RegisterNetEvent('mz-lumberjack:client:ProcessThinLogs')
 AddEventHandler('mz-lumberjack:client:ProcessThinLogs', function()
     if not thinlogprocess then 
-        if exports.ox_inventory:Search(source, "thinlog", nil, true) then
+        if ox_inventory:Search(source, "thinlog", nil, true) then
             TriggerServerEvent("mz-lumberjack:server:ProcessThinLogs")
         else
             local requiredItems = {
@@ -894,7 +895,7 @@ end)
 RegisterNetEvent('mz-lumberjack:client:ProcessMidLogs')
 AddEventHandler('mz-lumberjack:client:ProcessMidLogs', function()
     if not midlogprocess then 
-        if exports.ox_inventory:Search(source, "midlog",nil ,true) then
+        if ox_inventory:Search(source, "midlog",nil ,true) then
             TriggerServerEvent("mz-lumberjack:server:ProcessMidLogs")
         else
             local requiredItems = {
@@ -1038,7 +1039,7 @@ end)
 RegisterNetEvent('mz-lumberjack:client:ProcessThickLogs')
 AddEventHandler('mz-lumberjack:client:ProcessThickLogs', function()
     if not thicklogprocess then 
-        if exports.ox_inventory:Search(source, "thicklog", nil, true) then
+        if ox_inventory:Search(source, "thicklog", nil, true) then
             TriggerServerEvent("mz-lumberjack:server:ProcessThickLogs")
         else
             local requiredItems = {
@@ -1182,7 +1183,7 @@ end)
 RegisterNetEvent('mz-lumberjack:client:ProcessThickerLogs')
 AddEventHandler('mz-lumberjack:client:ProcessThickerLogs', function()
     if not thickerlogprocess then     
-        if exports.ox_inventory:Search(source, "thickerlog", nil, true) then
+        if ox_inventory:Search(source, "thickerlog", nil, true) then
             TriggerServerEvent("mz-lumberjack:server:ProcessThickerLogs")
         else
             local requiredItems = {
@@ -1326,8 +1327,8 @@ end)
 RegisterNetEvent('mz-lumberjack:client:MakePallet')
 AddEventHandler('mz-lumberjack:client:MakePallet', function()
     if not makepalletprocess then 
-        if exports.ox_inventory:Search(source, "rustynails", nil, true) then
-            if exports.ox_inventory:Search(source, "woodenplanks", nil, true) then
+        if ox_inventory:Search(source, "rustynails", nil, true) then
+            if ox_inventory:Search(source, "woodenplanks", nil, true) then
                 TriggerServerEvent("mz-lumberjack:server:MakePallet")
             else
                 local requiredItems = {
@@ -1486,7 +1487,7 @@ end)
 RegisterNetEvent('mz-lumberjack:client:MakeMulchBags')
 AddEventHandler('mz-lumberjack:client:MakeMulchBags', function()
     if not makemulchbagprocess then 
-        if exports.ox_inventory:Search(source, "plastic", nil, true) then
+        if ox_inventory:Search(source, "plastic", nil, true) then
             TriggerServerEvent("mz-lumberjack:server:MakeMulchBags")
         else
             local requiredItems = {
