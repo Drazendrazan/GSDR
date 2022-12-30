@@ -1,7 +1,7 @@
 Config = {}
 
 --Fuel script
-Config.FuelScript = "ps-fuel" -- Your fuel script name
+Config.FuelScript = "cdn-fuel" -- Your fuel script name
 
 --Target settings
 Config.UseTarget = true -- False or true if you want to use target export

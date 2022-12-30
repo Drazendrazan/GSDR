@@ -854,13 +854,15 @@ local function CheckPlayerMeta()
 end
 
 RegisterNetEvent('fivem-appearance:client:reloadSkin', function()
-    if InCooldown() or CheckPlayerMeta() then
+    local playerPed = PlayerPedId()
+
+    if InCooldown() or CheckPlayerMeta() or IsPedInAnyVehicle(playerPed, true) or IsPedFalling(playerPed) then
         QBCore.Functions.Notify("You cannot use reloadskin right now", "error")
         return
     end
 
     reloadSkinTimer = GetGameTimer()
-    local playerPed = PlayerPedId()
+
     local health = GetEntityHealth(playerPed)
     local maxhealth = GetEntityMaxHealth(playerPed)
     local armour = GetPedArmour(playerPed)
@@ -880,6 +882,24 @@ RegisterNetEvent('fivem-appearance:client:reloadSkin', function()
         SetPedArmour(playerPed, armour)
         ResetRechargeMultipliers()
     end)
+end)
+
+RegisterNetEvent("fivem-appearance:client:ClearStuckProps", function()
+    if InCooldown() or CheckPlayerMeta() then
+        QBCore.Functions.Notify("You cannot use clearstuckprops right now", "error")
+        return
+    end
+
+    reloadSkinTimer = GetGameTimer()
+    local playerPed = PlayerPedId()
+
+    for _, v in pairs(GetGamePool('CObject')) do
+      if IsEntityAttachedToEntity(playerPed, v) then
+        SetEntityAsMissionEntity(v, true, true)
+        DeleteObject(v)
+        DeleteEntity(v)
+      end
+    end
 end)
 
 RegisterNetEvent("qb-radialmenu:client:onRadialmenuOpen", function()
@@ -920,13 +940,14 @@ end)
 
 local function isPlayerAllowedForOutfitRoom(outfitRoom)
     local isAllowed = false
-    for i = 1, #outfitRoom.citizenIDs, 1 do
+    local count = #outfitRoom.citizenIDs
+    for i = 1, count, 1 do
         if outfitRoom.citizenIDs[i] == PlayerData.citizenid then
             isAllowed = true
             break
         end
     end
-    return isAllowed
+    return isAllowed or not outfitRoom.citizenIDs or count == 0
 end
 
 local function OpenOutfitRoom(outfitRoom)
@@ -1024,13 +1045,13 @@ local function SetupStoreZones()
                 inZone = true
                 local prefix = Config.UseRadialMenu and '' or '[E] '
                 if zoneName == 'clothing' then
-                    exports['qb-core']:DrawText(prefix .. 'Clothing Store')
+                    exports['qb-core']:DrawText(prefix .. 'Clothing Store<br>Price: $' .. Config.ClothingCost)
                 elseif zoneName == 'barber' then
-                    exports['qb-core']:DrawText(prefix .. 'Barber')
+                    exports['qb-core']:DrawText(prefix .. 'Barber<br>Price: $' .. Config.BarberCost)
                 elseif zoneName == 'tattoo' then
-                    exports['qb-core']:DrawText(prefix .. 'Tattoo Shop')
+                    exports['qb-core']:DrawText(prefix .. 'Tattoo Shop<br>Price: $' .. Config.TattooCost)
                 elseif zoneName == 'surgeon' then
-                    exports['qb-core']:DrawText(prefix .. 'Plastic Surgeon')
+                    exports['qb-core']:DrawText(prefix .. 'Plastic Surgeon<br>Price: $' .. Config.SurgeonCost)
                 end
             end
         else
@@ -1069,7 +1090,7 @@ local function SetupClothingRoomZones()
             local clothingRoom = Config.ClothingRooms[tonumber(string.sub(zone.name, 15))]
             local jobName = clothingRoom.job and PlayerJob.name or PlayerGang.name
             if jobName == (clothingRoom.job or clothingRoom.gang) then
-                if CheckDuty() then
+                if CheckDuty() or clothingRoom.gang then
                     inZone = true
                     local prefix = Config.UseRadialMenu and '' or '[E] '
                     exports['qb-core']:DrawText(prefix .. 'Clothing Room')
@@ -1175,7 +1196,7 @@ local function SetupStoreTargets()
         }
 
         if Config.EnablePedsForShops then
-            TargetPeds.Store[k] = CreatePedAtCoords(targetConfig.model, v.coords, targetConfig.scenario)
+            TargetPeds.Store[k] = CreatePedAtCoords(v.targetModel or targetConfig.model, v.coords, v.targetScenario or targetConfig.scenario)
             exports['qb-target']:AddTargetEntity(TargetPeds.Store[k], parameters)
         else
             exports['qb-target']:AddBoxZone(v.shopType .. k, v.coords, v.length, v.width, {
@@ -1203,7 +1224,7 @@ local function SetupClothingRoomTargets()
                 action = action,
                 icon = targetConfig.icon,
                 label = targetConfig.label,
-                canInteract = CheckDuty,
+                canInteract = v.job and CheckDuty or nil,
                 job = v.job,
                 gang = v.gang
             }},
@@ -1211,7 +1232,7 @@ local function SetupClothingRoomTargets()
         }
 
         if Config.EnablePedsForClothingRooms then
-            TargetPeds.ClothingRoom[k] = CreatePedAtCoords(targetConfig.model, v.coords, targetConfig.scenario)
+            TargetPeds.ClothingRoom[k] = CreatePedAtCoords(v.targetModel or targetConfig.model, v.coords, v.targetScenario or targetConfig.scenario)
             exports['qb-target']:AddTargetEntity(TargetPeds.ClothingRoom[k], parameters)
         else
             local key = 'clothing_' .. (v.job or v.gang) .. k
@@ -1246,7 +1267,7 @@ local function SetupPlayerOutfitRoomTargets()
         }
 
         if Config.EnablePedsForPlayerOutfitRooms then
-            TargetPeds.PlayerOutfitRoom[k] = CreatePedAtCoords(targetConfig.model, v.coords, targetConfig.scenario)
+            TargetPeds.PlayerOutfitRoom[k] = CreatePedAtCoords(v.targetModel or targetConfig.model, v.coords, v.targetScenario or targetConfig.scenario)
             exports['qb-target']:AddTargetEntity(TargetPeds.ClothingRoom[k], parameters)
         else
             exports['qb-target']:AddBoxZone('playeroutfitroom_' .. k, v.coords, v.length, v.width, {

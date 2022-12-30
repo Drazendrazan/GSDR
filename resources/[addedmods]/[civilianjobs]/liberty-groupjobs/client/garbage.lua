@@ -43,7 +43,7 @@ end)
 
 RegisterNetEvent("garbage:startRoute", function(truckID)
     Truck = NetworkGetEntityFromNetworkId(truckID)
-    exports['ps-fuel']:SetFuel(Truck, 100)
+    exports['cdn-fuel']:SetFuel(Truck, 100)
     exports['qb-target']:AddGlobalVehicle({
         options = { 
         {

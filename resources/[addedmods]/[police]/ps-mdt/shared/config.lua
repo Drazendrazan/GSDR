@@ -18,7 +18,7 @@ This will only check plates of vehicles that have been occupied by a player
 
 Config.OnlyShowOnDuty = true
 
-Config.Fuel = "ps-fuel" -- "ps-fuel", "ps-fuel"
+Config.Fuel = "cdn-fuel"
 
 Config.PenalCodeTitles = {
     [1] = 'OFFENSES AGAINST PERSONS',
