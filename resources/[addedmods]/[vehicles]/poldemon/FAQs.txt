@@ -1,0 +1,21 @@
+Q: Why does it look red?
+A: Change the main paint color to Black if this happens.
+
+Q: How do I install this into my FiveM server?
+A: https://www.youtube.com/watch?v=yCaGUSn0odg
+
+Q: How do I install this into GTA SP / LSPDFR?
+A: Find a program or video.
+
+Q: Will there be more updates to this model?
+A: Unless it's a model breaking bug, I probably won't fix it.
+
+Q: Where is the template?
+A: In the same folder this notepad file is in.
+
+Q: Do you have any other models?
+A: Yes, just click on my profile to see many of my public releases.
+
+If you have any other questions, or want to report a bug, leave a message on the file, direct message me on the website you downloaded it on, or go to the support channel in my development discord: https://discord.gg/eVUk88U
+
+Enjoy :)
