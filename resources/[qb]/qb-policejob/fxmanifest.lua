@@ -2,23 +2,25 @@ fx_version 'cerulean'
 game 'gta5'
 
 description 'QB-PoliceJob'
-version '1.0.0'
+version '1.2.0'
 
 shared_scripts {
     'config.lua',
     '@qb-core/shared/locale.lua',
     'locales/en.lua',
-    'locales/*.lua',
-	'@ox_lib/init.lua'
+    'locales/*.lua'
 }
 
 client_scripts {
+	'@PolyZone/client.lua',
+	'@PolyZone/BoxZone.lua',
+	'@PolyZone/ComboZone.lua',
 	'client/main.lua',
 	'client/camera.lua',
 	'client/interactions.lua',
 	'client/job.lua',
 	'client/heli.lua',
-	'client/anpr.lua',
+	--'client/anpr.lua',
 	'client/evidence.lua',
 	'client/objects.lua',
 	'client/tracker.lua'
@@ -35,8 +37,10 @@ files {
 	'html/index.html',
 	'html/vue.min.js',
 	'html/script.js',
+	'html/tablet-frame.png',
 	'html/fingerprint.png',
-	'html/main.css'
+	'html/main.css',
+	'html/vcr-ocd.ttf'
 }
 
 lua54 'yes'
