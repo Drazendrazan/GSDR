@@ -7,7 +7,7 @@ Config.BarberCost = 100
 Config.TattooCost = 100
 Config.SurgeonCost = 100
 
-Config.UseTarget = true
+Config.UseTarget = GetConvar("UseTarget", "false") == "true"
 Config.UseRadialMenu = false
 
 Config.EnablePedsForShops = true
@@ -16,11 +16,6 @@ Config.EnablePedsForPlayerOutfitRooms = true
 
 Config.EnablePedMenu = true
 Config.PedMenuGroup = "admin"
-
-Config.ShowNearestShopOnly = false
-Config.NearestShopBlipUpdateDelay = 10000
-
-Config.InvincibleDuringCustomization = true
 
 Config.NewCharacterSections = {
     Ped = true,
@@ -92,7 +87,7 @@ Config.Blips = {
         Name = "Tattoo Shop",
     },
     ["surgeon"] = {
-        Show = true,
+        Show = false,
         Sprite = 102,
         Color = 4,
         Scale = 0.7,
@@ -151,9 +146,7 @@ Config.Stores = {
         coords = vector4(1693.2, 4828.11, 42.07, 188.66),
         width = 4,
         length = 4,
-        showBlip = true, -- overrides the blip visibilty configured above for the group
-        --targetModel = "s_m_m_doctor_01", -- overrides the target ped configured for the group
-        --targetScenario = "" -- overrides the target scenario configure for the group
+        showBlip = true, -- showBlip overrides the blip visibilty configured above for the group
         zone = {
             shape = {
                 vector2(1686.9018554688, 4829.8330078125),
@@ -359,19 +352,20 @@ Config.Stores = {
         }
     },
     {
-        shopType = "clothing", -- Gabz Haters
-        coords = vector4(-1119.24, -1440.6, 5.23, 300.5),
+        shopType = "clothing",
+        coords = vector4(-1207.65, -1456.89, 4.37, 38.59),
         width = 4,
         length = 4,
         zone = {
             shape = {
-                vector2(-1124.5535888672, -1444.5367431641),
-                vector2(-1118.7023925781, -1441.0450439453),
-                vector2(-1121.2891845703, -1434.8474121094),
-                vector2(-1128.4727783203, -1439.8254394531)
+                vector2(-1205.6013183594, -1458.033203125),
+                vector2(-1206.1661376953, -1458.4085693359),
+                vector2(-1207.8792724609, -1459.1596679688),
+                vector2(-1207.5522460938, -1457.9649658203),
+                vector2(-1206.0816650391, -1457.181640625)
             },
-            minZ = 5.2283353805542 - 1.5,
-            maxZ = 6.4095458984375 + 1.5,
+            minZ = 4.37 - 1.5,
+            maxZ = 4.37 + 1.5,
         }
     },
     {

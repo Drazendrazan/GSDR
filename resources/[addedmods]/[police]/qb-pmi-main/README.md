@@ -46,7 +46,7 @@ Example of what this looks like, the line was added on line 12
 3     QBCore.Functions.SpawnVehicle(vehicleInfo, function(veh)
 4         SetVehicleNumberPlateText(veh, "UNIT"..tostring(math.random(1000, 9999)))
 5         SetEntityHeading(veh, coords.w)
-6         exports['cdn-fuel']:SetFuel(veh, 100.0)
+6         exports['ps-fuel']:SetFuel(veh, 100.0)
 7         closeMenuFull()
 8         TaskWarpPedIntoVehicle(PlayerPedId(), veh, -1)
 9         TriggerEvent("vehiclekeys:client:SetOwner", GetVehicleNumberPlateText(veh))

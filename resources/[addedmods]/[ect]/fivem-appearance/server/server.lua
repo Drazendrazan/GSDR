@@ -232,7 +232,3 @@ end
 QBCore.Commands.Add('reloadskin', 'Reloads your character', {}, false, function(source, _)
     TriggerClientEvent("fivem-appearance:client:reloadSkin", source)
 end)
-
-QBCore.Commands.Add('clearstuckprops', 'Removes all the props attached to the entity', {}, false, function(source, _)
-    TriggerClientEvent("fivem-appearance:client:ClearStuckProps", source)
-end)

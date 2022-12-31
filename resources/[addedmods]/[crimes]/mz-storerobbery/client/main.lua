@@ -1,5 +1,4 @@
 local QBCore = exports['qb-core']:GetCoreObject()
-local ox_inventory = exports.ox_inventory
 
 local currentRegister = 0
 local currentSafe = 0
@@ -402,7 +401,7 @@ CreateThread(function()
                                         TriggerServerEvent("evidence:server:CreateFingerDrop", pos)
                                     end
                                     if Config.Safes[safe].type == "keypad" then
-                                        if .ox_inventory:GetItem(source, 'usb2', nil, true) then
+                                        if QBCore.Functions.HasItem("usb2") then
                                             if Config.Hacktype == 'numberMatch' then 
                                                 TriggerServerEvent("qb-storerobbery:server:setSafeStatus", currentSafe)
                                                 TriggerEvent('animations:client:EmoteCommandStart', {"kneel"})

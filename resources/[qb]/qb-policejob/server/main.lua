@@ -393,32 +393,6 @@ QBCore.Commands.Add("paylawyer", Lang:t("commands.paylawyer"), {{name = "id",hel
     end
 end)
 
-QBCore.Commands.Add('fine', Lang:t("commands.fine"), {{name = 'id', help = Lang:t('info.player_id')}, {name = 'amount', help = Lang:t('info.amount')}}, false, function(source, args)
-    local biller = QBCore.Functions.GetPlayer(source)
-    local billed = QBCore.Functions.GetPlayer(tonumber(args[1]))
-    local amount = tonumber(args[2])
-    if biller.PlayerData.job.name == "police" then
-        if billed ~= nil then
-            if biller.PlayerData.citizenid ~= billed.PlayerData.citizenid then
-                if amount and amount > 0 then
-                    billed.Functions.RemoveMoney('bank', amount, "paid-fine")
-                    TriggerClientEvent('QBCore:Notify', source, Lang:t("info.fine_issued"), 'success')
-                    TriggerClientEvent('QBCore:Notify', billed.PlayerData.source, Lang:t("info.received_fine"))
-                    exports['qb-management']:AddMoney('police', amount)
-                else
-                    TriggerClientEvent('QBCore:Notify', source, Lang:t("error.amount_higher"), 'error')
-                end
-            else
-                TriggerClientEvent('QBCore:Notify', source, Lang:t("error.fine_yourself"), 'error')
-            end
-        else
-            TriggerClientEvent('QBCore:Notify', source, Lang:t("error.not_online"), 'error')
-        end
-    else
-        TriggerClientEvent('QBCore:Notify', source, Lang:t("error.on_duty_police_only"), 'error')
-    end
-end)
-
 QBCore.Commands.Add("anklet", Lang:t("commands.anklet"), {}, false, function(source)
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
@@ -754,7 +728,7 @@ RegisterNetEvent('police:server:BillPlayer', function(playerId, price)
     if not Player or not OtherPlayer or Player.PlayerData.job.name ~= "police" then return end
 
     OtherPlayer.Functions.RemoveMoney("bank", price, "paid-bills")
-    exports['qb-management']:AddMoney("police", price)
+    exports['Renewed-Banking']:addAccountMoney("police", price)
     TriggerClientEvent('QBCore:Notify', OtherPlayer.PlayerData.source, Lang:t("info.fine_received", {fine = price}))
 end)
 
@@ -769,6 +743,9 @@ RegisterNetEvent('police:server:JailPlayer', function(playerId, time)
     local Player = QBCore.Functions.GetPlayer(src)
     local OtherPlayer = QBCore.Functions.GetPlayer(playerId)
     if not Player or not OtherPlayer or Player.PlayerData.job.name ~= "police" then return end
+ 
+    local name = OtherPlayer.PlayerData.charinfo.firstname.." "..OtherPlayer.PlayerData.charinfo.lastname
+    exports['futte-newspaper']:CreateJailStory(name, time)
 
     local currentDate = os.date("*t")
     if currentDate.day == 31 then

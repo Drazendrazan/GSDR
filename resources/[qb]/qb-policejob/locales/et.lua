@@ -25,8 +25,6 @@ local Translations = {
         have_evidence_bag = 'Sul peab olema tühi asitõendite kott kaasas',
         no_driver_license = 'Puudub juhiluba',
         not_cuffed_dead = 'Tsiviil ei ole raudus ega surnud',
-        fine_yourself = '???',
-        not_online = "???"
     },
     success = {
         uncuffed = 'Teil võeti rauad maha',
@@ -114,8 +112,6 @@ local Translations = {
         anklet_location = 'Jalavõru asukoht',
         new_call = 'Uus teavitus',
         officer_down = 'Politseinik %{lastname} | %{callsign} SOS',
-        fine_issued = '???',
-        received_fine = '???'
     },
     evidence = {
         red_hands = 'Punased käed',
@@ -177,7 +173,6 @@ local Translations = {
         message_sent = 'Sõnum saadeti',
         civilian_call = 'Tsiviilisiku kõne',
         emergency_call = 'Uus 911 kõne',
-        fine = '???'
     },
     progressbar = {
         blood_clear = 'Puhastad verd...',

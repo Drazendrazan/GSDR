@@ -1,10 +1,10 @@
 local QBCore = exports['qb-core']:GetCoreObject()
 
 Citizen.CreateThread(function()
-	exports['qb-target']:AddBoxZone("GunnarsTacos-Duty", vector3(418.15, -1915.08, 25.47), 0.8, 0.5, { -- no idea where this is
+	exports['qb-target']:AddBoxZone("GunnarsTacos-Duty", vector3(429.24, -1913.8, 25.47), 0.8, 0.5, {
 		name = "GunnarsTacos-Duty",
 		heading = 225,
-		debugPoly = true,
+		debugPoly = false,
 		minZ=24.0,
 		maxZ=27.0,
 	}, {
@@ -19,7 +19,7 @@ Citizen.CreateThread(function()
 		distance = 1.5
 	})
 
-	exports['qb-target']:AddBoxZone("GunnarsTacos-Tray1", vector3(418.15, -1915.08, 25.47), 1, 1, { -- no idea where this is 
+	exports['qb-target']:AddBoxZone("GunnarsTacos-Tray1", vector3(418.15, -1915.08, 25.47), 1, 1, {
 		name = "GunnarsTacos-Tray1",
 		heading = 315,
 		debugPoly = false,
@@ -36,7 +36,7 @@ Citizen.CreateThread(function()
 		distance = 1.5
 	})
     
-    exports['qb-target']:AddBoxZone("GunnarsTacos-Tray2", vector3(416.28, -1916.98, 25.47), 1, 1, { -- no idea where this is
+    exports['qb-target']:AddBoxZone("GunnarsTacos-Tray2", vector3(416.28, -1916.98, 25.47), 1, 1, {
 		name="GunnarsTacos-Tray2",
 		heading=315,
 		debugPoly=false,
@@ -53,12 +53,12 @@ Citizen.CreateThread(function()
 		distance = 1.5
 	})
 
-    exports['qb-target']:AddBoxZone("GunnarsTacos-Fridge", vector3(17.56, -1599.01, 28.37), 1.2, 1, {
+    exports['qb-target']:AddBoxZone("GunnarsTacos-Fridge", vector3(424.18, -1921.79, 25.47), 1.5, 1, {
         name="GunnarsTacos-Fridge",
         heading=315,
-        dubugPoly=false,
+        debugPoly=false,
 		minZ=24.0,
-		maxZ=30.5,
+		maxZ=27.0,
     }, {
         options = {
            {
@@ -71,12 +71,12 @@ Citizen.CreateThread(function()
         distance = 1.5
     })
 
-    exports['qb-target']:AddBoxZone("GunnarsTacos-OrderIngredients", vector3(8.2, -1607.36, 29.53), 0.5, 0.5, {
+    exports['qb-target']:AddBoxZone("GunnarsTacos-OrderIngredients", vector3(425.96, -1913.62, 25.47), 2, 1.8, {
         name="GunnarsTacos-OrderIngredients",
         heading=315,
-        dubugPoly=false,
-		minZ=29.0,
-		maxZ=30.0,
+        debugPoly=false,
+		minZ=24.0,
+		maxZ=27.0,
     }, {
         options = {
             {
@@ -89,12 +89,12 @@ Citizen.CreateThread(function()
         distance = 1.5
     })
 
-    exports['qb-target']:AddBoxZone("GunnarsTacos-Display1", vector3(10.57, -1599.03, 27.78), 1.4, 0.9, {
+    exports['qb-target']:AddBoxZone("GunnarsTacos-Display1", vector3(420.06, -1916.67, 25.47), 2, 0.9, {
         name="GunnarsTacos-Display1",
         heading=315,
-        dubugPoly=false,
+        debugPoly=false,
 		minZ=24.0,
-		maxZ=29.0,
+		maxZ=27.0,
     }, {
         options = {
             {
@@ -107,12 +107,12 @@ Citizen.CreateThread(function()
         distance = 1.5
     })
 
-    exports['qb-target']:AddBoxZone("GunnarsTacos-Display2", vector3(16.0, -1597.71, 28.3), 1.6, 0.7, {
+    exports['qb-target']:AddBoxZone("GunnarsTacos-Display2", vector3(424.83, -1914.34, 25.48), 1.6, 0.7, {
         name="GunnarsTacos-Display2",
         heading=225,
-        dubugPoly=false,
+        debugPoly=false,
 		minZ=24.0,
-		maxZ=29.0,
+		maxZ=27.0,
     }, {
         options = {
             {
@@ -125,12 +125,12 @@ Citizen.CreateThread(function()
         distance = 1.5
     })
 
-    exports['qb-target']:AddBoxZone("GunnarsTacos-MakeFood", vector3(12.73, -1596.69, 28.43), 2, 0.8, {
+    exports['qb-target']:AddBoxZone("GunnarsTacos-MakeFood", vector3(422.91, -1922.99, 25.47), 2, 0.8, {
         name="GunnarsTacos-MakeFood",
         heading=315,
-        dubugPoly=false,
+        debugPoly=false,
 		minZ=24.0,
-		maxZ=29.8,
+		maxZ=27.0,
     }, {
         options = {
             {
@@ -144,12 +144,12 @@ Citizen.CreateThread(function()
     })
 
 
-    exports['qb-target']:AddBoxZone("GunnarsTacos-MakeMeals", vector3(10.47, -1604.9, 28.83), 1.7, 1, {
+    exports['qb-target']:AddBoxZone("GunnarsTacos-MakeMeals", vector3(427.62, -1918.54, 25.47), 1.7, 1, {
         name="GunnarsTacos-MakeMeals",
         heading=315,
-        dubugPoly=false,
+        debugPoly=false,
 		minZ=24.0,
-		maxZ=30.0,
+		maxZ=27.0,
     }, {
         options = {
             {
@@ -162,12 +162,12 @@ Citizen.CreateThread(function()
         distance = 1.5
     })
 
-    exports['qb-target']:AddBoxZone("GunnarsTacos-CookMeats", vector3(11.06, -1598.92, 29.43), 1.6, 1, {
+    exports['qb-target']:AddBoxZone("GunnarsTacos-CookMeats", vector3(425.3, -1920.77, 25.47), 1.6, 1, {
         name="GunnarsTacos-CookMeats",
         heading=315,
-        dubugPoly=false,
+        debugPoly=false,
 		minZ=24.0,
-		maxZ=30.0,
+		maxZ=27.0,
     }, {
         options = {
             {
@@ -180,12 +180,12 @@ Citizen.CreateThread(function()
         distance = 1.5
     })
 
-    exports['qb-target']:AddBoxZone("GunnarsTacos-Register1", vector3(9.82, -1605.65, 29.59), 0.8, 0.8, {
+    exports['qb-target']:AddBoxZone("GunnarsTacos-Register1", vector3(418.98, -1914.3, 25.47), 0.8, 0.8, {
         name="GunnarsTacos-Register1",
         heading=315,
-        dubugPoly=false,
+        debugPoly=false,
 		minZ=24.0,
-		maxZ=30.0,
+		maxZ=27.0,
     }, {
         options = {
             {
@@ -199,7 +199,7 @@ Citizen.CreateThread(function()
         distance = 1.5
     })
 
-    exports['qb-target']:AddBoxZone("GunnarsTacos-Register2", vector3(416.94, -1916.34, 25.47), 0.8, 0.8, { -- did not find
+    exports['qb-target']:AddBoxZone("GunnarsTacos-Register2", vector3(416.94, -1916.34, 25.47), 0.8, 0.8, {
         name="GunnarsTacos-Register2",
         heading=315,
         debugPoly=false,
@@ -218,12 +218,12 @@ Citizen.CreateThread(function()
         distance = 1.5
     })
 
-    exports['qb-target']:AddBoxZone("GunnarsTacos-SodaDispenser1", vector3(13.54, -1595.84, 28.62), 0.8, 0.8, {
+    exports['qb-target']:AddBoxZone("GunnarsTacos-SodaDispenser1", vector3(418.84, -1917.76, 25.47), 0.8, 0.8, {
         name="GunnarsTacos-SodaDispenser1",
         heading=315,
-        dubugPoly=false,
+        debugPoly=false,
 		minZ=24.0,
-		maxZ=30.0,
+		maxZ=27.0,
     }, {
         options = {
             {
@@ -236,7 +236,7 @@ Citizen.CreateThread(function()
         distance = 1.5
     })
 
-    exports['qb-target']:AddBoxZone("GunnarsTacos-SodaDispenser2", vector3(422.97, -1912.58, 25.47), 1.3, 0.8, { -- did not find
+    exports['qb-target']:AddBoxZone("GunnarsTacos-SodaDispenser2", vector3(422.97, -1912.58, 25.47), 1.3, 0.8, {
         name="GunnarsTacos-SodaDispenser2",
         heading=225,
         debugPoly=false,

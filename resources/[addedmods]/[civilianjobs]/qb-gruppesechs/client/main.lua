@@ -333,7 +333,7 @@ RegisterNetEvent('gruppesechs:getTruck', function()
                 NetworkRegisterEntityAsNetworked(gruppesechsVehicle)
                 SetVehicleNumberPlateText(veh, "SECHS"..tostring(math.random(1000, 9999)))
                 SetEntityHeading(veh, coords.w)
-                exports['cdn-fuel']:SetFuel(veh, 100.0)
+                exports['ps-fuel']:SetFuel(veh, 100.0)
                 SetEntityAsMissionEntity(veh, true, true)
                 TriggerEvent("vehiclekeys:client:SetOwner", QBCore.Functions.GetPlate(veh))
                 exports['qb-target']:AddTargetEntity(gruppesechsVehicle, {

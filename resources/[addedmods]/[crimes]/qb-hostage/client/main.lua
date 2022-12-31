@@ -31,11 +31,11 @@ function takeHostage()
 	target = GetPlayerServerId(closestPlayer)
 	print(target)
 	if closestPlayer ~= nil and closestPlayer ~= -1 then
-		ClearPedSecondaryTask(PlayerPedId())
-		DetachEntity(PlayerPedId(), true, false)
+		ClearPedSecondaryTask(GetPlayerPed(-1))
+		DetachEntity(GetPlayerPed(-1), true, false)
 		for i=1, #hostageAllowedWeapons do
-			if HasPedGotWeapon(PlayerPedId(), GetHashKey(hostageAllowedWeapons[i]), false) then
-				if GetAmmoInPedWeapon(PlayerPedId(), GetHashKey(hostageAllowedWeapons[i])) > 0 then
+			if HasPedGotWeapon(GetPlayerPed(-1), GetHashKey(hostageAllowedWeapons[i]), false) then
+				if GetAmmoInPedWeapon(GetPlayerPed(-1), GetHashKey(hostageAllowedWeapons[i])) > 0 then
 					foundWeapon = GetHashKey(hostageAllowedWeapons[i])
 					NoWeapon = false
 					break
@@ -68,7 +68,7 @@ function takeHostage()
 			controlFlagTarget = 49
 			animFlagTarget = 50
 			attachFlag = true 
-			SetCurrentPedWeapon(PlayerPedId(), foundWeapon, true)
+			SetCurrentPedWeapon(GetPlayerPed(-1), foundWeapon, true)
 			holdingHostageInProgress = true
 			holdingHostage = true 
 			TriggerServerEvent('cmg3_animations:sync', closestPlayer, lib,lib2, anim1, anim2, distans, distans2, height,target,length,spin,controlFlagMe,controlFlagTarget,animFlagTarget,attachFlag, false)
@@ -81,7 +81,7 @@ end
 
 RegisterNetEvent('cmg3_animations:syncTarget')
 AddEventHandler('cmg3_animations:syncTarget', function(target, animationLib, animation2, distans, distans2, height, length,spin,controlFlag,animFlagTarget,attach, emote)
-	local playerPed = PlayerPedId()
+	local playerPed = GetPlayerPed(-1)
 	local targetPed = GetPlayerPed(GetPlayerFromServerId(target))
 	if holdingHostageInProgress then 
 		holdingHostageInProgress = false 
@@ -96,21 +96,21 @@ AddEventHandler('cmg3_animations:syncTarget', function(target, animationLib, ani
 	end
 	if spin == nil then spin = 180.0 end
 	if attach then 
-		AttachEntityToEntity(PlayerPedId(), targetPed, 0, distans2, distans, height, 0.5, 0.5, spin, false, false, false, false, 2, false)
+		AttachEntityToEntity(GetPlayerPed(-1), targetPed, 0, distans2, distans, height, 0.5, 0.5, spin, false, false, false, false, 2, false)
 	else 
 	end
 	
 	if controlFlag == nil then controlFlag = 0 end
 	
 	if animation2 == "victim_fail" then 
-		SetEntityHealth(PlayerPedId(),0)
-		DetachEntity(PlayerPedId(), true, false)
+		SetEntityHealth(GetPlayerPed(-1),0)
+		DetachEntity(GetPlayerPed(-1), true, false)
 		TaskPlayAnim(playerPed, animationLib, animation2, 8.0, -8.0, length, controlFlag, 0, false, false, false)
 		beingHeldHostage = false 
 		holdingHostageInProgress = false 
 	elseif animation2 == "shoved_back" then 
 		holdingHostageInProgress = false 
-		DetachEntity(PlayerPedId(), true, false)
+		DetachEntity(GetPlayerPed(-1), true, false)
 		TaskPlayAnim(playerPed, animationLib, animation2, 8.0, -8.0, length, controlFlag, 0, false, false, false)
 		beingHeldHostage = false 
 	else
@@ -124,8 +124,8 @@ end)
 
 RegisterNetEvent('cmg3_animations:syncMe')
 AddEventHandler('cmg3_animations:syncMe', function(animationLib, animation,length,controlFlag,animFlag)
-	local playerPed = PlayerPedId()
-	ClearPedSecondaryTask(PlayerPedId())
+	local playerPed = GetPlayerPed(-1)
+	ClearPedSecondaryTask(GetPlayerPed(-1))
 	RequestAnimDict(animationLib)
 	while not HasAnimDictLoaded(animationLib) do
 		Citizen.Wait(10)
@@ -136,12 +136,12 @@ AddEventHandler('cmg3_animations:syncMe', function(animationLib, animation,lengt
 	takeHostageAnimDictPlaying = animationLib
 	takeHostageControlFlagPlaying = controlFlag
 	if animation == "perp_fail" then 
-		SetPedShootsAtCoord(PlayerPedId(), 0.0, 0.0, 0.0, 0)
+		SetPedShootsAtCoord(GetPlayerPed(-1), 0.0, 0.0, 0.0, 0)
 		holdingHostageInProgress = false 
 	end
 	if animation == "shove_var_a" then 
 		Wait(900)
-		ClearPedSecondaryTask(PlayerPedId())
+		ClearPedSecondaryTask(GetPlayerPed(-1))
 		holdingHostageInProgress = false 
 	end
 end)
@@ -151,15 +151,15 @@ AddEventHandler('cmg3_animations:cl_stop', function()
 	holdingHostageInProgress = false
 	beingHeldHostage = false 
 	holdingHostage = false 
-	ClearPedSecondaryTask(PlayerPedId())
-	DetachEntity(PlayerPedId(), true, false)
+	ClearPedSecondaryTask(GetPlayerPed(-1))
+	DetachEntity(GetPlayerPed(-1), true, false)
 end)
 
 Citizen.CreateThread(function()
 	while true do
 		if holdingHostage or beingHeldHostage then 
-			while not IsEntityPlayingAnim(PlayerPedId(), takeHostageAnimDictPlaying, takeHostageAnimNamePlaying, 3) do
-				TaskPlayAnim(PlayerPedId(), takeHostageAnimDictPlaying, takeHostageAnimNamePlaying, 8.0, -8.0, 100000, takeHostageControlFlagPlaying, 0, false, false, false)
+			while not IsEntityPlayingAnim(GetPlayerPed(-1), takeHostageAnimDictPlaying, takeHostageAnimNamePlaying, 3) do
+				TaskPlayAnim(GetPlayerPed(-1), takeHostageAnimDictPlaying, takeHostageAnimNamePlaying, 8.0, -8.0, 100000, takeHostageControlFlagPlaying, 0, false, false, false)
 				Citizen.Wait(0)
 			end
 		end
@@ -181,7 +181,7 @@ function GetClosestPlayer(radius)
     local players = GetPlayers()
     local closestDistance = -1
     local closestPlayer = -1
-    local ply = PlayerPedId()
+    local ply = GetPlayerPed(-1)
     local plyCoords = GetEntityCoords(ply, 0)
 
     for index,value in ipairs(players) do
@@ -205,7 +205,7 @@ end
 Citizen.CreateThread(function()
 	while true do 
 		if holdingHostage then
-			if IsEntityDead(PlayerPedId()) then	
+			if IsEntityDead(GetPlayerPed(-1)) then	
 				holdingHostage = false
 				holdingHostageInProgress = false 
 				local closestPlayer = GetClosestPlayer(2)
@@ -218,8 +218,8 @@ Citizen.CreateThread(function()
 			DisableControlAction(0,25,true) -- disable aim
 			DisableControlAction(0,47,true) -- disable weapon
 			DisableControlAction(0,58,true) -- disable weapon
-			DisablePlayerFiring(PlayerPedId(),true)
-			local playerCoords = GetEntityCoords(PlayerPedId())
+			DisablePlayerFiring(GetPlayerPed(-1),true)
+			local playerCoords = GetEntityCoords(GetPlayerPed(-1))
 			DrawText3D(playerCoords.x,playerCoords.y,playerCoords.z,"[G] Let go, [H] Execute")
 			if IsDisabledControlJustPressed(0,47) then --release	
 				holdingHostage = false

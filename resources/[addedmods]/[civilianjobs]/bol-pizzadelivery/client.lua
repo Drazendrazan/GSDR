@@ -316,7 +316,7 @@ function spawn_faggio()
 	SetVehicleOnGroundProperly(spawned_car)
 	SetPedIntoVehicle(ped, spawned_car, - 1)
 	TriggerEvent("vehiclekeys:client:SetOwner", GetVehicleNumberPlateText(spawned_car))
-	exports['cdn-fuel']:SetFuel(spawned_car, 100.0)
+	exports['ps-fuel']:SetFuel(spawned_car, 100.0)
 	SetModelAsNoLongerNeeded(spawned_car)
 	SetEntityAsNoLongerNeeded(spawned_car)
 end

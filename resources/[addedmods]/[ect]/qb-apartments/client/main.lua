@@ -747,10 +747,11 @@ RegisterNetEvent('apartments:client:LeaveApartment', function()
     LeaveApartment(ClosestHouse)
 end)
 
-RegisterNetEvent('apartments:client:OpenStash', function(apId)
+RegisterNetEvent('apartments:client:OpenStash', function()
     if CurrentApartment ~= nil then
-        exports.ox_inventory:openInventory('stash', apId)
+        TriggerServerEvent("inventory:server:OpenInventory", "stash", CurrentApartment)
         TriggerServerEvent("InteractSound_SV:PlayOnSource", "StashOpen", 0.4)
+        TriggerEvent("inventory:client:SetCurrentStash", CurrentApartment)
     end
 end)
 

@@ -191,7 +191,7 @@ end)
 RegisterNetEvent('towing:createTowTruck', function(truckID)
     if exports['ps-playergroups']:GetJobStage() == "TOWING" then
         towtruck = NetworkGetEntityFromNetworkId(truckID)
-        exports['cdn-fuel']:SetFuel(towtruck, 100)
+        exports['ps-fuel']:SetFuel(towtruck, 100)
     end
 end)
 

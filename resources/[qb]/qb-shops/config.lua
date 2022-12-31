@@ -2,7 +2,7 @@ Config = {}
 Config.UseTarget = GetConvar('UseTarget', 'false') == 'true' -- Use qb-target interactions (don't change this, go to your server.cfg and add `setr UseTarget true` to use this and just that from true to false or the other way around)
 Config.FirearmsLicenseCheck = false -- Whether a arms dealer checks for a firearms license
 Config.SellCasinoChips = {
-    coords =  vector4(990.97, 31.77, 71.47, 12.73),
+    coords = vector4(950.37, 34.72, 71.87, 33.82),
     radius = 1.5,
     ped = 's_m_y_casino_01'
 }
@@ -1140,10 +1140,10 @@ Config.Locations = {
         ["blipcolor"] = 0
     },
 
- -- Casino Location
+    -- Casino Locations
     ["casino"] = {
         ["label"] = "Diamond Casino",
-        ["coords"] = vector4(990.0, 30.34, 71.47, 101.46),
+        ["coords"] = vector4(949.29, 32.13, 71.95, 79.54),
         ["ped"] = 'csb_tomcasino',
         ["scenario"] = "WORLD_HUMAN_STAND_MOBILE",
         ["radius"] = 1.5,
@@ -1152,12 +1152,13 @@ Config.Locations = {
         ["products"] = Config.Products["casino"],
         ["showblip"] = true,
         ["blipsprite"] = 617,
+        ["blipscale"] = 0.8,
         ["blipcolor"] = 0
     },
 
     ["casinobar"] = {
         ["label"] = "Casino Bar",
-        ["coords"] = vector4(978.4, 25.44, 71.46, 40.29),
+        ["coords"] = vector4(937.45, 27.22, 71.83, 61.21),
         ["ped"] = 'a_m_y_smartcaspat_01',
         ["scenario"] = "WORLD_HUMAN_VALET",
         ["radius"] = 1.5,
@@ -1166,6 +1167,7 @@ Config.Locations = {
         ["products"] = Config.Products["liquor"],
         ["showblip"] = false,
         ["blipsprite"] = 52,
+        ["blipscale"] = 0.8,
         ["blipcolor"] = 0
     },
 

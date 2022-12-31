@@ -6,7 +6,7 @@ Config.Payed = 76
 
 Config.VehicleSpawn = vector4(270.49, -962.61, 29.29, 37.22)
 
-Config.FuelSystem = 'cdn-fuel'
+Config.FuelSystem = 'ps-fuel'
 
 Config.PedCoords = vector4(273.21, -965.29, 28.32, 34.97)
 

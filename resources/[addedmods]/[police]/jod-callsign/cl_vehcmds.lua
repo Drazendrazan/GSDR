@@ -1,6 +1,6 @@
 RegisterCommand('extra', function(source, args)
 	
-local vehicle = GetVehiclePedIsIn(PlayerPedId())
+local vehicle = GetVehiclePedIsIn(GetPlayerPed(-1))
 local extraId =  tonumber(args[1])
 local isExtraActive = IsVehicleExtraTurnedOn(vehicle, extraId)
     SetVehicleExtra(vehicle, extraId, isExtraActive)
@@ -10,7 +10,7 @@ end)
 
 RegisterCommand('livery', function(source, args)
 
-local Veh = GetVehiclePedIsIn(PlayerPedId())
+local Veh = GetVehiclePedIsIn(GetPlayerPed(-1))
 local liveryID = tonumber(args[1])
     SetVehicleLivery(Veh, liveryID)
 
@@ -19,7 +19,7 @@ end)
 
 RegisterCommand('wintint', function(source, args)
 
-local vehicle = GetVehiclePedIsIn(PlayerPedId())
+local vehicle = GetVehiclePedIsIn(GetPlayerPed(-1))
     SetVehicleWindowTint(vehicle, tonumber(args[1]))
 
 end)
@@ -27,14 +27,14 @@ end)
 
 RegisterCommand('cleanveh', function(source, args)
 
-local vehicle = GetVehiclePedIsIn(PlayerPedId())
+local vehicle = GetVehiclePedIsIn(GetPlayerPed(-1))
     SetVehicleDirtLevel(vehicle, 0)
 
 end)
 
 RegisterCommand('callsignv', function(source, args) 
 
-    local Veh = GetVehiclePedIsIn(PlayerPedId())
+    local Veh = GetVehiclePedIsIn(GetPlayerPed(-1))
     local num1 = tonumber(args[1])
     local num2 = tonumber(args[2])
     local num3 = tonumber(args[3])
@@ -48,7 +48,7 @@ end)
 
 RegisterCommand('lspdvic', function(source, args) 
 
-    local Veh = GetVehiclePedIsIn(PlayerPedId())
+    local Veh = GetVehiclePedIsIn(GetPlayerPed(-1))
 
     SetVehicleModKit(Veh, 0)
     SetVehicleMod(Veh, 5, 1, false)
@@ -70,7 +70,7 @@ end)
 
 RegisterCommand('lspdchar', function(source, args) 
 
-    local Veh = GetVehiclePedIsIn(PlayerPedId())
+    local Veh = GetVehiclePedIsIn(GetPlayerPed(-1))
 
     SetVehicleModKit(Veh, 0)
     SetVehicleMod(Veh, 5, 1, false)
@@ -92,7 +92,7 @@ end)
 
 RegisterCommand('lspdexp', function(source, args) 
 
-    local Veh = GetVehiclePedIsIn(PlayerPedId())
+    local Veh = GetVehiclePedIsIn(GetPlayerPed(-1))
 
     SetVehicleModKit(Veh, 0)
     SetVehicleMod(Veh, 5, 1, false)
@@ -115,7 +115,7 @@ end)
 
 RegisterCommand('polchal', function(source, args) 
 
-    local Veh = GetVehiclePedIsIn(PlayerPedId())
+    local Veh = GetVehiclePedIsIn(GetPlayerPed(-1))
 
     SetVehicleModKit(Veh, 0)
     SetVehicleMod(Veh, 5, 1, false)
@@ -136,7 +136,7 @@ end)
 
 RegisterCommand('polstang', function(source, args) 
 
-    local Veh = GetVehiclePedIsIn(PlayerPedId())
+    local Veh = GetVehiclePedIsIn(GetPlayerPed(-1))
 
     SetVehicleModKit(Veh, 0)
     SetVehicleMod(Veh, 5, 1, false)
@@ -157,7 +157,7 @@ end)
 
 RegisterCommand('polvette', function(source, args) 
 
-    local Veh = GetVehiclePedIsIn(PlayerPedId())
+    local Veh = GetVehiclePedIsIn(GetPlayerPed(-1))
 
     SetVehicleModKit(Veh, 0)
     SetVehicleMod(Veh, 5, 1, false)
@@ -178,7 +178,7 @@ end)
 
 RegisterCommand('umchar', function(source, args) 
 
-    local Veh = GetVehiclePedIsIn(PlayerPedId())
+    local Veh = GetVehiclePedIsIn(GetPlayerPed(-1))
 
     SetVehicleModKit(Veh, 0)
     SetVehicleMod(Veh, 5, 1, false)

@@ -25,8 +25,6 @@ local Translations = {
         have_evidence_bag = 'Jūs privalote turėti tuščią įrodymų maišelį su savimi',
         no_driver_license = 'Neturi vairutojo pažymėjimo',
         not_cuffed_dead = 'Civilis nėra surakintas ar miręs',
-        fine_yourself = '???',
-        not_online = "???"
     },
     success = {
         uncuffed = 'Jūs buvote atrakintas',
@@ -113,9 +111,7 @@ local Translations = {
         target_location = '%{firstname} %{lastname} vieta pažymėti žemėlapyje',
         anklet_location = 'Apykojos lokacija',
         new_call = 'Naujas iškvietimas',
-        officer_down = 'Pareigūnas %{lastname} | %{callsign} be sąmonės',
-        fine_issued = '???',
-        received_fine = '???'
+        officer_down = 'Pareigūnas %{lastname} | %{callsign} be sąmonės'
     },
     evidence = {
         red_hands = 'Raudonos rankos',
@@ -177,7 +173,6 @@ local Translations = {
         message_sent = 'Žinutė išsiuntimui',
         civilian_call = 'Civilio iškvietimas',
         emergency_call = 'Naujas 911 iškvietimas',
-        fine = '???'
     },
     progressbar = {
         blood_clear = 'Išvalomas kraujas...',

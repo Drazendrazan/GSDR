@@ -279,7 +279,7 @@ RegisterNetEvent('police:client:CuffPlayer', function()
     if not IsPedRagdoll(PlayerPedId()) then
         local player, distance = QBCore.Functions.GetClosestPlayer()
         if player ~= -1 and distance < 1.5 then
-            local result = QBCore.Functions.HasItem(Config.HandCuffItem)
+            local result = QBCore.Functions.Hasitem(Config.HandCuffItem)
             if result then
                 local playerId = GetPlayerServerId(player)
                 if not IsPedInAnyVehicle(GetPlayerPed(player)) and not IsPedInAnyVehicle(PlayerPedId()) then
@@ -299,10 +299,11 @@ RegisterNetEvent('police:client:CuffPlayer', function()
     end
 end)
 
+
 RegisterNetEvent('police:client:GetEscorted', function(playerId)
     local ped = PlayerPedId()
     QBCore.Functions.GetPlayerData(function(PlayerData)
-        if PlayerData.metadata["isdead"] or isHandcuffed or PlayerData.metadata["inlaststand"] then
+        if PlayerData.metadata["isdead"] or isHandcuffed or PlayerData.metadata["inlaststand"] or PlayerData.metadata['ishandcuffed'] then
             if not isEscorted then
                 isEscorted = true
                 local dragger = GetPlayerPed(GetPlayerFromServerId(playerId))
@@ -316,6 +317,7 @@ RegisterNetEvent('police:client:GetEscorted', function(playerId)
         end
     end)
 end)
+
 
 RegisterNetEvent('police:client:DeEscort', function()
     isEscorted = false

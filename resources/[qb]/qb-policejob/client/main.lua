@@ -4,6 +4,7 @@ isHandcuffed = false
 cuffType = 1
 isEscorted = false
 PlayerJob = {}
+onDuty = false
 local DutyBlips = {}
 
 -- Functions
@@ -42,6 +43,7 @@ end
 AddEventHandler('QBCore:Client:OnPlayerLoaded', function()
     local player = QBCore.Functions.GetPlayerData()
     PlayerJob = player.job
+    onDuty = player.job.onduty
     isHandcuffed = false
     TriggerServerEvent("police:server:SetHandcuffStatus", false)
     TriggerServerEvent("police:server:UpdateBlips")
@@ -85,7 +87,7 @@ RegisterNetEvent('QBCore:Client:OnPlayerUnload', function()
     TriggerServerEvent("police:server:UpdateCurrentCops")
     isHandcuffed = false
     isEscorted = false
-    PlayerJob = {}
+    onDuty = false
     ClearPedTasks(PlayerPedId())
     DetachEntity(PlayerPedId(), true, false)
     if DutyBlips then
@@ -96,11 +98,14 @@ RegisterNetEvent('QBCore:Client:OnPlayerUnload', function()
     end
 end)
 
-RegisterNetEvent("QBCore:Client:SetDuty", function(newDuty)
-    PlayerJob.onduty = newDuty
-end)
-
 RegisterNetEvent('QBCore:Client:OnJobUpdate', function(JobInfo)
+    if JobInfo.name == "police" and PlayerJob.name ~= "police" then
+        if JobInfo.onduty then
+            TriggerServerEvent("QBCore:ToggleDuty")
+            onDuty = false
+        end
+    end
+
     if JobInfo.name ~= "police" then
         if DutyBlips then
             for _, v in pairs(DutyBlips) do
@@ -131,7 +136,7 @@ end)
 
 RegisterNetEvent('police:client:UpdateBlips', function(players)
     if PlayerJob and (PlayerJob.name == 'police' or PlayerJob.name == 'ambulance') and
-        PlayerJob.onduty then
+        onDuty then
         if DutyBlips then
             for _, v in pairs(DutyBlips) do
                 RemoveBlip(v)
@@ -213,4 +218,12 @@ CreateThread(function()
         AddTextComponentString(station.label)
         EndTextCommandSetBlipName(blip)
     end
+end)
+
+RegisterNetEvent('police:client:setDuty')
+AddEventHandler('police:client:setDuty', function(duty)
+    if(PlayerJob.name == nil) then
+        PlayerJob = QBCore.Functions.GetPlayerData().job
+    end
+    onDuty = duty
 end)
