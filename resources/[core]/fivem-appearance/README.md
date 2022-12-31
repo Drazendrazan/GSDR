@@ -100,7 +100,6 @@ RegisterCommand('customization', function()
     headOverlays = true,
     components = true,
     props = true,
-    allowExit = true,
     tattoos = true
   }
 
