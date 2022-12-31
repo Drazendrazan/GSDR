@@ -281,22 +281,19 @@ end)
 --------------
 
 CreateThread(function()
-    exports['qb-target']:AddBoxZone("mulchbark", vector3(-551.43, 5330.19, 73.96), 3, 3, {
-        name = "mulchbark",
-        heading = 340,
-        debugPoly = false,
-        minZ = 70.76,
-        maxZ = 74.76,
-        }, {
-            options = { 
+    exports.ox_target:addBoxZone({
+        coords = vec3(-551.43, 5330.19, 73.96),
+        size = vec(3, 3, 3),
+        debug = drawzones,
+        rotation = 45,
+        options = { 
             {
-                type = "client",
+                name = 'mulchbark'
                 event = "mz-lumberjack:client:MulchBark",
                 icon = 'fas fa-tree',
                 label = 'Mulch Bark'
             },
         },
-        distance = 1.5,
      })
 end)
 
