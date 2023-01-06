@@ -20,10 +20,10 @@ end)
 -- Player Connecting
 
 local function onPlayerConnecting(name, _, deferrals)
-    local user_steam
     local src = source
     local license
     local identifiers = GetPlayerIdentifiers(src)
+    local user_steam
     deferrals.defer()
 
     -- Mandatory wait
@@ -40,28 +40,17 @@ local function onPlayerConnecting(name, _, deferrals)
             license = v
             break
         end
-        
     end
-    
-    for _, v in pairs(identifiers) do
-        if string.find(v, 'steam') then
-            user_steam= v
-            break
-        end
-        
+
+    if GetConvarInt("sv_fxdkMode", false) then
+        license = 'license:AAAAAAAAAAAAAAAA' -- Dummy License
     end
 
     if not license then
         deferrals.done(Lang:t('error.no_valid_license'))
-      elseif not user_steam then
-        deferrals.done("You need to open Steam to play.")
-      elseif isBanned then
-          deferrals.done(Reason)
-      elseif isLicenseAlreadyInUse and QBCore.Config.Server.CheckDuplicateLicense then
-          deferrals.done(Lang:t('error.duplicate_license'))
-      elseif isWhitelist and not whitelisted then
-        deferrals.done(Lang:t('error.not_whitelisted'))
-      end
+    elseif QBCore.Config.Server.CheckDuplicateLicense and QBCore.Functions.IsLicenseInUse(license) then
+        deferrals.done(Lang:t('error.duplicate_license'))
+    end
 
     local databaseTime = os.clock()
     local databasePromise = promise.new()
@@ -180,19 +169,6 @@ RegisterNetEvent('QBCore:UpdatePlayer', function()
     Player.Functions.Save()
 end)
 
-RegisterNetEvent('QBCore:Server:SetMetaData', function(meta, data)
-    local src = source
-    local Player = QBCore.Functions.GetPlayer(src)
-    if not Player then return end
-    if meta == 'hunger' or meta == 'thirst' then
-        if data > 100 then
-            data = 100
-        end
-    end
-    Player.Functions.SetMetaData(meta, data)
-    TriggerClientEvent('hud:client:UpdateNeeds', src, Player.PlayerData.metadata['hunger'], Player.PlayerData.metadata['thirst'])
-end)
-
 RegisterNetEvent('QBCore:ToggleDuty', function()
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
@@ -205,6 +181,47 @@ RegisterNetEvent('QBCore:ToggleDuty', function()
         TriggerClientEvent('QBCore:Notify', src, Lang:t('info.on_duty'))
     end
     TriggerClientEvent('QBCore:Client:SetDuty', src, Player.PlayerData.job.onduty)
+end)
+
+-- BaseEvents
+
+-- Vehicles
+RegisterServerEvent('baseevents:enteringVehicle', function(veh,seat,modelName)
+    local src = source
+    local data = {
+        vehicle = veh,
+        seat = seat,
+        name = modelName,
+        event = 'Entering'
+    }
+    TriggerClientEvent('QBCore:Client:VehicleInfo', src, data)
+end)
+
+RegisterServerEvent('baseevents:enteredVehicle', function(veh,seat,modelName)
+    local src = source
+    local data = {
+        vehicle = veh,
+        seat = seat,
+        name = modelName,
+        event = 'Entered'
+    }
+    TriggerClientEvent('QBCore:Client:VehicleInfo', src, data)
+end)
+
+RegisterServerEvent('baseevents:enteringAborted', function()
+    local src = source
+    TriggerClientEvent('QBCore:Client:AbortVehicleEntering', src)
+end)
+
+RegisterServerEvent('baseevents:leftVehicle', function(veh,seat,modelName)
+    local src = source
+    local data = {
+        vehicle = veh,
+        seat = seat,
+        name = modelName,
+        event = 'Left'
+    }
+    TriggerClientEvent('QBCore:Client:VehicleInfo', src, data)
 end)
 
 -- Items
