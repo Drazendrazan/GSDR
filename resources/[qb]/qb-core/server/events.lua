@@ -20,6 +20,7 @@ end)
 -- Player Connecting
 
 local function onPlayerConnecting(name, _, deferrals)
+    local user_steam
     local src = source
     local license
     local identifiers = GetPlayerIdentifiers(src)
@@ -39,13 +40,28 @@ local function onPlayerConnecting(name, _, deferrals)
             license = v
             break
         end
+        
+    end
+    
+    for _, v in pairs(identifiers) do
+        if string.find(v, 'steam') then
+            user_steam= v
+            break
+        end
+        
     end
 
     if not license then
         deferrals.done(Lang:t('error.no_valid_license'))
-    elseif QBCore.Config.Server.CheckDuplicateLicense and QBCore.Functions.IsLicenseInUse(license) then
-        deferrals.done(Lang:t('error.duplicate_license'))
-    end
+      elseif not user_steam then
+        deferrals.done("You need to open Steam to play.")
+      elseif isBanned then
+          deferrals.done(Reason)
+      elseif isLicenseAlreadyInUse and QBCore.Config.Server.CheckDuplicateLicense then
+          deferrals.done(Lang:t('error.duplicate_license'))
+      elseif isWhitelist and not whitelisted then
+        deferrals.done(Lang:t('error.not_whitelisted'))
+      end
 
     local databaseTime = os.clock()
     local databasePromise = promise.new()

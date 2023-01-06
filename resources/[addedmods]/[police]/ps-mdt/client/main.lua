@@ -86,6 +86,29 @@ RegisterCommand('mdt', function()
     end
 end, false)
 
+Config.Model = {
+    `prop_monitor_01a`
+}
+CreateThread(function()
+    exports['qb-target']:AddTargetModel(Config.Model, {
+        options = {
+            {
+                type = "command",
+                event = "mdt",
+                icon = "fas fa-circle-info",
+                label = "Open MDT",
+                job = {
+                    ['police'] = 0,
+                    ['sasp'] = 0,
+                    ['bcso'] = 0,
+                    ['fib'] = 0,
+                },
+            },
+        },
+        distance = 3.0,
+    })
+end)
+
 Citizen.CreateThread(function()
     TriggerEvent('chat:addSuggestion', '/mdt', 'Open the emergency services MDT', {})
 end)

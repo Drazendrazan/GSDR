@@ -227,3 +227,38 @@ AddEventHandler('police:client:setDuty', function(duty)
     end
     onDuty = duty
 end)
+
+RegisterNetEvent('police:client:hijack', function()
+    local cop = PlayerPedId()
+    local copcoords = GetEntityCoords(cop)
+    local vehicle = QBCore.Functions.GetClosestVehicle()
+    local vehiclepos = GetEntityCoords(vehicle)
+    local PlayerJob = QBCore.Functions.GetPlayerData().job
+    
+    if #(copcoords - vehiclepos) < 3.0 then
+        if GetVehicleDoorLockStatus(vehicle) == 0 then QBCore.Functions.Notify("This vehicle doesn't seem to be locked.", "error") return end
+        if PlayerJob.name == 'police' then
+            TriggerEvent('animations:client:EmoteCommandStart', {"weld"})
+            QBCore.Functions.Progressbar("policeunlock", "Unlocking vehicle..", 5000, false, false, {
+                disableMovement = true,
+                disableCarMovement = true,
+                disableMouse = false,
+                disableCombat = true,
+                }, {}, {}, {}, function()
+                TriggerEvent('animations:client:EmoteCommandStart', {"weld"})
+                Wait(100)
+                TriggerEvent('animations:client:EmoteCommandStart', {"c"})
+                Wait(500)
+                TriggerServerEvent("InteractSound_SV:PlayWithinDistance", 5, "lock", 0.3)
+                QBCore.Functions.Notify('Vehicle unlocked.', 'success')
+                TriggerServerEvent('qb-vehiclekeys:server:setVehLockState', NetworkGetNetworkIdFromEntity(vehicle), 1)
+                TriggerServerEvent('qb-vehiclekeys:server:AcquireVehicleKeys', QBCore.Functions.GetPlate(vehicle))
+                SetVehicleAlarm(vehicle, false)
+            end)
+        else
+            QBCore.Functions.Notify("You are not Police!", "error")
+        end
+    else
+        QBCore.Functions.Notify("Not near any vehicle.", "error")
+    end
+end)

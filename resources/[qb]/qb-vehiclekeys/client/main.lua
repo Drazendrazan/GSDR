@@ -442,38 +442,19 @@ end
 function Hotwire(vehicle, plate)
     local hotwireTime = math.random(Config.minHotwireTime, Config.maxHotwireTime)
     local ped = PlayerPedId()
-    IsHotwiring = true
 
     SetVehicleAlarm(vehicle, true)
     SetVehicleAlarmTimeLeft(vehicle, hotwireTime)
-    exports['ps-dispatch']:VehicleTheft()
-    QBCore.Functions.Progressbar("hotwire_vehicle", Lang:t("progress.hskeys"), hotwireTime, false, true, {
-        disableMovement = true,
-        disableCarMovement = true,
-        disableMouse = false,
-        disableCombat = true
-    }, {
-        animDict = "anim@amb@clubhouse@tutorial@bkr_tut_ig3@",
-        anim = "machinic_loop_mechandplayer",
-        flags = 16
-    }, {}, {}, function() -- Done
-        StopAnimTask(ped, "anim@amb@clubhouse@tutorial@bkr_tut_ig3@", "machinic_loop_mechandplayer", 1.0)
-        TriggerServerEvent('hud:server:GainStress', math.random(1, 4))
-        if (math.random() <= Config.HotwireChance) then
+    exports['ps-ui']:Circle(function(success)
+        IsHotwiring = true
+        if success then
             TriggerServerEvent('qb-vehiclekeys:server:AcquireVehicleKeys', plate)
+            IsHotwiring = false
         else
             QBCore.Functions.Notify(Lang:t("notify.fvlockpick"), "error")
+            IsHotwiring = false
         end
-        Wait(Config.TimeBetweenHotwires)
-        IsHotwiring = false
-    end, function() -- Cancel
-        StopAnimTask(ped, "anim@amb@clubhouse@tutorial@bkr_tut_ig3@", "machinic_loop_mechandplayer", 1.0)
-        IsHotwiring = false
-    end)
-    SetTimeout(10000, function()
-        AttemptPoliceAlert("steal")
-    end)
-    IsHotwiring = false
+    end, 4, 8) -- NumberOfCircles, MS
 end
 
 function CarjackVehicle(target)
@@ -551,7 +532,9 @@ function AttemptPoliceAlert(type)
             chance = Config.PoliceNightAlertChance
         end
         if math.random() <= chance then
-           TriggerServerEvent('police:server:policeAlert', Lang:t("info.palert") .. type)
+           --TriggerServerEvent('police:server:policeAlert', Lang:t("info.palert") .. type)
+           local vehicle = QBCore.Functions.GetClosestVehicle()
+           exports['ps-dispatch']:VehicleTheft(vehicle)
         end
         AlertSend = true
         SetTimeout(Config.AlertCooldown, function()

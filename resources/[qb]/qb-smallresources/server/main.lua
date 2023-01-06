@@ -72,3 +72,16 @@ QBCore.Functions.CreateCallback('smallresources:server:GetCurrentPlayers', funct
     end
     cb(TotalPlayers)
 end)
+
+CreateThread(function()
+    while true do
+        local shooter = PlayerPedId()
+        local inVehicle = IsPedSittingInAnyVehicle(shooter)
+        local veh = GetVehiclePedIsUsing(shooter)
+        local vehClass = GetVehicleClass(veh)
+        if inVehicle then
+            SetPlayerCanDoDriveBy(PlayerId(), false)
+        end
+        Wait(1000)
+    end
+end)

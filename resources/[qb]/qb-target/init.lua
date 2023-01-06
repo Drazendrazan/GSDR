@@ -97,6 +97,53 @@ Config.TargetModels = {
 		},
 	distance = 2.5,
 	},
+	["drinkVending"] = {
+        models =     {
+            "prop_vend_soda_01",
+            "prop_vend_soda_02",
+            "prop_vend_water_01",
+        },
+        options = {
+            {
+                type = "client",
+                event = 'vendingDrink:buy',
+                icon = "fas fa-shopping-basket",
+                label = "Insert Coin",
+            },
+        },
+        distance = 2.5
+    },
+    ["vendingSnack"] = {
+        models =     {
+            "prop_vend_snak_01",
+            "prop_vend_snak_01_tu",
+        },
+        options = {
+            {
+                type = "client",
+                event = 'vendingSnack:buy',
+                icon = "fas fa-shopping-basket",
+                label = "Insert Coin",
+            },
+        },
+        distance = 2.5
+    },
+    
+    ["vendingCoffee"] = {
+        models =     {
+            "prop_vend_coffe_01",
+            "apa_mp_h_acc_coffeemachine_01",
+        },
+        options = {
+            {
+                type = "client",
+                event = 'vendingCoffee:buy',
+                icon = "fas fa-shopping-basket",
+                label = "Insert Coin",
+            },
+        },
+        distance = 2.5
+    },
 }
 
 Config.GlobalPedOptions = {
