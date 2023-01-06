@@ -653,15 +653,14 @@ Config.JobInteractions = {
                     type = 'client',
                     event = 'police:client:JailPlayer',
                     shouldClose = true
-                }
-                {
+                }, {
                     id = 'pdunlock',
                     title = 'Force Unlock',
                     icon = 'unlock',
                     type = 'client',
                     event = 'police:client:hijack',
                     shouldClose = true
-                  },
+                }
             }
         }, {
             id = 'policeobjects',
