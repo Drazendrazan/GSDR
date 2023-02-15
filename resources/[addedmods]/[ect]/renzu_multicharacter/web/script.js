@@ -82,10 +82,11 @@ window.addEventListener('message', function (table) {
         getEl('logocontainer').style.right = '15%'
         getEl('logocontainer').style.top = '35%'
     }
-    if (event.characters) {  
-        let chars = event.characters
+    if (event.data) {
+        let chars = event.data?.characters || {}
         characters = chars
-        for (var i = 0; i < event.slots; i++) {
+        if (event.data.slots == undefined) { event.data.slots = 5 }
+        for (var i = 0; i < event.data.slots; i++) {
             if (!chars[i]) {
                 chars[i] = {name : 'EMPTY SLOT'}
             } else if (chars[i] && chars[i].name == undefined) {
@@ -109,31 +110,31 @@ window.addEventListener('message', function (table) {
             getEl('characters').insertAdjacentHTML("beforeend", ui)
             for (const ex in chars[index]?.extras || {}) {
                 if (chars[index].extras[ex]) {
-                    let ui = `<a href="#" class="char__extras with-tooltip" data-tooltip-content="${ex}">${event.extras[ex]}</a>`
+                    let ui = `<a href="#" class="char__extras with-tooltip" data-tooltip-content="${ex}">${event.data.extras[ex]}</a>`
                     getEl(`extras_${i}`).insertAdjacentHTML("beforeend", ui)
                 }
             }
         }
 
     }
-    if (event.showoptions == 'existing') {
+    if (event.showcharacter?.showoptions == 'existing') {
         getEl('delete').style.display = 'inline-block'
         getEl('register').style.display = 'none'
         getEl('charinfo').style.display = 'unset'
         getEl('logocontainer').style.display = 'none'
         getEl('option').style.display = 'inline-block'
         getEl('registercustom').style.display = 'none'
-        chosenslot = event.slot
+        chosenslot = event.showcharacter.slot
         ShowInfos()
-    } else if (event.showoptions == 'new') {
-        chosenslot = event.slot
-        if (event.customregister) {
+    } else if (event.showcharacter?.showoptions == 'new') {
+        chosenslot = event.showcharacter.slot
+        if (event.showcharacter.customregister) {
             getEl('delete').style.display = 'none'
             getEl('charinfo').style.display = 'none'
             getEl('logocontainer').style.display = 'none'
             getEl('option').style.display = 'none'
             getEl('registercustom').style.display = 'block'
-        } else if (event.customregister == false) {
+        } else if (event.showcharacter.customregister == false) {
             getEl('register').style.display = 'flex'
             getEl('delete').style.display = 'none'
             getEl('charinfo').style.display = 'none'
@@ -240,4 +241,16 @@ function sex(str) {
 
 function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
+var select = document.getElementById("selectCountry")
+var countries = new Array("Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Antarctica", "Antigua and Barbuda", "Argentina", "Armenia", "Australia", "Austria", "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bermuda", "Bhutan", "Bolivia", "Bosnia and Herzegovina", "Botswana", "Brazil", "Brunei", "Bulgaria", "Burkina Faso", "Burma", "Burundi", "Cambodia", "Cameroon", "Canada", "Cape Verde", "Central African Republic", "Chad", "Chile", "China", "Colombia", "Comoros", "Congo, Democratic Republic", "Congo, Republic of the", "Costa Rica", "Cote d'Ivoire", "Croatia", "Cuba", "Cyprus", "Czech Republic", "Denmark", "Djibouti", "Dominica", "Dominican Republic", "East Timor", "Ecuador", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", "Ethiopia", "Fiji", "Finland", "France", "Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Greece", "Greenland", "Grenada", "Guatemala", "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Honduras", "Hong Kong", "Hungary", "Iceland", "India", "Indonesia", "Iran", "Iraq", "Ireland", "Israel", "Italy", "Jamaica", "Japan", "Jordan", "Kazakhstan", "Kenya", "Kiribati", "Korea, North", "Korea, South", "Kuwait", "Kyrgyzstan", "Laos", "Latvia", "Lebanon", "Lesotho", "Liberia", "Libya", "Liechtenstein", "Lithuania", "Luxembourg", "Macedonia", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Marshall Islands", "Mauritania", "Mauritius", "Mexico", "Micronesia", "Moldova", "Mongolia", "Morocco", "Monaco", "Mozambique", "Namibia", "Nauru", "Nepal", "Netherlands", "New Zealand", "Nicaragua", "Niger", "Nigeria", "Norway", "Oman", "Pakistan", "Panama", "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Poland", "Portugal", "Qatar", "Romania", "Russia", "Rwanda", "Samoa", "San Marino", " Sao Tome", "Saudi Arabia", "Senegal", "Serbia and Montenegro", "Seychelles", "Sierra Leone", "Singapore", "Slovakia", "Slovenia", "Solomon Islands", "Somalia", "South Africa", "Spain", "Sri Lanka", "Sudan", "Suriname", "Swaziland", "Sweden", "Switzerland", "Syria", "Taiwan", "Tajikistan", "Tanzania", "Thailand", "Togo", "Tonga", "Trinidad and Tobago", "Tunisia", "Turkey", "Turkmenistan", "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", "United States", "Uruguay", "Uzbekistan", "Vanuatu", "Venezuela", "Vietnam", "Yemen", "Zambia", "Zimbabwe");
+    
+for (var i = 0; i < countries.length; i++) {
+    
+    var option = document.createElement("option"); 
+    var txt = document.createTextNode(countries[i]); 
+    option.appendChild(txt); 
+    option.setAttribute("value",countries[i])
+    select.insertBefore(option,select.lastChild)
 }
