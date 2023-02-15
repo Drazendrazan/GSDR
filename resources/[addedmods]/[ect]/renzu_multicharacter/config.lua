@@ -9,7 +9,7 @@ Config.RegisterHook = {
 
 -- Choose Skin Resource
 -- if using qbcore use qb-clothing or fivemappearance. 
-Config.skin = 'qb-clothing' -- skinchanger , fivemappearance, qb-clothing
+Config.skin = 'fivemappearance' -- skinchanger , fivemappearance, qb-clothing
 -- skin resource
 
 -- SPAWN resource
