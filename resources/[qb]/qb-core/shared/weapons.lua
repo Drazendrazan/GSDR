@@ -145,7 +145,4 @@ QBShared.Weapons = {
 	-- Animals
     [`weapon_animal`]               = {['name'] = 'weapon_animal',	['label'] = 'Animal',	['weapontype'] = 'Animals',	['ammotype'] = nil,	['damagereason'] = 'Mauled'},
     [`weapon_cougar`]               = {['name'] = 'weapon_cougar',	['label'] = 'Cougar',	['weapontype'] = 'Animals',	['ammotype'] = nil,	['damagereason'] = 'Mauled'},
-
-	[`weapon_beanbagshotgun`]					= {['name'] = 'weapon_beanbagshotgun',				['label'] = 'Non-Lethal Shotgun',						['ammotype'] = 'AMMO_SHOTGUN',						['damagereason'] = 'Hit by a bean bag'},
-
 }

@@ -4,7 +4,6 @@ isHandcuffed = false
 cuffType = 1
 isEscorted = false
 PlayerJob = {}
-onDuty = false
 local DutyBlips = {}
 
 -- Functions
@@ -43,7 +42,6 @@ end
 AddEventHandler('QBCore:Client:OnPlayerLoaded', function()
     local player = QBCore.Functions.GetPlayerData()
     PlayerJob = player.job
-    onDuty = player.job.onduty
     isHandcuffed = false
     TriggerServerEvent("police:server:SetHandcuffStatus", false)
     TriggerServerEvent("police:server:UpdateBlips")
@@ -87,7 +85,7 @@ RegisterNetEvent('QBCore:Client:OnPlayerUnload', function()
     TriggerServerEvent("police:server:UpdateCurrentCops")
     isHandcuffed = false
     isEscorted = false
-    onDuty = false
+    PlayerJob = {}
     ClearPedTasks(PlayerPedId())
     DetachEntity(PlayerPedId(), true, false)
     if DutyBlips then
@@ -98,14 +96,11 @@ RegisterNetEvent('QBCore:Client:OnPlayerUnload', function()
     end
 end)
 
-RegisterNetEvent('QBCore:Client:OnJobUpdate', function(JobInfo)
-    if JobInfo.name == "police" and PlayerJob.name ~= "police" then
-        if JobInfo.onduty then
-            TriggerServerEvent("QBCore:ToggleDuty")
-            onDuty = false
-        end
-    end
+RegisterNetEvent("QBCore:Client:SetDuty", function(newDuty)
+    PlayerJob.onduty = newDuty
+end)
 
+RegisterNetEvent('QBCore:Client:OnJobUpdate', function(JobInfo)
     if JobInfo.name ~= "police" then
         if DutyBlips then
             for _, v in pairs(DutyBlips) do
@@ -136,7 +131,7 @@ end)
 
 RegisterNetEvent('police:client:UpdateBlips', function(players)
     if PlayerJob and (PlayerJob.name == 'police' or PlayerJob.name == 'ambulance') and
-        onDuty then
+        PlayerJob.onduty then
         if DutyBlips then
             for _, v in pairs(DutyBlips) do
                 RemoveBlip(v)
@@ -217,48 +212,5 @@ CreateThread(function()
         BeginTextCommandSetBlipName("STRING")
         AddTextComponentString(station.label)
         EndTextCommandSetBlipName(blip)
-    end
-end)
-
-RegisterNetEvent('police:client:setDuty')
-AddEventHandler('police:client:setDuty', function(duty)
-    if(PlayerJob.name == nil) then
-        PlayerJob = QBCore.Functions.GetPlayerData().job
-    end
-    onDuty = duty
-end)
-
-RegisterNetEvent('police:client:hijack', function()
-    local cop = PlayerPedId()
-    local copcoords = GetEntityCoords(cop)
-    local vehicle = QBCore.Functions.GetClosestVehicle()
-    local vehiclepos = GetEntityCoords(vehicle)
-    local PlayerJob = QBCore.Functions.GetPlayerData().job
-    
-    if #(copcoords - vehiclepos) < 3.0 then
-        if GetVehicleDoorLockStatus(vehicle) == 0 then QBCore.Functions.Notify("This vehicle doesn't seem to be locked.", "error") return end
-        if PlayerJob.name == 'police' then
-            TriggerEvent('animations:client:EmoteCommandStart', {"weld"})
-            QBCore.Functions.Progressbar("policeunlock", "Unlocking vehicle..", 5000, false, false, {
-                disableMovement = true,
-                disableCarMovement = true,
-                disableMouse = false,
-                disableCombat = true,
-                }, {}, {}, {}, function()
-                TriggerEvent('animations:client:EmoteCommandStart', {"weld"})
-                Wait(100)
-                TriggerEvent('animations:client:EmoteCommandStart', {"c"})
-                Wait(500)
-                TriggerServerEvent("InteractSound_SV:PlayWithinDistance", 5, "lock", 0.3)
-                QBCore.Functions.Notify('Vehicle unlocked.', 'success')
-                TriggerServerEvent('qb-vehiclekeys:server:setVehLockState', NetworkGetNetworkIdFromEntity(vehicle), 1)
-                TriggerServerEvent('qb-vehiclekeys:server:AcquireVehicleKeys', QBCore.Functions.GetPlate(vehicle))
-                SetVehicleAlarm(vehicle, false)
-            end)
-        else
-            QBCore.Functions.Notify("You are not Police!", "error")
-        end
-    else
-        QBCore.Functions.Notify("Not near any vehicle.", "error")
     end
 end)

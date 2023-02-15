@@ -23,7 +23,6 @@ local function onPlayerConnecting(name, _, deferrals)
     local src = source
     local license
     local identifiers = GetPlayerIdentifiers(src)
-    local user_steam
     deferrals.defer()
 
     -- Mandatory wait

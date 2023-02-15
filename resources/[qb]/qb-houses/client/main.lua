@@ -1306,6 +1306,7 @@ end)
 RegisterNetEvent('qb-houses:client:HomeInvasion', function()
     local ped = PlayerPedId()
     local pos = GetEntityCoords(ped)
+    local Skillbar = exports['qb-skillbar']:GetSkillbarObject()
     if ClosestHouse ~= nil then
         QBCore.Functions.TriggerCallback('police:server:IsPoliceForcePresent', function(IsPresent)
             if IsPresent then
@@ -1317,20 +1318,32 @@ RegisterNetEvent('qb-houses:client:HomeInvasion', function()
                     if Config.Houses[ClosestHouse].locked then
                         if not Config.Houses[ClosestHouse].IsRaming then
                             DoRamAnimation(true)
-                            exports['qb-ui']:Circle(function(success)
-                                if success then
+                            Skillbar.Start({
+                                duration = math.random(5000, 10000),
+                                pos = math.random(10, 30),
+                                width = math.random(10, 20),
+                            }, function()
+                                if RamsDone + 1 >= Config.RamsNeeded then
                                     TriggerServerEvent('qb-houses:server:lockHouse', false, ClosestHouse)
                                     QBCore.Functions.Notify(Lang:t("success.home_invasion"), 'success')
                                     TriggerServerEvent('qb-houses:server:SetHouseRammed', true, ClosestHouse)
                                     TriggerServerEvent('qb-houses:server:SetRamState', false, ClosestHouse)
                                     DoRamAnimation(false)
                                 else
-                                    RamsDone = 0
-                                    TriggerServerEvent('qb-houses:server:SetRamState', false, ClosestHouse)
-                                    QBCore.Functions.Notify(Lang:t("error.failed_invasion"), 'error')
-                                    DoRamAnimation(false)
+                                    DoRamAnimation(true)
+                                    Skillbar.Repeat({
+                                        duration = math.random(500, 1000),
+                                        pos = math.random(10, 30),
+                                        width = math.random(5, 12),
+                                    })
+                                    RamsDone = RamsDone + 1
                                 end
-                            end, 6, 6)
+                            end, function()
+                                RamsDone = 0
+                                TriggerServerEvent('qb-houses:server:SetRamState', false, ClosestHouse)
+                                QBCore.Functions.Notify(Lang:t("error.failed_invasion"), 'error')
+                                DoRamAnimation(false)
+                            end)
                             TriggerServerEvent('qb-houses:server:SetRamState', true, ClosestHouse)
                         else
                             QBCore.Functions.Notify(Lang:t("error.inprogress_invasion"), 'error')

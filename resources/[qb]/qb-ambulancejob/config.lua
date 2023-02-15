@@ -39,7 +39,7 @@ Config.Locations = { -- Edit the various interaction points for players or creat
 	    [2] = vector3(-254.54, 6331.78, 32.43), -- paleto
     },
     ["duty"] = {
-        [1] = vector3(341.62, -589.18, 43.28),
+        [1] = vector3(311.18, -599.25, 43.29),
         [2] = vector3(-254.88, 6324.5, 32.58),
     },
     ["vehicle"] = {
@@ -163,14 +163,6 @@ Config.Items = { -- Items found in the ambulance shop for players with the ambul
             info = {},
             type = "item",
             slot = 6,
-        },
-        [7] = {
-            name = "emsbag",
-            price = 0,
-            amount = 1,
-            info = {},
-            type = "item",
-            slot = 7,
         },
     }
 }

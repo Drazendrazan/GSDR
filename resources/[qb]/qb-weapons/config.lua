@@ -78,7 +78,6 @@ Config.DurabilityMultiplier = {
 	['weapon_autoshotgun'] 			= 0.15,
 	['weapon_pumpshotgun_mk2'] 		= 0.15,
 	['weapon_combatshotgun'] 		= 0.15,
-    ['weapon_beangbagshotgun'] 		= 0.0,
 
 	-- Assault Rifles
 	['weapon_assaultrifle'] 		= 0.15,
@@ -480,13 +479,6 @@ WeaponAttachments = {
         },
     },
     -- SHOTGUNS
-    ['WEAPON_BEANBAGSHOTGUN'] = {
-        ['defaultclip'] = {
-            component = 'COMPONENT_BEANBAGSHOTGUN_CLIP_01',
-            item = 'pumpshotgun_defaultclip',
-            type = 'clip',
-        },
-    },
     ['WEAPON_PUMPSHOTGUN'] = {
         ['flashlight'] = {
             component = 'COMPONENT_AT_AR_FLSH',

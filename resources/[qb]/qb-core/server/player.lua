@@ -63,7 +63,6 @@ function QBCore.Player.CheckPlayerData(source, PlayerData)
     if source then
         PlayerData.source = source
         PlayerData.license = PlayerData.license or QBCore.Functions.GetIdentifier(source, 'license')
-        PlayerData.discord = PlayerData.discord or QBCore.Functions.GetIdentifier(source, 'discord') 
         PlayerData.name = GetPlayerName(source)
         Offline = false
     end
@@ -88,7 +87,6 @@ function QBCore.Player.CheckPlayerData(source, PlayerData)
     PlayerData.charinfo.account = PlayerData.charinfo.account or QBCore.Functions.CreateAccountNumber()
     -- Metadata
     PlayerData.metadata = PlayerData.metadata or {}
-    PlayerData.metadata['cardeliveryxp'] = PlayerData.metadata['cardeliveryxp'] or 0
     PlayerData.metadata['hunger'] = PlayerData.metadata['hunger'] or 100
     PlayerData.metadata['thirst'] = PlayerData.metadata['thirst'] or 100
     PlayerData.metadata['stress'] = PlayerData.metadata['stress'] or 0
@@ -123,9 +121,7 @@ function QBCore.Player.CheckPlayerData(source, PlayerData)
     PlayerData.metadata['licences'] = PlayerData.metadata['licences'] or {
         ['driver'] = true,
         ['business'] = false,
-        ['weapon'] = false,
-        ['fly_permit'] = false,
-        ['fly'] = false
+        ['weapon'] = false
     }
     PlayerData.metadata['inside'] = PlayerData.metadata['inside'] or {
         house = nil,
@@ -137,10 +133,6 @@ function QBCore.Player.CheckPlayerData(source, PlayerData)
     PlayerData.metadata['phonedata'] = PlayerData.metadata['phonedata'] or {
         SerialNumber = QBCore.Player.CreateSerialNumber(),
         InstalledApps = {},
-    }
-    PlayerData.metadata['laptop'] = PlayerData.metadata['laptop'] or {
-        background = 'default',
-        darkfont = false,
     }
     -- Job
     if PlayerData.job and PlayerData.job.name and not QBCore.Shared.Jobs[PlayerData.job.name] then PlayerData.job = nil end

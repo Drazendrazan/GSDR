@@ -48,8 +48,7 @@ RegisterNetEvent('qb-bankrobbery:UseBankcardB', function()
                         Config.DoorlockAction(1, false)
                         TriggerServerEvent('qb-bankrobbery:server:removeBankCard', '02')
                         if copsCalled or not Config.BigBanks["pacific"]["alarm"] then return end
-                        exports['ps-dispatch']:PacificBankRobbery(v.camId)
-                        --TriggerServerEvent("qb-bankrobbery:server:callCops", "pacific", 0, pos)
+                        TriggerServerEvent("qb-bankrobbery:server:callCops", "pacific", 0, pos)
                         copsCalled = true
                     end, function() -- Cancel
                         StopAnimTask(ped, "anim@gangops@facility@servers@", "hotwire", 1.0)

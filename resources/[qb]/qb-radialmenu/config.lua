@@ -295,14 +295,6 @@ Config.MenuItems = {
             }
         }
     },
-    [3] = {
-        id = 'skills',
-        title = 'Check Skills',
-        icon = 'triangle-exclamation',
-        type = 'client',
-        event = 'mz-skills:client:CheckSkills',
-        shouldClose = true,
-    },
 }
 
 Config.VehicleDoors = {
@@ -464,16 +456,6 @@ Config.VehicleSeats = {
 }
 
 Config.JobInteractions = {
-    ["gruppesechs"] = {
-        {
-            id = 'returnTruck',
-            title = 'Return Truck',
-            icon = 'torii-gate',
-            type = 'client',
-            event = 'gruppesechs:returnTruck',
-            shouldClose = true
-        },
-    },
     ["ambulance"] = {
         {
             id = 'statuscheck',
@@ -652,13 +634,6 @@ Config.JobInteractions = {
                     icon = 'user-lock',
                     type = 'client',
                     event = 'police:client:JailPlayer',
-                    shouldClose = true
-                }, {
-                    id = 'pdunlock',
-                    title = 'Force Unlock',
-                    icon = 'unlock',
-                    type = 'client',
-                    event = 'police:client:hijack',
                     shouldClose = true
                 }
             }
