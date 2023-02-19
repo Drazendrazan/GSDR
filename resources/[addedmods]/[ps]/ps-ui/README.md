@@ -173,7 +173,15 @@ exports['ps-ui']:ShowImage("https://user-images.githubusercontent.com/91661118/1
 ```
 ![image](https://user-images.githubusercontent.com/70592880/173483722-53c40c11-faf0-42d8-98b2-ec97d99c3a39.png)
 
+## Notify
+
+```
+exports['ps-ui']:Notify(text, texttype, length)
+```
+
+![image](https://user-images.githubusercontent.com/91788613/202788087-43911c2b-0a36-4f3a-9641-a4e13b36034e.png)
 
 CREDITS: 
 - https://github.com/sharkiller/nopixel_minigame
 - https://github.com/iLLeniumStudios/is-statushud
+- https://github.com/tnj-development/tnj-notify
