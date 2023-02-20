@@ -548,20 +548,17 @@ RegisterNetEvent('inventory:client:UseWeapon', function(weaponData, shootbool)
     local weaponName = tostring(weaponData.name)
     local weaponHash = joaat(weaponData.name)
     if currentWeapon == weaponName then
-        TriggerEvent('weapons:client:DrawWeapon', nil)
         SetCurrentPedWeapon(ped, `WEAPON_UNARMED`, true)
         RemoveAllPedWeapons(ped, true)
         TriggerEvent('weapons:client:SetCurrentWeapon', nil, shootbool)
         currentWeapon = nil
     elseif weaponName == "weapon_stickybomb" or weaponName == "weapon_pipebomb" or weaponName == "weapon_smokegrenade" or weaponName == "weapon_flare" or weaponName == "weapon_proxmine" or weaponName == "weapon_ball"  or weaponName == "weapon_molotov" or weaponName == "weapon_grenade" or weaponName == "weapon_bzgas" then
-        TriggerEvent('weapons:client:DrawWeapon', weaponName)
         GiveWeaponToPed(ped, weaponHash, 1, false, false)
         SetPedAmmo(ped, weaponHash, 1)
         SetCurrentPedWeapon(ped, weaponHash, true)
         TriggerEvent('weapons:client:SetCurrentWeapon', weaponData, shootbool)
         currentWeapon = weaponName
     elseif weaponName == "weapon_snowball" then
-        TriggerEvent('weapons:client:DrawWeapon', weaponName)
         GiveWeaponToPed(ped, weaponHash, 10, false, false)
         SetPedAmmo(ped, weaponHash, 10)
         SetCurrentPedWeapon(ped, weaponHash, true)
@@ -569,11 +566,10 @@ RegisterNetEvent('inventory:client:UseWeapon', function(weaponData, shootbool)
         TriggerEvent('weapons:client:SetCurrentWeapon', weaponData, shootbool)
         currentWeapon = weaponName
     else
-        TriggerEvent('weapons:client:DrawWeapon', weaponName)
         TriggerEvent('weapons:client:SetCurrentWeapon', weaponData, shootbool)
         local ammo = tonumber(weaponData.info.ammo) or 0
 
-        if weaponName == "weapon_petrolcan" or weaponName == "weapon_fireextinguisher" then
+        if weaponName == "weapon_fireextinguisher" then
             ammo = 4000
         end
 
@@ -792,7 +788,7 @@ RegisterKeyMapping('hotbar', Lang:t("inf_mapping.tog_slots"), 'keyboard', 'z')
 
 for i = 1, 6 do
     RegisterCommand('slot' .. i,function()
-        if not PlayerData.metadata["isdead"] and not PlayerData.metadata["inlaststand"] and not PlayerData.metadata["ishandcuffed"] and not IsPauseMenuActive() and not LocalPlayer.state.inv_busy then
+        if not PlayerData.metadata["isdead"] and not PlayerData.metadata["inlaststand"] and not PlayerData.metadata["ishandcuffed"] and not IsPauseMenuActive() then
             if i == 6 then
                 i = Config.MaxInventorySlots
             end
@@ -1105,3 +1101,27 @@ CreateThread(function()
 end)
 
 --#endregion Threads
+
+RegisterNetEvent('vendingDrink:buy', function()
+    local ShopItems = {}
+    ShopItems.label = "Vending Machine"
+    ShopItems.items = Config.itemDrink
+    ShopItems.slots = #Config.itemDrink
+    TriggerServerEvent("inventory:server:OpenInventory", "shop", "Vendingshop_", ShopItems)
+end)
+
+RegisterNetEvent('vendingSnack:buy', function()
+    local snackItems = {}
+    snackItems.label = "Vending Machine"
+    snackItems.items = Config.itemSnack
+    snackItems.slots = #Config.itemSnack
+    TriggerServerEvent("inventory:server:OpenInventory", "shop", "Vendingshop_", snackItems)
+end)
+
+RegisterNetEvent('vendingCoffee:buy', function()
+    local coffeeItems = {}
+    coffeeItems.label = "Coffee Machine"
+    coffeeItems.items = Config.itemCoffee
+    coffeeItems.slots = #Config.itemCoffee
+    TriggerServerEvent("inventory:server:OpenInventory", "shop", "Vendingshop_", coffeeItems)
+end)
