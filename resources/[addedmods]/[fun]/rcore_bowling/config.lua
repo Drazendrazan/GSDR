@@ -1,5 +1,5 @@
 Config = {
-	Framework = 0, --[ 1 = ESX / 2 = QBCore / 3 = Other ] Choose your framework
+	Framework = 2, --[ 1 = ESX / 2 = QBCore / 3 = Other ] Choose your framework
 
 	FrameworkTriggers = {
 		notify = '', -- [ ESX = 'esx:showNotification' / QBCore = 'QBCore:Notify' ] Set the notification event, if left blank, default will be used

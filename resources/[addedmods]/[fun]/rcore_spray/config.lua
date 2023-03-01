@@ -2,8 +2,8 @@
 Framework = {
     STANDALONE = false,
 
-    ESX = true,
-    QBCORE = false,
+    ESX = false,
+    QBCORE = true,
 }
 
 UseOxInventory = false

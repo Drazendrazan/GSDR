@@ -1,6 +1,6 @@
 Config = {
     -- Map
-    MapType = 5, -- 1: for DLCiplLoader, 2: Gabz Casino, 3: NoPixel Casino, 4: k4mb1 casino, 5: GTA:O Interior (rcore_casino_interior)
+    MapType = 2, -- 1: for DLCiplLoader, 2: Gabz Casino, 3: NoPixel Casino, 4: k4mb1 casino, 5: GTA:O Interior (rcore_casino_interior)
 
     --[[
     Gabz Casino
@@ -122,7 +122,7 @@ Config = {
     EnableGuidebookIntegration = false, -- https://store.rcore.cz/package/5041989
 
     -- Society
-    EnableSociety = true, -- whether to enable society account
+    EnableSociety = false, -- whether to enable society account
     SocietyName = "society_casino",
     SocietyLimitFromBalance = 10000, -- if society account has less money than this, it will start paying out reduced money, (SocietyLimitPayoutPercentage)
     SocietyLimitPayoutPercentage = 35, -- example: if SocietyLimitPayoutPercentage is 35%, and SocietyLimitFromBalance is 10000 => 1000 payout at the Cashier will be limited to 350, if the society bank account balance is less than 10 000
@@ -168,7 +168,7 @@ Framework = {
     -- 2 = QBcore / custom
     -- for custom frameworks, also use option *2*, and rewrite all the qbcore functions
 
-    Active = 1,
+    Active = 2,
     -- Please follow the installation tutorial: --
     -- https://documentation.rcore.cz/paid-resources/rcore_casino
 

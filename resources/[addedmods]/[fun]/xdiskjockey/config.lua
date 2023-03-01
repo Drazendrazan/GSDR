@@ -5,7 +5,7 @@ Config.Debug = false
 -- 0 standalone
 -- 1 ESX
 -- 2 QBCore
-Config.FrameWork = 0
+Config.FrameWork = 2
 
 Config.GetQBCoreObject = function()
     -- Choose your objectType or made here your own.
