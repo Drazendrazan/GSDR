@@ -31,7 +31,7 @@ function TakeOutVehicle(vehicleInfo)
         local veh = NetToVeh(netId)
         SetVehicleNumberPlateText(veh, Lang:t('info.amb_plate') .. tostring(math.random(1000, 9999)))
         SetEntityHeading(veh, coords.w)
-        exports['cdn-fuel']:SetFuel(veh, 100.0)
+        exports['LegacyFuel']:SetFuel(veh, 100.0)
         TaskWarpPedIntoVehicle(PlayerPedId(), veh, -1)
         if Config.VehicleSettings[vehicleInfo] ~= nil then
             QBCore.Shared.SetDefaultVehicleExtras(veh, Config.VehicleSettings[vehicleInfo].extras)
@@ -224,7 +224,7 @@ RegisterNetEvent('hospital:client:RevivePlayer', function()
             }, {
                 animDict = healAnimDict,
                 anim = healAnim,
-                flags = 16,
+                flags = 33,
             }, {}, {}, function() -- Done
                 StopAnimTask(PlayerPedId(), healAnimDict, "exit", 1.0)
                 QBCore.Functions.Notify(Lang:t('success.revived'), 'success')
@@ -255,7 +255,7 @@ RegisterNetEvent('hospital:client:TreatWounds', function()
             }, {
                 animDict = healAnimDict,
                 anim = healAnim,
-                flags = 16,
+                flags = 33,
             }, {}, {}, function() -- Done
                 StopAnimTask(PlayerPedId(), healAnimDict, "exit", 1.0)
                 QBCore.Functions.Notify(Lang:t('success.helped_player'), 'success')
@@ -355,7 +355,7 @@ local function EMSHelicopter(k)
                         SetVehicleNumberPlateText(veh, Lang:t('info.heli_plate') .. tostring(math.random(1000, 9999)))
                         SetEntityHeading(veh, coords.w)
                         SetVehicleLivery(veh, 1) -- Ambulance Livery
-                        exports['cdn-fuel']:SetFuel(veh, 100.0)
+                        exports['LegacyFuel']:SetFuel(veh, 100.0)
                         TaskWarpPedIntoVehicle(PlayerPedId(), veh, -1)
                         TriggerEvent("vehiclekeys:client:SetOwner", QBCore.Functions.GetPlate(veh))
                         SetVehicleEngineOn(veh, true, true)

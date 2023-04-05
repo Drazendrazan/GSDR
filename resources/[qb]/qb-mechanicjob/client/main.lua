@@ -425,17 +425,17 @@ local function ApplyEffects(vehicle)
             end
 
             if VehicleStatus[plate]["fuel"] <= 80 and (chance >= 81 and chance <= 100) then
-                local fuel = exports['cdn-fuel']:GetFuel(vehicle)
+                local fuel = exports['LegacyFuel']:GetFuel(vehicle)
                 if VehicleStatus[plate]["fuel"] <= 80 and VehicleStatus[plate]["fuel"] >= 60 then
-                    exports['cdn-fuel']:SetFuel(vehicle, fuel - 2.0)
+                    exports['LegacyFuel']:SetFuel(vehicle, fuel - 2.0)
                 elseif VehicleStatus[plate]["fuel"] <= 59 and VehicleStatus[plate]["fuel"] >= 40 then
-                    exports['cdn-fuel']:SetFuel(vehicle, fuel - 4.0)
+                    exports['LegacyFuel']:SetFuel(vehicle, fuel - 4.0)
                 elseif VehicleStatus[plate]["fuel"] <= 39 and VehicleStatus[plate]["fuel"] >= 20 then
-                    exports['cdn-fuel']:SetFuel(vehicle, fuel - 6.0)
+                    exports['LegacyFuel']:SetFuel(vehicle, fuel - 6.0)
                 elseif VehicleStatus[plate]["fuel"] <= 19 and VehicleStatus[plate]["fuel"] >= 6 then
-                    exports['cdn-fuel']:SetFuel(vehicle, fuel - 8.0)
+                    exports['LegacyFuel']:SetFuel(vehicle, fuel - 8.0)
                 else
-                    exports['cdn-fuel']:SetFuel(vehicle, fuel - 10.0)
+                    exports['LegacyFuel']:SetFuel(vehicle, fuel - 10.0)
                 end
             end
         end
@@ -512,7 +512,7 @@ local function PartsMenu()
                 end
                 vehicleMenu[#vehicleMenu+1] = {
                     header = v,
-                    txt = "Status: " .. percentage .. ".0% / 100.0%",
+                    txt = Lang:t('parts_menu.status') .. percentage .. ".0% / 100.0%",
                     params = {
                         event = "qb-mechanicjob:client:PartMenu",
                         args = {
@@ -637,7 +637,7 @@ local function SpawnListVehicle(model)
         local veh = NetToVeh(netId)
         SetVehicleNumberPlateText(veh, "ACBV"..tostring(math.random(1000, 9999)))
         SetEntityHeading(veh, coords.w)
-        exports['cdn-fuel']:SetFuel(veh, 100.0)
+        exports['LegacyFuel']:SetFuel(veh, 100.0)
         TaskWarpPedIntoVehicle(PlayerPedId(), veh, -1)
         TriggerEvent("vehiclekeys:client:SetOwner", QBCore.Functions.GetPlate(veh))
         SetVehicleEngineOn(veh, true, true)
@@ -665,7 +665,7 @@ local function VehicleList()
         }
     end
     vehicleMenu[#vehicleMenu+1] = {
-        header = "⬅ Close Menu",
+        header = Lang:t('nodamage_menu.c_menu'),
         txt = "",
         params = {
             event = "qb-menu:client:closeMenu"

@@ -2,7 +2,7 @@ fx_version 'cerulean'
 game 'gta5'
 
 description 'QB-ATMS'
-version '1.2.3'
+version '1.2.4'
 
 shared_script 'config.lua'
 
@@ -17,7 +17,6 @@ ui_page 'nui/index.html'
 
 files {
     'nui/images/logo1.png',
-    'nui/images/logo.png',
     'nui/images/visa.png',
     'nui/images/mastercard.png',
     'nui/scripting/jquery-ui.css',
