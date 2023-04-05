@@ -1,17 +1,17 @@
 CreateThread(function()
-	while true do
-		for _, sctyp in next, Config.BlacklistedScenarios['TYPES'] do
-			SetScenarioTypeEnabled(sctyp, false)
-		end
-		for _, scgrp in next, Config.BlacklistedScenarios['GROUPS'] do
-			SetScenarioGroupEnabled(scgrp, false)
-		end
-		Wait(10000)
-	end
+    while true do
+        for _, sctyp in next, Config.BlacklistedScenarios['TYPES'] do
+            SetScenarioTypeEnabled(sctyp, false)
+        end
+        for _, scgrp in next, Config.BlacklistedScenarios['GROUPS'] do
+            SetScenarioGroupEnabled(scgrp, false)
+        end
+        Wait(10000)
+    end
 end)
 
 AddEventHandler("populationPedCreating", function(x, y, z)
-	Wait(500)	-- Give the entity some time to be created
+	Wait(500) -- Give the entity some time to be created
 	local _, handle = GetClosestPed(x, y, z, 1.0) -- Get the entity handle
 	SetPedDropsWeaponsWhenDead(handle, false)
 end)
@@ -19,6 +19,7 @@ end)
 CreateThread(function() -- all these should only need to be called once
 	if Config.DisableAmbience then
 		StartAudioScene("CHARACTER_CHANGE_IN_SKY_SCENE")
+		SetAudioFlag("DisableFlightMusic", true)
 	end
 	SetAudioFlag("PoliceScannerDisabled", true)
 	SetGarbageTrucks(false)
@@ -36,58 +37,67 @@ CreateThread(function() -- all these should only need to be called once
 	RemoveVehiclesFromGeneratorsInArea(-724.46 - 300.0, -1444.03 - 300.0, 5.0 - 300.0, -724.46 + 300.0, -1444.03 + 300.0, 5.0 + 300.0) -- REMOVE CHOPPERS WOW
 end)
 
+if Config.Stun.active then
+    CreateThread(function()
+        local sleep
+        while true do
+            sleep = 1000
+            local ped = PlayerPedId()
+            if IsPedBeingStunned(ped, 0) then
+                sleep = 0
+                SetPedMinGroundTimeForStungun(ped, math.random(Config.Stun.min, Config.Stun.max))
+            end
+            Wait(sleep)
+        end
+    end)
+end
+
 CreateThread(function()
-	local sleep
-	while true do
-		sleep = 1000
-		local ped = PlayerPedId()
-		if IsPedBeingStunned(ped, 0) then
-			sleep = 0
-			SetPedMinGroundTimeForStungun(ped, math.random(4000, 7000))
-		end
-		Wait(sleep)
-	end
-end)
-
-
-CreateThread(function()
-	for i = 1, 15 do
-		EnableDispatchService(i, false)
+	for dispatchService, enabled in pairs(Config.DispatchServices) do
+		EnableDispatchService(dispatchService, enabled)
 	end
 
-	SetMaxWantedLevel(0)
+	local wantedLevel = 0
+	if Config.EnableWantedLevel then
+		wantedLevel = 5
+	end
+
+	SetMaxWantedLevel(wantedLevel)
 end)
 
 if Config.IdleCamera then --Disable Idle Cinamatic Cam
-	DisableIdleCamera(true)
+    DisableIdleCamera(true)
 end
 
-Citizen.CreateThread(function()
+RegisterNetEvent('QBCore:Client:DrawWeapon', function()
+    local sleep
     while true do
+        sleep = 500
         local ped = PlayerPedId()
         local weapon = GetSelectedPedWeapon(ped)
-		if weapon ~= GetHashKey("WEAPON_UNARMED") then
-			if IsPedArmed(ped, 6) then
-				DisableControlAction(1, 140, true)
-				DisableControlAction(1, 141, true)
-				DisableControlAction(1, 142, true)
-			end
+        if weapon ~= `WEAPON_UNARMED` then
+            if IsPedArmed(ped, 6) then
+                sleep = 0
+                DisableControlAction(1, 140, true)
+                DisableControlAction(1, 141, true)
+                DisableControlAction(1, 142, true)
+            end
 
-			if weapon == GetHashKey("WEAPON_FIREEXTINGUISHER")then
-				if IsPedShooting(ped) then
-					SetPedInfiniteAmmo(ped, true, GetHashKey("WEAPON_FIREEXTINGUISHER"))
-				end
-			end
-		else
-			Citizen.Wait(500)
-		end
-        Citizen.Wait(7)
+            if weapon == `WEAPON_FIREEXTINGUISHER` or weapon == `WEAPON_PETROLCAN` then
+                if IsPedShooting(ped) then
+                    SetPedInfiniteAmmo(ped, true, weapon)
+                end
+            end
+        else
+            break
+        end
+        Wait(sleep)
     end
 end)
 
 CreateThread(function()
-	local pedPool = GetGamePool('CPed')
-	for _, v in pairs(pedPool) do
-		SetPedDropsWeaponsWhenDead(v, false)
-	end
+    local pedPool = GetGamePool('CPed')
+    for _, v in pairs(pedPool) do
+        SetPedDropsWeaponsWhenDead(v, false)
+    end
 end)
