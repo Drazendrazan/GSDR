@@ -15,7 +15,7 @@ Config = {
     StopHorizontalBounceTreshold = 1.0,
     BallElasticity = 1.2,
     Tutorial = {
-        {text = 'Tenis will ~y~start~s~ when two players ~y~join~s~, one on each side.', time = 5000},
+        {text = 'Tennis will ~y~start~s~ when two players ~y~join~s~, one on each side.', time = 5000},
         {text = 'To serve, ~y~enter the checkpoint~s~, press ~y~E~s~ to start serving.', time = 5000},
         {text = 'When serving, ~y~move to a position~s~ from which you want to serve and ~y~press Left Mouse Button~s~', time = 5000},
         {text = '~y~Select power~s~ with which you want to serve and use ~y~WSAD~s~ to aim where you want to shoot.', time = 5000},
