@@ -78,7 +78,7 @@ GetIdentifiers = function(id)
 	local numIdentifiers = GetNumPlayerIdentifiers(id)
 	for i = 0, numIdentifiers do
 		local identifier = GetPlayerIdentifier(id, i)
-        if string.find(GetPlayerIdentifier(id, i),'license') then
+        if string.find(tostring(identifier),'license') then
 			license = identifier
 			break
 		end
@@ -90,10 +90,11 @@ for name,v in pairs(Config.Status) do
 	AddStateBagChangeHandler(name, nil, function(bagName, _, value, _, _)
 		Wait(1500)
 		if value == nil then return end
-		local status = GlobalState.PlayerStates
+		local status = GlobalState.PlayerStates or {}
 		local net = tonumber(bagName:gsub('player:', ''), 10)
-		if logout[net] then return end
+		if net and logout[net] or not net then return end
 		local ply = Player(net).state
+		if not ply.identifier then return end
 		if not status[ply.identifier] then status[ply.identifier] = {} end
 		status[ply.identifier][name] = value
 		SetResourceKvp('char_status',json.encode(status))
@@ -101,16 +102,29 @@ for name,v in pairs(Config.Status) do
 	end)
 end
 
-registercallback('setplayertolastvehicle', function(source,net)
+registercallback('setplayertolastvehicle', function(source,net,preview)
 	local vehicle = NetworkGetEntityFromNetworkId(net)
 	if DoesEntityExist(vehicle) then
+		local ped = GetPlayerPed(source)
+		local coord = GetEntityCoords(vehicle)
+		SetEntityCoords(ped,coord.x,coord.y,coord.z)
+		SetPlayerRoutingBucket(source,0)
 		for i = 0-1, 7 do
-			if GetPedInVehicleSeat(vehicle,i) == 0 then
-				SetPedIntoVehicle(GetPlayerPed(source),vehicle,i)
-				return true
+			local pedinseat = GetPedInVehicleSeat(vehicle,i)
+			if GetPedInVehicleSeat(vehicle,i) == ped then
+				SetPedIntoVehicle(ped,vehicle,i)
+				break
+			end
+			if pedinseat == 0 then
+				while GetPedInVehicleSeat(vehicle,i) ~= ped do
+					SetPedIntoVehicle(ped,vehicle,i)
+					Wait(111)
+				end
+				break
 			end
 		end
 	end
+	if preview then return end
 	local ply = Player(source).state
 	ply:set('invehicle',false,true) -- remove state if vehicle is not exist anymore
 	return false

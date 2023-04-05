@@ -3,7 +3,9 @@ local models = {
 	[0] = `mp_m_freemode_01`, 
 	[1] = `mp_f_freemode_01`
 }
+local stateactive = false
 local defaultspawn = Config.Spawn
+local useSkinMenu = false
 local xSound = nil
 local slots = Config.Slots
 local states = {}
@@ -86,7 +88,7 @@ WeatherTransition = function()
 				end
 			end
 			Wait(0)
-			if not IsEntityPositionFrozen(PlayerPedId()) then FreezeEntityPosition(PlayerPedId(),true) end
+			if not chosen and not IsEntityPositionFrozen(PlayerPedId()) then FreezeEntityPosition(PlayerPedId(),true) end
 		end
 		SetWeatherTypeNowPersist('CLEAR') -- initial set weather
 		SetWeatherTypeTransition(`NEUTRAL`,`CLEAR`,0.7)
@@ -109,15 +111,12 @@ CreatePedHeadShots = function(characters)
 		if chardata and not pedshots[slot] then
 			local skin = chardata.skin
 			skin.sex = chardata.sex == "m" and 0 or 1
-			local model = models[skin.sex] or models[0]
-			
+			local model = skin?.model or models[skin.sex] or models[0]
 			SetModel(model)
-			SetEntityCoords(PlayerPedId(), 0.0,0.0,500.0)
-			
+			SetEntityCoords(PlayerPedId(), defaultspawn.x,defaultspawn.y,defaultspawn.z)
 			SetSkin(PlayerPedId(), skin)
 			SetEntityVisible(PlayerPedId(),false)
 			FreezeEntityPosition(PlayerPedId(), true)
-			Wait(211)
 			local pedshot , handle = GetPedShot(PlayerPedId())
 			pedshots[slot] = pedshot
 			SendNUIMessage({pedshots = pedshot, slot = slot})
@@ -222,9 +221,21 @@ PlayAnim = function(ped,dict,anim)
 	TaskPlayAnim(ped,dict,anim,1.0,1.0,-1,0,0,0,0,0)
 end
 
+isSkinValid = function(skins)
+	local skin = Config.skin
+	if skin == 'skinchanger' then return true end -- only check other resource
+	for k,v in pairs(skins) do
+		if k == 'hair' then
+			return true
+		end
+	end
+	return false
+end
+
 ShowCharacter = function(slot)
 	chosenslot = slot
 	chosen = true
+	Wait(10)
 	local chardata = characters[tonumber(slot)]
 	if xSound then
 		if xSound:soundExists('intro') then
@@ -234,26 +245,21 @@ ShowCharacter = function(slot)
 	SetEntityVisible(PlayerPedId(), 1, 0)
 	SetPedAoBlobRendering(PlayerPedId(), true)
 	ResetEntityAlpha(PlayerPedId())
+	FreezeEntityPosition(PlayerPedId(),false)
 	if chardata and not chardata.new then
 		SendNUIMessage({showcharacter = {showoptions = 'existing', slot = slot}})
 	else
 		SendNUIMessage({showcharacter = {showoptions = 'new', slot = slot, customregister = not Config.UseDefaultRegister}})
 		local model = GetModel('m')
 		SetModel(model)
-		SetEntityCoords(PlayerPedId(),defaultspawn.x,defaultspawn.y,defaultspawn.z)
-		SetLocalPlayerVisibleLocally(true)
-		FreezeEntityPosition(PlayerPedId(),false)
-		Wait(10)
+		SetEntityCoordsNoOffset(PlayerPedId(),defaultspawn.x,defaultspawn.y,defaultspawn.z)
+		SetEntityHeading(PlayerPedId(),0.0)
 		SetSkin(PlayerPedId(),Config.Default[Config.skin]['m'])
 		characters[tonumber(slot)] = {position = {x = defaultspawn.x, y = defaultspawn.y+10, z = defaultspawn.z}, new = true}
 		SetBlockingOfNonTemporaryEvents(PlayerPedId(), true)
 		SetCamParams(cam, defaultspawn.x,defaultspawn.y+10,defaultspawn.z, 0.0,0.0,0.0, 20.0, 1, 0, 0, 2)
-		PointCamAtCoord(cam,defaultspawn.x,defaultspawn.y,defaultspawn.z)
-		--SetEntityCoords(PlayerPedId(),defaultspawn.x,defaultspawn.y+20,defaultspawn.z)
+		PointCamAtEntity(cam, PlayerPedId(), 0.0, 0.0, 0.0, true)
 		SetFocusPosAndVel(defaultspawn.x,defaultspawn.y+10,defaultspawn.z)
-		Wait(100)
-		TaskTurnPedToFaceCoord(PlayerPedId(),defaultspawn.x,defaultspawn.y+10,defaultspawn.z)
-		Wait(500)
 		local gestures = Config.Animations['choose'][math.random(1,#Config.Animations['choose'])]
 		PlayAnim(PlayerPedId(),gestures.dict,gestures.anim)
 		return
@@ -265,25 +271,28 @@ ShowCharacter = function(slot)
 	if not IsCamActive(cam) then
 		SetCamActive(cam,true)
 	end
-	local model = GetModel(chardata.sex)
+	local model = GetModel(chardata.sex,chardata?.skin?.model)
 	SetModel(model)
-	SetLocalPlayerVisibleLocally(true)
-	Wait(1)
-	FreezeEntityPosition(PlayerPedId(),false)
-	SetEntityCoordsNoOffset(PlayerPedId(),chardata.position.x,chardata.position.y,chardata.position.z+0.1,true, false, false, false)
+	SetEntityCoordsNoOffset(PlayerPedId(),chardata.position.x,chardata.position.y,chardata.position.z)
+	SetEntityHeading(PlayerPedId(),0.0)
 	SetFocusPosAndVel(chardata.position.x+2,chardata.position.y+2,chardata.position.z+0.5)
-	SetCamParams(cam, chardata.position.x,chardata.position.y+2,chardata.position.z+0.2, 0.0,0.0,0.0, 75.0, 1, 0, 0, 2)
-	PointCamAtCoord(cam,chardata.position.x,chardata.position.y,chardata.position.z+0.1)
+	SetCamParams(cam, chardata.position.x,chardata.position.y+2,chardata.position.z+0.3, 0.0,0.0,0.0, 75.0, 1, 0, 0, 2)
+	PointCamAtEntity(cam, PlayerPedId(), 0.0, 0.0, 0.0, true)
 	RenderScriptCams(true, true, 0, true, true)
 	SetSkin(PlayerPedId(), skin)
-	--lastped = ClonePed(PlayerPedId(), false, false, true)
-	--SetEntityCoordsNoOffset(PlayerPedId(),chardata.position.x,chardata.position.y,chardata.position.z-0.7,true, false, false, false)
-	Wait(200)
-	TaskTurnPedToFaceCoord(PlayerPedId(),chardata.position.x,chardata.position.y+2,chardata.position.z+0.2,5000)
+	useSkinMenu = false
+	if not isSkinValid(skin) then
+		warn('this character does not have a saved skin.  this either using other skin resource')
+		SetSkin(PlayerPedId(),Config.Default[Config.skin]['m'])
+		warn('USING DEFAULT SKIN FOR '..Config.skin..' Anyway')
+		useSkinMenu = true
+	end
 	SetFocusEntity(PlayerPedId())
-	Wait(500)
 	local gestures = Config.Animations['choose'][math.random(1,#Config.Animations['choose'])]
-	PlayAnim(PlayerPedId(),gestures.dict,gestures.anim)
+	Wait(100)
+	if not CheckStates(true) then
+		PlayAnim(PlayerPedId(),gestures.dict,gestures.anim)
+	end
 end
 
 SetupPlayer = function()
@@ -310,6 +319,7 @@ SpawnSelect = function(coord)
 		local PlayerData = QBCore.Functions.GetPlayerData()
 		TriggerServerEvent('QBCore:Server:OnPlayerLoaded')
 		TriggerEvent('QBCore:Client:OnPlayerLoaded')
+		loaded = true
 		local insideMeta = PlayerData.metadata["inside"]
 		if insideMeta.house ~= nil then
             local houseId = insideMeta.house
@@ -323,10 +333,18 @@ SpawnSelect = function(coord)
 	if Config.SpawnSelector then
 		local state = states or {}
 		local extras = characters[chosenslot] and characters[chosenslot].extras
-		for k,v in pairs(state) do if not v.spawn and v.value and extras and extras[k] then return end end
+		if stateactive then return end
 		local coord = coord
 		spawn = Config.SpawnSelectorExport(coord)
 	end
+	if useSkinMenu then
+		SkinMenu()
+		useSkinMenu = false
+	end
+
+	Wait(2000)
+	stateactive = false
+	DoScreenFadeIn(1000)
 end
 
 local skin = {}
@@ -334,31 +352,31 @@ local skin = {}
 SetSkin = function(ped,skn)
 	if Config.skin == 'skinchanger' then
 		TriggerEvent('skinchanger:loadSkin', skn)
-	elseif Config.skin == 'fivemappearance' then
+	elseif Config.skin == 'fivem-appearance' then
 		exports['fivem-appearance']:setPedAppearance(PlayerPedId(), skn)
-	elseif Config.skin == 'illeniumappearance' then
+	elseif Config.skin == 'illenium-appearance' then
 		exports['illenium-appearance']:setPedAppearance(PlayerPedId(), skn)
 	elseif Config.skin == 'qb-clothing' then
 		TriggerEvent('qb-clothing:client:loadPlayerClothing', skn, PlayerPedId())
 	end
 end
 
-GetModel = function(str)
+GetModel = function(str,othermodel)
 	if Config.skin == 'skinchanger' then
 		skin = Config.Default[Config.skin][str or 'm']
 		skin.sex = str == "m" and 0 or 1
 		local model = skin.sex == 0 and `mp_m_freemode_01` or `mp_f_freemode_01`
 		return model
-	elseif Config.skin == 'fivemappearance' then
+	elseif Config.skin == 'fivem-appearance' then
 		skin.sex = str == "m" and 0 or 1
-		local model = skin.sex == 0 and `mp_m_freemode_01` or `mp_f_freemode_01`
+		local model = othermodel or skin.sex == 0 and `mp_m_freemode_01` or `mp_f_freemode_01`
 		return model
-	elseif Config.skin == 'illeniumappearance' then
+	elseif Config.skin == 'illenium-appearance' then
 		skin.sex = str == "m" and 0 or 1
-		local model = skin.sex == 0 and `mp_m_freemode_01` or `mp_f_freemode_01`
+		local model = othermodel or skin.sex == 0 and `mp_m_freemode_01` or `mp_f_freemode_01`
 		return model
 	elseif Config.skin == 'qb-clothing' then
-		local model = str == 'm' and `mp_m_freemode_01` or `mp_f_freemode_01`
+		local model = othermodel or str == 'm' and `mp_m_freemode_01` or `mp_f_freemode_01`
 		return model
 	end
 end
@@ -377,7 +395,7 @@ SkinMenu = function()
 				Config.SkinMenu[Config.skin].exports()
 			end
 		end)
-	elseif Config.skin == 'fivemappearance' then
+	elseif Config.skin == 'fivem-appearance' then
 		local config = Config.fivemappearanceConfig
 		local playerPed = PlayerPedId()
 		SetPedAoBlobRendering(playerPed, true)
@@ -389,9 +407,15 @@ SkinMenu = function()
 				characters[chosenslot].skin = appearance
 				local save = callback('renzu_multicharacter:saveappearance', appearance)
 				finished = true
+			else -- if they cancel, so this will avoid player being invisible. because they dont have a skin and model saved in database.
+				local appearance = exports['fivem-appearance']:getPedAppearance(playerPed)
+				local save = callback('renzu_multicharacter:saveappearance', appearance)
+				finished = true
+				if not characters[chosenslot] then characters[chosenslot] = {} end
+				characters[chosenslot].skin = appearance
 			end
 		end, config)
-	elseif Config.skin == 'illeniumappearance' then
+	elseif Config.skin == 'illenium-appearance' then
 		local config = Config.fivemappearanceConfig
 		local playerPed = PlayerPedId()
 		SetPedAoBlobRendering(playerPed, true)
@@ -403,6 +427,12 @@ SkinMenu = function()
 				characters[chosenslot].skin = appearance
 				local save = callback('renzu_multicharacter:saveappearance', appearance)
 				finished = true
+			else -- if they cancel, so this will avoid player being invisible. because they dont have a skin and model saved in database.
+				local appearance = exports['illenium-appearance']:getPedAppearance(playerPed)
+				local save = callback('renzu_multicharacter:saveappearance', appearance)
+				finished = true
+				if not characters[chosenslot] then characters[chosenslot] = {} end
+				characters[chosenslot].skin = appearance
 			end
 		end, config)
 	elseif Config.skin == 'qb-clothing' then
@@ -417,9 +447,9 @@ end
 LoadSkin = function()
 	if Config.skin == 'skinchanger' then
 		TriggerEvent('skinchanger:loadSkin', characters[chosenslot].skin)
-	elseif Config.skin == 'fivemappearance' then
+	elseif Config.skin == 'fivem-appearance' then
 		exports['fivem-appearance']:setPlayerAppearance(characters[chosenslot].skin)
-	elseif Config.skin == 'illeniumappearance' then
+	elseif Config.skin == 'illenium-appearance' then
 		exports['illenium-appearance']:setPlayerAppearance(characters[chosenslot].skin)
 	elseif Config.skin == 'qb-clothing' then
 		TriggerEvent('qb-clothing:client:loadPlayerClothing', characters[chosenslot].skin, PlayerPedId())
@@ -468,6 +498,7 @@ RegisterNetEvent('esx:playerLoaded', function(playerData, isNew, skin)
 	TriggerEvent('esx:restoreLoadout')
 	FreezeEntityPosition(PlayerPedId(),false)
 	ClearPedTasks(PlayerPedId())
+	stateactive = false
 end)
 
 RegisterNetEvent('esx:onPlayerLogout', function()
@@ -573,13 +604,15 @@ ClearPedHeadshots = function(handle)
 	UnregisterPedheadshot(handle)
 end
 
-CheckStates = function()
+CheckStates = function(preview)
 	local states = characters[chosenslot].extras
 	if characters[chosenslot] and characters[chosenslot].extras then
 		for name,data in pairs(states) do
-			HandleStates(name,data)
+			HandleStates(name,data,preview)
+			if preview and name == 'invehicle' then return true end
 		end
 	end
+	return false
 end
 
 RegisterStates = function(name,cb,spawnselector)
@@ -595,7 +628,7 @@ end
 exports('RegisterStates', RegisterStates)
 
 -- advanced usage
-HandleStates = function(name,data)
+HandleStates = function(name,data,preview)
 	-- this is where callbacks will handle
 	-- if data.server and name == 'inhouse' then
 	-- TriggerServerEvent('resource_sample:ishouse')
@@ -605,18 +638,38 @@ HandleStates = function(name,data)
 	-- my use case and example
 	if name == 'invehicle' and data and type(data) == 'table' then
 		DoScreenFadeOut(0)
-		local lastvehicle = callback('setplayertolastvehicle',data.net) -- this will set the player to its last vehicle
+		local lastvehicle = callback('setplayertolastvehicle',data.net,preview) -- this will set the player to its last vehicle
 		Wait(1000)
 		DoScreenFadeIn(1000)
+		if IsCamActive(cam) then
+			local vehicle = NetworkGetEntityFromNetworkId(data.net)
+			if not DoesEntityExist(vehicle) then return end
+			local coord = GetEntityCoords(vehicle)
+			SetCamParams(cam, coord.x,coord.y+4,coord.z+0.8, 0.0,0.0,0.0, 55.0, 1, 0, 0, 2)
+			PointCamAtEntity(cam, vehicle, 0.0, 0.0, 0.0, true)
+			stateactive = true -- prevents spawn selector
+		end
+		return data
 	end
 end
 
+function TryOxLib(file)
+    local fcall = function()
+        local name = ('%s.lua'):format(file)
+        local content = LoadResourceFile('ox_lib',name)
+        local f, err = load(content)
+        return f()
+    end
+    _, ret = pcall(fcall,false)
+    return ret
+end
+
 -- sample register states
--- exports.renzu_multicharacter:RegisterStates('invehicle', function()
--- 	if not lib then return end -- ox_lib
--- 	print('registered')
--- 	lib.onCache('vehicle', function(value)
--- 		print(value)
--- 		LocalPlayer.state:set('invehicle',value and {net = NetworkGetNetworkIdFromEntity(value) or false},true)
--- 	end)
--- end,false)
+TryOxLib('init')
+exports.renzu_multicharacter:RegisterStates('invehicle', function()
+	if not lib then return end -- ox_lib
+	lib.onCache('vehicle', function(value)
+		if not loaded then return end
+		LocalPlayer.state:set('invehicle',value and {net = NetworkGetNetworkIdFromEntity(value) or false},true)
+	end)
+end,false)

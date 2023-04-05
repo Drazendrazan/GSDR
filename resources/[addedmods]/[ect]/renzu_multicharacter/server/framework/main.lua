@@ -66,6 +66,8 @@ GetCharacters = function(source,data,slots)
 				local job = json.decode(result[i].job)
 				local firstname = info.firstname or 'No name'
 				local lastname = info.lastname or 'No Lastname'
+				local playerskin = skin and skin[1] and json.decode(skin[1].skin) or {}
+				playerskin.model = skin and skin[1] and tonumber(skin[1].model)
 				characters[result[i].cid] = {
 					slot = result[i].cid,
 					name = firstname..' '..lastname,
@@ -76,7 +78,7 @@ GetCharacters = function(source,data,slots)
 					money = money.cash,
 					citizenid = result[i].citizenid,
 					identifier = result[i].citizenid,
-					skin = skin and skin[1] and json.decode(skin[1].skin) or {},
+					skin = playerskin,
 					sex = info.gender == 0 and 'm' or 'f',
 					position = result[i].position and result[i].position ~= '' and json.decode(result[i].position) or vec3(280.03,-584.29,43.29),
 					extras = GetExtras(result[i].citizenid)
@@ -113,13 +115,19 @@ DeleteCharacter = function(source,slot)
 end
 
 LoadPlayer = function(source)
-	while not GetPlayerFromId(source) do Wait(0) print('Loading Data for '..GetPlayerName(source)..'') end
+	local source = source
+	local ts = 0
+	while not GetPlayerFromId(source) and ts < 1000 do ts += 1 Wait(0) end
 	local ply = Player(source).state
-	ply:set('identifier',GetPlayerFromId(source).identifier,true)
+	local identifier = GetPlayerFromId(source).identifier
+	if identifier then
+		ply:set('identifier',GetPlayerFromId(source).identifier,true)
+	end
 	return true
 end
 
 Login = function(source,data,new,qbslot)
+	local source = source
 	if Config.framework == 'ESX' then
 		TriggerEvent('esx:onPlayerJoined', source, Config.Prefix..data, new or nil)
 		LoadPlayer(source)
@@ -136,6 +144,8 @@ Login = function(source,data,new,qbslot)
 		end
 		local login = QBCore.Player.Login(source, not new and data or false, new or nil)
 		print('^2[qb-core]^7 '..GetPlayerName(source)..' (Citizen ID: '..data..') has succesfully loaded!')
+		local ply = Player(source).state
+		ply:set('identifier',data,true)
         QBCore.Commands.Refresh(source)
 		-- this codes below should be in playerloaded event in server. but here we need this to trigger qb-spawn and to support apartment
 		--loadHouseData(source)
