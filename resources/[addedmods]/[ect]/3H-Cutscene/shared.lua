@@ -4,7 +4,7 @@ Shared = {}
 Shared.Target = "qb-target"
     
 -- Did you renamed your fuel script name? If yes then only change it else choose it from here - LegacyFuel, cdn-fuel, ps-fuel  
-Shared.Fuel = "LegacyFuel"
+Shared.Fuel = "cdn-fuel"
 
 -- Do you want to use the emote after the cutscene is over or after the taxi drops you at your destination?
 Shared.UseEmote = true
