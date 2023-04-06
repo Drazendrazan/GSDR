@@ -2,14 +2,14 @@
 
 # CDN-Fuel (2.0.0 Beta) 
 
-A functionality fuel system based off of [ps-fuel](https://github.com/Project-Sloth/ps-fuel) that uses PolyZones that target fueling pumps and vehicles to allow you to refuel your vehicle, as well as interact-sound to play accurate refueling sounds.
+A functionality fuel system based off of [cdn-fuel](https://github.com/Project-Sloth/cdn-fuel) that uses PolyZones that target fueling pumps and vehicles to allow you to refuel your vehicle, as well as interact-sound to play accurate refueling sounds.
 
 ### Disclaimer 
 This is the Beta version of cdn-fuel with the Player Owned Gas Stations & Electric Charging Features added. Since it is in Beta, some features may not be up to standard or include some issues. If you come across an issue, create an issue or go to our discord (located at the bottom of this read me) and explain what the problem is and we will work to get a solution as soon as possible.
 
 ## Major Credits
 
-Major shoutout to the Project Sloth team. We based this script off of their wonderful ps-fuel script. We wanted to change it up a little bit, but ended up doing a lot more than originally planned, so we though we'd release this on it's own rather than PR things. (https://github.com/Project-Sloth/ps-fuel)
+Major shoutout to the Project Sloth team. We based this script off of their wonderful cdn-fuel script. We wanted to change it up a little bit, but ended up doing a lot more than originally planned, so we though we'd release this on it's own rather than PR things. (https://github.com/Project-Sloth/cdn-fuel)
 
 ### Dependencies:
 
@@ -43,7 +43,7 @@ Next, we're going to drag the sounds from the *cdn-fuel/assets/sounds* folder in
 
 ### Step 3:
 
-Next, we're going to open our entire resources folder in whichever IDE you use, (we will be using Visual Studio Code for this example) and replace all of your current exports titled "LegacyFuel", "ps-fuel" or "lj-fuel", with "cdn-fuel". Then you want to ensure cdn-fuel in your server's config file. 
+Next, we're going to open our entire resources folder in whichever IDE you use, (we will be using Visual Studio Code for this example) and replace all of your current exports titled "cdn-fuel", "cdn-fuel" or "lj-fuel", with "cdn-fuel". Then you want to ensure cdn-fuel in your server's config file. 
 <br> <br>
 ![step 3](https://i.imgur.com/VZnQpcS.gif)
 
@@ -356,4 +356,4 @@ Here's a couple of videos showcasing the script in action!
 ### Credits:
 
 Massive shoutout once again to the team at [Project Sloth](https://github.com/Project-Sloth)! <br><br> They create super sick scripts that have changed the game when it comes to fivem server development.
-This script is based off of their [ps-fuel script](https://github.com/Project-Sloth/ps-fuel).
+This script is based off of their [cdn-fuel script](https://github.com/Project-Sloth/cdn-fuel).

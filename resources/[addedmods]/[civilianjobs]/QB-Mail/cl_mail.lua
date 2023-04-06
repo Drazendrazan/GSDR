@@ -236,7 +236,7 @@ function SpawnVehicle()
 
     QBCore.Functions.SpawnVehicle(Config.JobVehicleModel, function(veh)
         Vehicle = veh
-        exports['ps-fuel']:SetFuel(veh, 100.0)
+        exports['cdn-fuel']:SetFuel(veh, 100.0)
         TaskWarpPedIntoVehicle(civ, veh, -1)
         TriggerEvent('vehiclekeys:client:SetOwner', QBCore.Functions.GetPlate(veh))
         SetVehicleEngineOn(veh, true, true)

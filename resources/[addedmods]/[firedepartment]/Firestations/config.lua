@@ -14,7 +14,7 @@ Config.JobName = 'ambulance'
 -- is you use my Stations Blips set it to true or false
 Config.UseBlips = true
 
--- Put here your fuel system LegacyFuel by default
+-- Put here your fuel system cdn-fuel by default
 Config.FuelSystem = 'cdn-fuel'
 
 -- Config of vehicles players can interact with

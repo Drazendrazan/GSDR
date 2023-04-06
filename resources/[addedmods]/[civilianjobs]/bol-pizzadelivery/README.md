@@ -1,5 +1,5 @@
 # bol-pizzadelivery
 Optimized QBCore Pizza Delivery Job
 
-Dependencies: ps-fuel or any fuel script.
-If using Legacy Fuel change line 319 in client.lua ps-fuel to ps-fuel.
+Dependencies: cdn-fuel or any fuel script.
+If using Legacy Fuel change line 319 in client.lua cdn-fuel to cdn-fuel.
