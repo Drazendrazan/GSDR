@@ -611,3 +611,24 @@ CreateThread(function ()
         Wait(sleep)
     end
 end)
+
+-- 3H-Cutscene
+local function DisableInApartment(house)
+    TriggerServerEvent("qb-apartments:returnBucket")
+    exports['qb-interior']:DespawnInterior(HouseObj, function()
+        TriggerEvent('qb-weathersync:client:EnableSync')
+        Wait(1000)
+        TriggerServerEvent("apartments:server:RemoveObject", CurrentApartment, house)
+        TriggerServerEvent('qb-apartments:server:SetInsideMeta', CurrentApartment, false)
+        CurrentApartment = nil
+        InApartment = false
+        CurrentOffset = 0
+        TriggerServerEvent("apartments:server:setCurrentApartment", nil)
+        DeleteInApartmentTargets()
+        DeleteApartmentsEntranceTargets()
+    end)
+end
+
+RegisterNetEvent('3H-CutScene:client:disableInAparts', function()
+    if InApartment == true then return DisableInApartment(ClosestHouse) end
+end)
