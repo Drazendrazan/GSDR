@@ -6,7 +6,7 @@ lua54 'yes'
 
 description 'QB Drug Trafficing by Project Sloth'
 
-version '1.0.0'
+version '1.3'
 
 shared_scripts {
 	'@PolyZone/client.lua',
@@ -25,6 +25,7 @@ server_scripts {
 	'server/chemicals.lua',
 	'server/lisenceshop.lua',
 	'server/moneywash.lua',
+	'server/versioncheck.lua'
 }
 
 client_scripts {
