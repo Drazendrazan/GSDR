@@ -43,7 +43,7 @@ Config.spawnAngle = { 0, 360 } -- animal spwan radius from placed bait
 
 Config.animalDespawnRange = 150.0
 
-Config.spawnedAnimalsBlips = true -- when animals spawend it will appears in map with blips on them
+Config.spawnedAnimalsBlips = false -- when animals spawend it will appears in map with blips on them
 Config.AnimalBlip = {
     sprite = 463, -- icon https://docs.fivem.net/docs/game-references/blips/
     color = 5

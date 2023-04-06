@@ -1,6 +1,6 @@
 if not Framework.QBCore() then return end
 
-newCreate = false
+local newCreate = false
 
 local client = client
 

@@ -229,6 +229,7 @@ function InitializeCharacter(gender, onSubmit, onCancel)
     TriggerServerEvent("illenium-appearance:server:ChangeRoutingBucket")
     client.startPlayerCustomization(function(appearance)
         if (appearance) then
+            TriggerEvent(“cs:introCinematic:start”)
             TriggerServerEvent("illenium-appearance:server:saveAppearance", appearance)
             if onSubmit then
                 onSubmit()
