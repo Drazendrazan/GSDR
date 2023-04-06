@@ -12,7 +12,7 @@ Config.hydrant = {200846641, 687935120, -366155374, -97646180}
 Config.JobName = 'ambulance'
 
 -- is you use my Stations Blips set it to true or false
-Config.UseBlips = true
+Config.UseBlips = false
 
 -- Put here your fuel system cdn-fuel by default
 Config.FuelSystem = 'cdn-fuel'

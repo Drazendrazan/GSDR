@@ -19,7 +19,7 @@ Config.Reward = { --- reward after drilling complete
     },
 }
 
-Config.UseBlips = true -- enable or disable blips for all platforms
+Config.UseBlips = false -- enable or disable blips for all platforms
 Config.Blip = {
     Sprite = 648,
     Scale = 0.5,

@@ -2,7 +2,7 @@ Config = Config or {}
 
 Config.Job = 'pizzeria' -- Name for the job that can access the target etc 
 
-Config.UseBlips = true -- Set to false to disable blips
+Config.UseBlips = false -- Set to false to disable blips
 
 Config.MaxInventoryWeight = 120000 -- Set that to your max inventory weight, by defualt 120000
 

@@ -12,7 +12,7 @@ Config = {
     TargetObject = "prop_rock_1_i"
 }
 
-Config.UseBlips = true
+Config.UseBlips = false
 
 Config.targetitem = "mining_drill"
 Config.washitem = "mining_stone"

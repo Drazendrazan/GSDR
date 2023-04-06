@@ -17,7 +17,7 @@ Shared.WelcomeMessage = {
     Enable = true,
         
     -- What do you want the welcome message to be?
-    Text = "Hello dear, welcome to our server",
+    Text = "Welcome to gold standard roleplay",
 }
     
 Shared.Cutscene = {
