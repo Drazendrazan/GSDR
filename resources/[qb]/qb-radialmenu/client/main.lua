@@ -141,26 +141,6 @@ local function SetupVehicleMenu()
 end
 
 local function SetupSubItems()
-    local basket = exports['ds-fruitpicker']:Checkbasket()
-
-    if basket == "drop" then
-        Config.MenuItems[5] = {
-            id = "basket",
-            title = "Drop Basket",
-            icon = "shopping-basket",
-            type = 'client',
-            event = 'dropbasket',
-            shouldClose = true,
-        }
-    elseif basket == "pickup" then
-        Config.MenuItems[5] = {
-            id = "basket2",
-            title = "Pickup Basket",
-            icon = "shopping-basket",
-            type = 'client',
-            event = 'dropbasket',
-            shouldClose = true,
-        }
     SetupJobMenu()
     SetupVehicleMenu()
 end
