@@ -1,6 +1,4 @@
 
-
-
 var toggleShow = false;
 var activeform = {};
 var id_count = 0;
@@ -74,10 +72,12 @@ function Form (_title, _subtitle, _elements, _submittable)
 	}
 
 	this.sign = function () {
+		//alert("HMM?");
 		this.signed = true;
 		$("#signature_block").addClass("signature_block_signed");
 		$("#signature_block").html(activeform.headerFirstName + " " + activeform.headerLastName + "<br>" + this.headerJobLabel + " - " + this.headerJobGrade + "<br>" + getCreationDate());
 	}
+
 	this.submit = function() { 
 
 		activeform.headerDateCreated = getCreationDate();
@@ -102,7 +102,7 @@ function Form (_title, _subtitle, _elements, _submittable)
 		var json_string = JSON.stringify(activeform);
 		
 		if (can_submit) {
-			$.post('http://os-documents/form_submit', json_string);
+			$.post('http://cs_documents/form_submit', json_string);
 			activeform.close();
 		}
 		
@@ -179,6 +179,7 @@ function Form (_title, _subtitle, _elements, _submittable)
 			html_footer += "<button id=\"button_cancel\" type=\"button\">Cancel</button>";
 			html_footer += "<button id=\"button_submit\" type=\"button\">Submit</button>";
 		}
+
 		html_footer += "</div>";
 
 		$("#main_container").append(html_footer);
@@ -197,7 +198,7 @@ function Form (_title, _subtitle, _elements, _submittable)
 	this.close = function() {
 		$("#main_container").html("");
 		$("#main_container").css({display: 'none'});
-		$.post('http://os-documents/form_close', JSON.stringify({}));
+		$.post('http://cs_documents/form_close', JSON.stringify({}));
 	}
 }
 
@@ -210,6 +211,7 @@ $(document).keyup(function(e) {
 
 
 window.addEventListener('message', function(event){
+
    	var edata = event.data;
    	if (edata.type == "ShowDocument") {
 
@@ -217,7 +219,7 @@ window.addEventListener('message', function(event){
    		activeform.loadFromJson(edata.data);
    		activeform.submittable = false;
 
-   		if (edata.data.locale == undefined) edata.data.locale = "os";
+   		if (edata.data.locale == undefined) edata.data.locale = "en";
 
    		$.getScript("language_" + edata.data.locale + ".js", function(data, textStatus){
    			try {
@@ -230,6 +232,8 @@ window.addEventListener('message', function(event){
         		console.log("Error loading language: " + e);
     		}
 		});
+
+
    	}
 
    	if (edata.type == "createNewForm") {
@@ -254,6 +258,7 @@ window.addEventListener('message', function(event){
 });
 
 
+
 function getCreationDate()
 {
 	let d = new Date();
@@ -270,5 +275,27 @@ function getCreationDate()
 }
 
 
+$(document).ready(function(){
 
-
+	// TEST FORM FOR BROWSER EDITING
+	/* 
+	var tmp = [
+	new InputElement("ΗΜΕΡΟΜΗΝΙΑ ΣΥΜΒΑΝΤΟΣ", "input", "432", false),
+	new InputElement("ΤΟΠΟΘΕΣΙΑ ΣΥΜΒΑΝΤΟΣ", "input", "", false),
+	new InputElement("ΛΟΙΠΕΣ ΠΛΗΡΟΦΟΡΙΕΣ", "input", "", true),
+	new InputElement("ΚΑΤΑΘΕΣΗ", "textarea", "12321313123131", false, false)
+	];
+	var tmp_form = new Form("ΚΑΤΑΘΕΣΗ", "Επίσημη κατάθεση μάρτυρα.", tmp);
+	activeform = tmp_form;
+	activeform.headerFirstName = "Alonzo";
+	activeform.headerLastName = "Perrero";
+	activeform.headerDateOfBirth = "25/08/1988";
+	activeform.submittable = true;
+	activeform.print();
+	
+	   		$("#main_container").css({
+   			display: 'block'
+   		});
+   		*/
+   		
+});
