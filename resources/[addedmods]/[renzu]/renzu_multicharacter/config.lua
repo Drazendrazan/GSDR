@@ -7,7 +7,7 @@ Config.RegisterHook = {
 }
 
 -- SPAWN resource
-Config.SpawnSelector = true -- enable this if you want to use spawn selector
+Config.SpawnSelector = false -- enable this if you want to use spawn selector
 Config.SpawnSelectorExport = function(coord) -- by default it uses my spawn resource
 	return exports.renzu_spawn:Selector({x = coord.x, y = coord.y, z = coord.z, heading = coord.w})
 end
