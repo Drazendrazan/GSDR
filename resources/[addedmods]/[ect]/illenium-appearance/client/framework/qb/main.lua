@@ -1,12 +1,12 @@
 if not Framework.QBCore() then return end
 
+newCreate = false
+
 local client = client
 
 local QBCore = exports["qb-core"]:GetCoreObject()
 
 local PlayerData = QBCore.Functions.GetPlayerData()
-
-newCreate = false
 
 local function getRankInputValues(rankList)
     local rankValues = {}
