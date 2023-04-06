@@ -6,6 +6,8 @@ local QBCore = exports["qb-core"]:GetCoreObject()
 
 local PlayerData = QBCore.Functions.GetPlayerData()
 
+newCreate = false
+
 local function getRankInputValues(rankList)
     local rankValues = {}
     for k, v in pairs(rankList) do
@@ -87,6 +89,7 @@ RegisterNetEvent("QBCore:Client:OnPlayerLoaded", function()
 end)
 
 RegisterNetEvent("qb-clothes:client:CreateFirstCharacter", function()
+    newCreate = true
     QBCore.Functions.GetPlayerData(function(pd)
         PlayerData = pd
         setClientParams()
