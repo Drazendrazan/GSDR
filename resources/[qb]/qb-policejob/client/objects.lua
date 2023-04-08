@@ -200,7 +200,7 @@ end)
 
 RegisterNetEvent('police:client:SpawnSpikeStrip', function()
     if #SpawnedSpikes + 1 < Config.MaxSpikes then
-        if PlayerJob.type == "leo" and PlayerJob.onduty then
+        if PlayerJob.name == "police" and PlayerJob.onduty then
             local spawnCoords = GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 2.0, 0.0)
             local spike = CreateObject(spikemodel, spawnCoords.x, spawnCoords.y, spawnCoords.z, 1, 1, 1)
             local netid = NetworkGetNetworkIdFromEntity(spike)
@@ -277,14 +277,16 @@ CreateThread(function()
                 local dist = #(pos - SpawnedSpikes[ClosestSpike].coords)
                 if dist < 4 then
                     if not IsPedInAnyVehicle(PlayerPedId()) then
-                        if PlayerJob.type == "leo" and PlayerJob.onduty then
+                        if PlayerJob.name == "police" and PlayerJob.onduty then
                             sleep = 0
                             DrawText3D(pos.x, pos.y, pos.z, Lang:t('info.delete_spike'))
                             if IsControlJustPressed(0, 38) then
-                                NetworkRegisterEntityAsNetworked(SpawnedSpikes[ClosestSpike].object)
-                                NetworkRequestControlOfEntity(SpawnedSpikes[ClosestSpike].object)
-                                SetEntityAsMissionEntity(SpawnedSpikes[ClosestSpike].object)
-                                DeleteEntity(SpawnedSpikes[ClosestSpike].object)
+                                local spike = NetToEnt(SpawnedSpikes[ClosestSpike].netid)
+                                NetworkRegisterEntityAsNetworked(spike)
+                                NetworkRequestControlOfEntity(spike)
+                                SetEntityAsMissionEntity(spike)
+                                Wait(500)
+                                DeleteEntity(spike)
                                 SpawnedSpikes[ClosestSpike] = nil
                                 ClosestSpike = nil
                                 TriggerServerEvent('police:server:SyncSpikes', SpawnedSpikes)

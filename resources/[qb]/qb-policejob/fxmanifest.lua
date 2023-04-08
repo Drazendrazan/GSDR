@@ -2,7 +2,7 @@ fx_version 'cerulean'
 game 'gta5'
 
 description 'QB-PoliceJob'
-version '1.2.1'
+version '1.2.5'
 
 shared_scripts {
     'config.lua',
@@ -23,14 +23,12 @@ client_scripts {
 	--'client/anpr.lua',
 	'client/evidence.lua',
 	'client/objects.lua',
-	'client/tracker.lua',
-	'client/cl_fingerprint.lua',
+	'client/tracker.lua'
 }
 
 server_scripts {
 	'@oxmysql/lib/MySQL.lua',
-	'server/main.lua',
-	'server/sv_fingerprint.lua'
+	'server/main.lua'
 }
 
 ui_page 'html/index.html'
@@ -41,10 +39,8 @@ files {
 	'html/script.js',
 	'html/tablet-frame.png',
 	'html/fingerprint.png',
-	'html/policetablet.png',
 	'html/main.css',
-	'html/vcr-ocd.ttf',
-	'index/index.html'
+	'html/vcr-ocd.ttf'
 }
 
 lua54 'yes'

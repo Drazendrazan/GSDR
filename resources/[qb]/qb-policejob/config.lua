@@ -14,107 +14,46 @@ Config.HandCuffItem = 'handcuffs'
 
 Config.LicenseRank = 2
 
-Config.mzskills = true -- set to false if you don't want the break cuff xp system feature turned on
-
 Config.UseTarget = GetConvar('UseTarget', 'false') == 'true'
-
 Config.Locations = {
     ["duty"] = {
-        [1] = vector3(462.29, -999.3, 30.69), -- MRPD
- 
-        [2] = vector3(360.31, -1593.72, 25.45), -- Davis
- 
-        [3] = vector3(853.04, -1313.76, 28.24), -- La Mesa
- 
-        [4] = vector3(1842.06, 3679.28, 34.19), -- Sandy
- 
-        [5] = vector3(-439.16, 6011.35, 37.0), -- Paleto
+        [1] = vector3(440.085, -974.924, 30.689),
+        [2] = vector3(-449.811, 6012.909, 31.815),
     },
     ["vehicle"] = {
-        [1] = vector4(459.35, -986.77, 25.7, 108.24) -- MRPD
-        [2] = vector4(449.98, -975.87, 25.31, 90.69), -- MRPD
- 
-        [3] = vector4(384.79, -1634.54, 28.9, 320.45), -- Davis
-        [4] = vector4(399.1, -1621.44, 28.9, 51.35), -- Davis
- 
-        [5] = vector4(844.01, -1334.63, 25.71, 246.87), -- La Mesa
-        [6] = vector4(843.97, -1352.31, 25.69, 245.13), -- La Mesa
- 
-        [7] = vector4(1818.13, 3681.63, 33.58, 31.51), -- Sandy
-        [8] = vector4(1828.35, 3687.26, 33.58, 31.27), -- Sandy
- 
-        [9] = vector4(-482.85, 6024.75, 30.95, 225.13), -- Paleto
-        [10] = vector4(-475.86, 6031.97, 30.95, 229.38), -- Paleto
+        [1] = vector4(448.159, -1017.41, 28.562, 90.654),
+        [2] = vector4(471.13, -1024.05, 28.17, 274.5),
+        [3] = vector4(-455.39, 6002.02, 31.34, 87.93),
     },
     ["stash"] = {
-        [1] = vector3(479.25, -996.74, 30.69), -- MRPD
- 
-        [2] = vector3(365.23, -1598.6, 25.45), -- Davis
- 
-        [3] = vector3(852.99, -1312.1, 28.24), -- La Mesa
- 
-        [4] = vector3(1841.2, 3681.73, 34.19), -- Sandy
- 
-        [5] = vector3(-437.55, 6009.59, 37.0), -- Paleto
+        [1] = vector3(453.075, -980.124, 30.889),
     },
     ["impound"] = {
-        [1] = vector4(-152.63, -1170.1, 23.34, 267.64), -- Impound Lot
+        [1] = vector3(436.68, -1007.42, 27.32),
+        [2] = vector3(-436.14, 5982.63, 31.34),
     },
     ["helicopter"] = {
-        [1] = vector4(450.43, -981.71, 44.08, 91.46), -- MRPD
- 
-        [2] = vector4(1853.56, 3705.44, 34.36, 168.57), -- Sandy
- 
-        [3] = vector4(-475.9, 5988.29, 31.73, 318.11), -- Paleto
+        [1] = vector4(449.168, -981.325, 43.691, 87.234),
+        [2] = vector4(-475.43, 5988.353, 31.716, 31.34),
     },
     ["armory"] = {
-        [1] = vector3(482.63, -995.48, 30.69), -- MRPD
- 
-        [2] = vector3(364.64, -1604.06, 25.45), -- Davis
- 
-        [3] = vector3(836.65, -1286.31, 28.24), -- La Mesa
- 
-        [4] = vector3(1837.4, 3685.83, 34.19), -- Sandy
- 
-        [5] = vector3(-449.25, 6015.06, 37.0), -- Paleto
+        [1] = vector3(462.23, -981.12, 30.68),
     },
     ["trash"] = {
-        [1] = vector3(452.65, -998.28, 30.69), -- MRPD
- 
-        [2] = vector3(379.59, -1609.41, 30.2), -- Davis
- 
-        [3] = vector3(853.57, -1294.17, 28.24), -- La Mesa
- 
-        [4] = vector3(1826.71, 3671.74, 34.19), -- Sandy
- 
-        [5] = vector3(-452.35, 5997.95, 37.01), -- Paleto
+        [1] = vector3(439.0907, -976.746, 30.776),
     },
     ["fingerprint"] = {
-        [1] = vector3(473.1, -1007.47, 26.27), -- MRPD
- 
-        [2] = vector3(380.06, -1602.83, 25.45), -- Davis
- 
-        [3] = vector3(837.28, -1289.87, 28.24), -- La Mesa
- 
-        [4] = vector3(1817.26, 3673.9, 34.19), -- Sandy
- 
-        [5] = vector3(-440.62, 6010.8, 27.58), -- Paleto
+        [1] = vector3(460.9667, -989.180, 24.92),
     },
     ["evidence"] = {
-        [1] = vector3(474.86, -995.1, 26.27), -- MRPD
-        [2] = vector3(472.95, -995.22, 26.27), -- MRPD
- 
-        [3] = vector3(849.87, -1312.82, 28.24), -- La Mesa
-        [4] = vector3(846.73, -1312.77, 28.24), -- La Mesa
- 
-        [5] = vector3(-452.83, 5999.68, 37.01), -- Paleto
+        [1] = vector3(442.1722, -996.067, 30.689),
+        [2] = vector3(451.7031, -973.232, 30.689),
+        [3] = vector3(455.1456, -985.462, 30.689),
     },
     ["stations"] = {
-        [1] = {label = "Police Station [Mission Row]", coords = vector4(438.67, -981.84, 30.69, 78.29)}, -- MRPD
-        [2] = {label = "Police Station [Davis]", coords = vector4(372.0, -1601.2, 30.05, 147.7)}, -- Davis
-        [3] = {label = "Police Station [La Mesa]", coords = vector4(832.55, -1290.11, 28.24, 245.37)}, -- La Mesa
-        [4] = {label = "Police Station [Sandy Shores]", coords = vector4(1834.37, 3677.47, 34.19, 32.16)}, -- Sandy
-        [5] = {label = "Police Station [Paleto Bay]", coords = vector4(-446.34, 6012.56, 32.29, 39.57)}, -- Paleto
+        [1] = {label = "Police Station", coords = vector4(428.23, -984.28, 29.76, 3.5)},
+        [2] = {label = "Prison", coords = vector4(1845.903, 2585.873, 45.672, 272.249)},
+        [3] = {label = "Police Station Paleto", coords = vector4(-451.55, 6014.25, 31.716, 223.81)},
     },
 }
 
@@ -449,15 +388,6 @@ Config.Items = {
             info = {},
             type = "item",
             slot = 17,
-            authorizedJobGrades = {0, 1, 2, 3, 4}
-        },
-        [18] = {
-            name = "policetablet",
-            price = 0,
-            amount = 5,
-            info = {},
-            type = "item",
-            slot = 18,
             authorizedJobGrades = {0, 1, 2, 3, 4}
         }
     }
