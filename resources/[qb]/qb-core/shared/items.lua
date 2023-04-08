@@ -2434,5 +2434,6 @@ ultimate_block = {
         ["combinable"] = nil,
         ["description"] = "Casino Sprite"
     },
+	["policetablet"] = { ["name"] = "policetablet", ["label"] = "Police Tablet", ["weight"] = 5000, ["type"] = "item", ["image"] = "policetablet.png", ["unique"] = true, ['useable'] = true, ["shouldClose"] = true, ["combinable"] = nil, ["description"] = "A mobile fingerprint tablet." },
 }
 		
