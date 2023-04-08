@@ -17,9 +17,9 @@ Config.Object = {
     event = "QBCore:GetObject",  -- fill this if you disable usingexport.
 }
 
-Config.UseXp = false ---- enabe/disable xp system here
+Config.UseXp = true ---- enabe/disable xp system here
 Config.PedModel = 'a_m_m_farmer_01'
-Config.UseDrawText = true ---- set to false if you want to use eye target.
+Config.UseDrawText = false ---- set to false if you want to use eye target.
 Config.RequireJob = false --- enable this if you want to use job only.
 Config.JobName = "traindriver" --- job name Note: make sure you add job in your server accordingly your framework.
 
@@ -55,7 +55,7 @@ Config.Xp = {
 
 Config.Blip = {
     ['main_blip'] = {
-        enable = true,
+        enable = false,
         coords = vector3(286.53317, 6517.6704, 29.973867),
         Sprite = 88,
         Scale = 0.8,
@@ -63,7 +63,7 @@ Config.Blip = {
         Label = 'Fruit Farm'
     },
     ['selling'] = {
-        enable = true,
+        enable = false,
         coords = vector3(1792.27, 4594.9, 37.68),
         heading = 188.28,
         Sprite = 88,
