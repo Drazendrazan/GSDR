@@ -9,7 +9,7 @@ Config = {
     ---------------------
     --NOTIFICATION TYPE--
     ---------------------
-    NotifyType = "okok",                    -- Change to "qb" for standard qb-core notifications or "okok" for okokNotify
+    NotifyType = "qb",                    -- Change to "qb" for standard qb-core notifications or "okok" for okokNotify
 
     ----------------
     --CITYHALL JOB--

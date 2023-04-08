@@ -13,7 +13,7 @@ Config.ShroomRounded = 19                                   -- Round the shroom 
 
 Config.ShroomProp = `prop_stoneshroom1`                     -- GTA V prop asset to be collected
 
-Config.NotifyType = "okok"                                  -- Notification type: 'qb' for qb-core standard notifications, 'okok' for okokNotify notifications
+Config.NotifyType = "qb"                                  -- Notification type: 'qb' for qb-core standard notifications, 'okok' for okokNotify notifications
 
 Config.UseGloves = false                                     -- Ability to force player to use gloves to pick shrooms (true), (false) Deletes the polyzone to make gloves and allows players to pick without gloves.
 

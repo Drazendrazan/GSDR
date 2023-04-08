@@ -6,7 +6,7 @@ Config = Config or {}
 --MZ-BINS--
 -----------
 
-Config.NotifyType = 'okok'              -- notification type: 'qb' for qb-core standard notifications, 'okok' for okokNotify notifications
+Config.NotifyType = 'qb'              -- notification type: 'qb' for qb-core standard notifications, 'okok' for okokNotify notifications
 
 -------------------------
 --BIN DIVING PROPERTIES--

@@ -6,7 +6,7 @@ Config = Config or {}
 
 --DEFAULT CRAFT LOCATION:                   1176.08, 2635.15, 37.75
 
-Config.NotifyType = 'okok'                  -- notification type: 'qb' for qb-core standard notifications, 'okok' for okokNotify notifications
+Config.NotifyType = 'qb'                  -- notification type: 'qb' for qb-core standard notifications, 'okok' for okokNotify notifications
 
 Config.mzskills = true                      -- change to "false" if you wish to use this resource without using mz-skills
 
