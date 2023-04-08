@@ -112,6 +112,10 @@ function QBCore.Player.CheckPlayerData(source, PlayerData)
     PlayerData.metadata['jobrep']['taxi'] = PlayerData.metadata['jobrep']['taxi'] or 0
     PlayerData.metadata['jobrep']['hotdog'] = PlayerData.metadata['jobrep']['hotdog'] or 0
     PlayerData.metadata['callsign'] = PlayerData.metadata['callsign'] or 'NO CALLSIGN'
+    PlayerData.metadata['laptop'] = PlayerData.metadata['laptop'] or {
+        background = 'default',
+        darkfont = false,
+    }
     PlayerData.metadata['fingerprint'] = PlayerData.metadata['fingerprint'] or QBCore.Player.CreateFingerId()
     PlayerData.metadata['walletid'] = PlayerData.metadata['walletid'] or QBCore.Player.CreateWalletId()
     PlayerData.metadata['criminalrecord'] = PlayerData.metadata['criminalrecord'] or {

@@ -2435,5 +2435,10 @@ ultimate_block = {
         ["description"] = "Casino Sprite"
     },
 	["policetablet"] = { ["name"] = "policetablet", ["label"] = "Police Tablet", ["weight"] = 5000, ["type"] = "item", ["image"] = "policetablet.png", ["unique"] = true, ['useable'] = true, ["shouldClose"] = true, ["combinable"] = nil, ["description"] = "A mobile fingerprint tablet." },
+
+	['trackerdisabler'] = { ['name'] = 'trackerdisabler', ['label'] = 'Tracker Disabler', ['weight'] = 100, ['type'] = 'item', ['image'] = 'trackerdisabler.png', ['unique'] = true, ['useable'] = true,['shouldClose'] = true, ['combinable'] = nil, ['description'] = 'What is this?' },
+
+	['vpn'] = { ['name'] = 'vpn', ['label'] = 'VPN', ['weight'] = 100, ['type'] = 'item', ['image'] = 'vpn.png',['unique'] = true, ['useable'] = false, ['shouldClose'] = true, ['combinable'] = nil, ['description'] = "Hmm", }
+
 }
 		

@@ -19,7 +19,7 @@ CreateThread(function()
                         SetPedToRagdoll(ped, 1000, 1000, 0, 0, 0, 0)
                         -- Time to wait
                         wait = 60
-                        QBCore.Functions.Progressbar("knocked-out", "Eszméletlen...", 45000, false, false, {
+                        QBCore.Functions.Progressbar("knocked-out", 45000, false, false, {
                                 disableMovement = true,
                                 disableCarMovement = true,
                                 disableMouse = false,
@@ -31,7 +31,7 @@ CreateThread(function()
                             function()
                                 -- Done
                                 ExecuteCommand('e c')
-                                QBCore.Functions.Notify("Felkeltél!", "success", 5000)
+                                QBCore.Functions.Notify("success", 5000)
                             end,
                             function()
                             end,
