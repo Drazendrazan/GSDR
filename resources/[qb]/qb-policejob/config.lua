@@ -17,87 +17,104 @@ Config.LicenseRank = 2
 Config.mzskills = true -- set to false if you don't want the break cuff xp system feature turned on
 
 Config.UseTarget = GetConvar('UseTarget', 'false') == 'true'
+
 Config.Locations = {
     ["duty"] = {
-        -- MRPD
-        {
-            ped = vector4(442.78, -981.93, 30.69, 91.85)
-        },
-        -- Paleto
-        {
-            ped = vector4(-448.39, 6013.96, 32.29, 216.59)
-        }
+        [1] = vector3(462.29, -999.3, 30.69), -- MRPD
+ 
+        [2] = vector3(360.31, -1593.72, 25.45), -- Davis
+ 
+        [3] = vector3(853.04, -1313.76, 28.24), -- La Mesa
+ 
+        [4] = vector3(1842.06, 3679.28, 34.19), -- Sandy
+ 
+        [5] = vector3(-439.16, 6011.35, 37.0), -- Paleto
     },
-    -- Following the formula below you can add as many locations as you want coords = where the Ped spawns, spawn = where the vehicle spawns
-    ["vehicleped"] = {
-        -- MRPD
-        {
-            coords = vector4(441.57, -974.77, 25.7, 181.71),
-            spawn = vector4(445.41, -988.94, 25.7, 273.0),
-        },
-        -- Paleto
-        {
-            coords = vector4(-463.23, 6025.33, 31.34, 138.98),
-            spawn = vector4(-476.49, 6032.56, 31.34, 222.19),
-        }
+    ["vehicle"] = {
+        [1] = vector4(458.91, -992.84, 25.31, 0.66), -- MRPD
+        [2] = vector4(449.98, -975.87, 25.31, 90.69), -- MRPD
+ 
+        [3] = vector4(384.79, -1634.54, 28.9, 320.45), -- Davis
+        [4] = vector4(399.1, -1621.44, 28.9, 51.35), -- Davis
+ 
+        [5] = vector4(844.01, -1334.63, 25.71, 246.87), -- La Mesa
+        [6] = vector4(843.97, -1352.31, 25.69, 245.13), -- La Mesa
+ 
+        [7] = vector4(1818.13, 3681.63, 33.58, 31.51), -- Sandy
+        [8] = vector4(1828.35, 3687.26, 33.58, 31.27), -- Sandy
+ 
+        [9] = vector4(-482.85, 6024.75, 30.95, 225.13), -- Paleto
+        [10] = vector4(-475.86, 6031.97, 30.95, 229.38), -- Paleto
     },
     ["stash"] = {
-        -- MRPD
-        {
-            stash = vector4(446.79, -996.93, 30.69, 268.43),
-        }
+        [1] = vector3(479.25, -996.74, 30.69), -- MRPD
+ 
+        [2] = vector3(365.23, -1598.6, 25.45), -- Davis
+ 
+        [3] = vector3(852.99, -1312.1, 28.24), -- La Mesa
+ 
+        [4] = vector3(1841.2, 3681.73, 34.19), -- Sandy
+ 
+        [5] = vector3(-437.55, 6009.59, 37.0), -- Paleto
     },
     ["impound"] = {
-        -- MRPD
-        {
-            impound = vector4(426.54, -986.62, 25.7, 273.91),
-            vehicle =  vector4(425.67, -981.85, 25.7, 270.58),
-        }
+        [1] = vector4(-152.63, -1170.1, 23.34, 267.64), -- Impound Lot
     },
     ["helicopter"] = {
-        -- MRPD
-        {
-            heliped = vector4(455.23, -986.67, 43.69, 303.94),
-            helispawn = vector4(449.62, -981.25, 43.69, 86.89),
-        }
+        [1] = vector4(450.43, -981.71, 44.08, 91.46), -- MRPD
+ 
+        [2] = vector4(1853.56, 3705.44, 34.36, 168.57), -- Sandy
+ 
+        [3] = vector4(-475.9, 5988.29, 31.73, 318.11), -- Paleto
     },
     ["armory"] = {
-        -- MRPD
-        {
-            armory = vector4(480.38, -996.54, 30.69, 92.53),
-        },
-        -- Paleto
-        {
-            armory = vector4(-445.89, 6014.78, 37.0, 233.33),
-        }
+        [1] = vector3(482.63, -995.48, 30.69), -- MRPD
+ 
+        [2] = vector3(364.64, -1604.06, 25.45), -- Davis
+ 
+        [3] = vector3(836.65, -1286.31, 28.24), -- La Mesa
+ 
+        [4] = vector3(1837.4, 3685.83, 34.19), -- Sandy
+ 
+        [5] = vector3(-449.25, 6015.06, 37.0), -- Paleto
     },
     ["trash"] = {
-        [1] = vector3(439.0907, -976.746, 30.776),
+        [1] = vector3(452.65, -998.28, 30.69), -- MRPD
+ 
+        [2] = vector3(379.59, -1609.41, 30.2), -- Davis
+ 
+        [3] = vector3(853.57, -1294.17, 28.24), -- La Mesa
+ 
+        [4] = vector3(1826.71, 3671.74, 34.19), -- Sandy
+ 
+        [5] = vector3(-452.35, 5997.95, 37.01), -- Paleto
     },
     ["fingerprint"] = {
-        -- MRPD
-        {
-            finger = vector4(473.1, -1005.89, 26.27, 171.9),
-        }
+        [1] = vector3(473.1, -1007.47, 26.27), -- MRPD
+ 
+        [2] = vector3(380.06, -1602.83, 25.45), -- Davis
+ 
+        [3] = vector3(837.28, -1289.87, 28.24), -- La Mesa
+ 
+        [4] = vector3(1817.26, 3673.9, 34.19), -- Sandy
+ 
+        [5] = vector3(-440.62, 6010.8, 27.58), -- Paleto
     },
     ["evidence"] = {
+        [1] = vector3(474.86, -995.1, 26.27), -- MRPD
+        [2] = vector3(472.95, -995.22, 26.27), -- MRPD
  
-        { -- MRPD
-            evidence = vector4(472.29, -1000.34, 26.27, 312.07)
-        },
+        [3] = vector3(849.87, -1312.82, 28.24), -- La Mesa
+        [4] = vector3(846.73, -1312.77, 28.24), -- La Mesa
  
-        { -- MRPD 
-            evidence = vector4(472.54, -991.21, 26.27, 290.73)
-        },      
-
-        { -- MRPD 
-            evidence = vector4(446.83, -997.53, 30.69, 321.53)
-        },     
+        [5] = vector3(-452.83, 5999.68, 37.01), -- Paleto
     },
     ["stations"] = {
-        [1] = {label = "Police Station", coords = vector4(428.23, -984.28, 29.76, 3.5)},
-        [2] = {label = "Prison", coords = vector4(1845.903, 2585.873, 45.672, 272.249)},
-        [3] = {label = "Police Station Paleto", coords = vector4(-451.55, 6014.25, 31.716, 223.81)},
+        [1] = {label = "Police Station [Mission Row]", coords = vector4(438.67, -981.84, 30.69, 78.29)}, -- MRPD
+        [2] = {label = "Police Station [Davis]", coords = vector4(372.0, -1601.2, 30.05, 147.7)}, -- Davis
+        [3] = {label = "Police Station [La Mesa]", coords = vector4(832.55, -1290.11, 28.24, 245.37)}, -- La Mesa
+        [4] = {label = "Police Station [Sandy Shores]", coords = vector4(1834.37, 3677.47, 34.19, 32.16)}, -- Sandy
+        [5] = {label = "Police Station [Paleto Bay]", coords = vector4(-446.34, 6012.56, 32.29, 39.57)}, -- Paleto
     },
 }
 
