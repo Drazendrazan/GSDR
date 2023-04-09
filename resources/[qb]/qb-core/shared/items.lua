@@ -2438,9 +2438,9 @@ ultimate_block = {
 
 	['trackerdisabler'] = { ['name'] = 'trackerdisabler', ['label'] = 'Tracker Disabler', ['weight'] = 100, ['type'] = 'item', ['image'] = 'trackerdisabler.png', ['unique'] = true, ['useable'] = true,['shouldClose'] = true, ['combinable'] = nil, ['description'] = 'What is this?' },
 
-	['vpn'] = { ['name'] = 'vpn', ['label'] = 'VPN', ['weight'] = 100, ['type'] = 'item', ['image'] = 'vpn.png',['unique'] = true, ['useable'] = false, ['shouldClose'] = true, ['combinable'] = nil, ['description'] = "Hmm", }
+	['vpn'] = { ['name'] = 'vpn', ['label'] = 'VPN', ['weight'] = 100, ['type'] = 'item', ['image'] = 'vpn.png',['unique'] = true, ['useable'] = false, ['shouldClose'] = true, ['combinable'] = nil, ['description'] = "Hmm"},
 
-	["metal_wand"] 							= {["name"] = "metal_wand",  	     		    ["label"] = "Metal Wand",	 		    ["weight"] = 1, 		["type"] = "item", 		["image"] = "metal_wand.png", 				["unique"] = false, 	    ["useable"] = true, 	["shouldClose"] = true,   	["combinable"] = nil,   ["description"] = ""},
+	["metal_wand"] = {["name"] = "metal_wand", ["label"] = "Metal Wand", ["weight"] = 1, ["type"] = "item", ["image"] = "metal_wand.png", ["unique"] = false, ["useable"] = true, ["shouldClose"] = true, ["combinable"] = nil, ["description"] = ""},
 
 
 }

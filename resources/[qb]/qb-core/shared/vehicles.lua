@@ -34,7 +34,7 @@ QBShared.Vehicles = {
     },
     ['club'] = {
         ['name'] = 'Club',
-        ['brand'] = 'BF',a
+        ['brand'] = 'BF',
         ['model'] = 'club',
         ['price'] = 4000,
         ['category'] = 'compacts',
