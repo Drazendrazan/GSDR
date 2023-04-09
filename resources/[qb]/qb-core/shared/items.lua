@@ -2440,5 +2440,8 @@ ultimate_block = {
 
 	['vpn'] = { ['name'] = 'vpn', ['label'] = 'VPN', ['weight'] = 100, ['type'] = 'item', ['image'] = 'vpn.png',['unique'] = true, ['useable'] = false, ['shouldClose'] = true, ['combinable'] = nil, ['description'] = "Hmm", }
 
+	["metal_wand"] 							= {["name"] = "metal_wand",  	     		    ["label"] = "Metal Wand",	 		    ["weight"] = 1, 		["type"] = "item", 		["image"] = "metal_wand.png", 				["unique"] = false, 	    ["useable"] = true, 	["shouldClose"] = true,   	["combinable"] = nil,   ["description"] = ""},
+
+
 }
 		
