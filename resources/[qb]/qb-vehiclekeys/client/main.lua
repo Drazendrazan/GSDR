@@ -686,6 +686,7 @@ function CarjackVehicle(target)
                 end
                 TriggerServerEvent('hud:server:GainStress', math.random(1, 4))
                 TriggerServerEvent('qb-vehiclekeys:server:AcquireVehicleKeys', plate)
+                TriggerEvent("qb-platescan:client:AddStolenPlate", vehicle, plate)
             else
                 QBCore.Functions.Notify(Lang:t("notify.cjackfail"), "error")
                 MakePedFlee(target)

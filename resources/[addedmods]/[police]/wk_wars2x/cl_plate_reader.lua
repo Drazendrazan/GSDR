@@ -142,9 +142,9 @@ function READER:LockCam( cam, playBeep, isBolo, override )
 				SendNUIMessage( { _type = "audio", name = "beep", vol = RADAR:GetSettingValue( "plateAudio" ) } )
 			end
 
-			if ( isBolo ) then
-				SendNUIMessage( { _type = "audio", name = "plate_hit", vol = RADAR:GetSettingValue( "plateAudio" ) } )
-			end
+			-- if ( isBolo ) then
+			-- 	SendNUIMessage( { _type = "audio", name = "plate_hit", vol = RADAR:GetSettingValue( "plateAudio" ) } )
+			-- end
 
 			-- Trigger an event so developers can hook into the scanner every time a plate is locked
 			TriggerServerEvent( "wk:onPlateLocked", cam, self:GetPlate( cam ), self:GetIndex( cam ) )
@@ -223,6 +223,16 @@ RegisterNUICallback( "clearBoloPlate", function( plate, cb )
 	cb( "ok" )
 end )
 
+local Vehicle = nil
+
+local function GetFrontPlate()
+	local data = {
+		locked = READER.vars.cams["front"].locked,
+		plate = READER.vars.cams["front"].plate,
+		veh = Vehicle,
+	}
+	return data
+end exports("GetFrontPlate", GetFrontPlate)
 
 --[[----------------------------------------------------------------------------------
 	Plate reader threads
@@ -244,6 +254,10 @@ function READER:Main()
 
 			-- Run the ray trace to get a vehicle
 			local veh = UTIL:GetVehicleInDirection( PLY.veh, start, offset )
+
+			if i == 1 then
+				Vehicle = veh
+			end
 
 			-- Get the plate reader text for front/rear
 			local cam = self:GetCamFromNum( i )
@@ -285,10 +299,10 @@ function READER:Main()
 						SendNUIMessage( { _type = "changePlate", cam = cam, plate = plate, index = index } )
 
 						-- If we use Sonoran CAD, reduce the plate events to just player's vehicle, otherwise life as normal
-						if ( ( CONFIG.use_sonorancad and ( UTIL:IsPlayerInVeh( veh ) or IsVehiclePreviouslyOwnedByPlayer( veh ) ) and GetVehicleClass( veh ) ~= 18 ) or not CONFIG.use_sonorancad ) then
-							-- Trigger the event so developers can hook into the scanner every time a plate is scanned
-							TriggerServerEvent( "wk:onPlateScanned", cam, plate, index )
-						end
+						-- if ( ( CONFIG.use_sonorancad and ( UTIL:IsPlayerInVeh( veh ) or IsVehiclePreviouslyOwnedByPlayer( veh ) ) and GetVehicleClass( veh ) ~= 18 ) or not CONFIG.use_sonorancad ) then
+						-- 	-- Trigger the event so developers can hook into the scanner every time a plate is scanned
+						-- 	TriggerServerEvent( "wk:onPlateScanned", cam, plate, index )
+						-- end
 					end
 				end
 			end
