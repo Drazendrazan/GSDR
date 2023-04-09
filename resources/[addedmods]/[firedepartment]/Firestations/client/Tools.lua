@@ -31,25 +31,6 @@ RegisterNetEvent('qb-Firestations:toolsmenu', function(data)
 			header = "👨‍🚒 | Tools Menu | 👨‍🚒",
 			isMenuHeader = true
 		},
-
-		{
-			header = "• Grab Attack Line",
-			txt = "Water Variant",
-			params = {
-				event = "qb-Firestations:hose",
-				args = {}
-			}
-		},
-		-- buy it here: https://store.londonstudios.net/category/resources
-		{
-			header = "• Grab Attack Line Foam",
-			txt = "Foam Variant (buy it)",
-			params = {
-				event = "qb-Firestations:foam",
-				args = {}
-			}
-		},
-		
 		{
 			header = "• Rescue Tools Menu",
 			text = "Open Rescue Tools Menu",
@@ -65,7 +46,7 @@ RegisterNetEvent('qb-Firestations:toolsmenu', function(data)
 				event = "qb-Firestations:resupply",
 				args = {}
 			}
-		}
+		},
 	}
 	exports['qb-menu']:openMenu(Menu)
 end)
@@ -159,7 +140,7 @@ CreateThread(function()
 					type = "Client",
 					event = "qb-Firestations:stash",
 					icon = "fas	fa-bolt",
-					label = 'Fire Stash',
+					label = "Fire Stash",
 					job = Config.JobName,
 				},
 			},
@@ -173,14 +154,14 @@ CreateThread(function()
 				type = "client",
 				event = "qb-Firestations:toolsmenu",
 				icon = "fas fa-fire-extinguisher",
-				label = "FireFighter Menu",
+				label = "Tools menu",
 				job = Config.JobName,
 			},
 			{ 
 				type = "client",
 				event = "qb-Firestations:turnoutMenu",
 				icon = "fas fa-fire-extinguisher",
-				label = "Turnout Gear",
+				label = "Turnout Gear Menu",
 				job = Config.JobName,
 			}
 		},

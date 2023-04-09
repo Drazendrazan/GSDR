@@ -12,8 +12,17 @@ if not Fires.script then warn('YOU DONT HAVE ANY SUPPORTED FIRESCRIPT') end
 
 -- onResourceStart
 AddEventHandler('onResourceStart', function(resourceName)
-    if (GetCurrentResourceName() ~= resourceName) then return end
-    PlayerData = QBCore.Functions.GetPlayerData()
+    if resourceName == GetCurrentResourceName() then
+        Wait(200)
+        PlayerJob = QBCore.Functions.GetPlayerData().job
+		gender = QBCore.Functions.GetPlayerData().charinfo.gender
+        isLoggedIn = true
+    end
+end)
+
+AddEventHandler('onResourceStop', function(resourceName)
+	if (GetCurrentResourceName() ~= resourceName) then return end
+	print('The resource ' .. resourceName .. ' was stopped.')
 end)
 
 ------------------------

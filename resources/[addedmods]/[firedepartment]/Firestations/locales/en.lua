@@ -6,7 +6,8 @@ local Translations = {
         ['Cancel'] = 'pager was cancel',
         ['Reports'] = 'Reports ',
         ['Not_Uniform'] = 'You are Not in Uniform',
-        ['Right_Tool'] = "You don't have the right tool!"
+        ['Right_Tool'] = "You don't have the right tool!",
+        ['hose_back'] = " Put fire hose back in the truck"
     },
     error = {
         ['Invalid_tones'] = 'Invalid tones, please check your pagers',
@@ -27,17 +28,24 @@ local Translations = {
     },
     progressbar = {
         ['use_scba'] = 'Putting on a fire gear..',
+        ['EquipedScba'] = 'You have equiped your SCBA!',
+        ['remove.equiped_scba'] = 'Take off your SCBA..',
         ['remove_scba'] = 'Take off your fire gear..',
         ['oxygen_on'] = 'The Oxygen tank is activated',
         ['oxygen_off'] = 'The Oxygen tank is off',
         ['oxygen_empty'] = 'Oxygen Tank is Empty!',
         ['oxygen_low'] = 'Oxygen Tank is low!',
         ['oxygen_resupply'] = 'refill Oxygen Tank',
-        ['Smoke'] = 'Smoke Inhalation!'
+        ['Smoke'] = 'Smoke Inhalation!',
+		['open_hydrant'] = 'Open hydrant',
+		['close_hydrant'] = 'close fire hydrant'
     },
     target = {
         ['Connect'] = 'Connect to Hydrant',
-        ['Disconnect'] = 'Disconnect from Hydrant'
+        ['Disconnect'] = 'Disconnect from Hydrant',
+		['Gear'] = 'Turnout Gear',
+		['toolsmenu'] = 'Tools',
+		['Stash'] = 'Fire Stash'
     },    
 }
 Lang = Locale:new({phrases = Translations, warnOnMissing = true})

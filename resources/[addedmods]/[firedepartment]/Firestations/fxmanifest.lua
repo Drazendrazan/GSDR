@@ -1,9 +1,10 @@
-fx_version "cerulean"
+fx_version "adamant"
 game "gta5"
 
 author '(Wick)#5854'
 description 'FirefighterJob'
-version '1.3.0'
+version '1.3.1'
+lua54 'yes'
 
 shared_scripts {
 	'@qb-core/shared/locale.lua',
@@ -16,7 +17,9 @@ client_scripts {
     'client/*.lua'
 }
 
-server_script 'server/*.lua'
+server_script {
+    'server/*.lua'
+}
 
 -- NUI Default Page
 ui_page "html/index.html"
@@ -25,6 +28,8 @@ ui_page "html/index.html"
 files {
 	"html/index.html",
 	'html/sounds/*.mp3',
+	-- hose
+	-- free on https://github.com/LondonStudios/HoseLS
 	'hose/*.meta'
 }
 
@@ -43,5 +48,3 @@ export {
 	'PagePagers',
 	'SoundFireSiren'
 }
-
-lua54 'yes'

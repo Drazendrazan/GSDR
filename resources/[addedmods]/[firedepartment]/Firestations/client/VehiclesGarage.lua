@@ -61,10 +61,10 @@ RegisterNetEvent("qb-Firestations:Takecar", function(data)
             if Config.VehicleExtras[vehicleInfo].extras ~= nil then
                 QBCore.Shared.SetDefaultVehicleExtras(veh, Config.VehicleExtras[vehicleInfo].extras)
             end
-            if Config.VehicleExtras[vehicleInfo].livery ~= nil then
-                SetVehicleLivery(veh, Config.VehicleExtras[vehicleInfo].livery)
+                if Config.VehicleExtras[vehicleInfo].livery ~= nil then
+                    SetVehicleLivery(veh, Config.VehicleExtras[vehicleInfo].livery)
+                end
             end
-        end
         TriggerEvent('vehiclekeys:client:SetOwner', QBCore.Functions.GetPlate(veh))
     end, vector3(VehicleSpawnCoord.x, VehicleSpawnCoord.y, VehicleSpawnCoord.z), true)
 end)
@@ -81,12 +81,12 @@ end)
 
  -- NPC
  CreateThread(function()
-	QBCore.Functions.LoadModel('csb_trafficwarden')
-	while not HasModelLoaded('csb_trafficwarden') do
+	QBCore.Functions.LoadModel('s_m_y_fireman_01')
+	while not HasModelLoaded('s_m_y_fireman_01') do
 		Wait(100)
 	end
 	for k, station in pairs(Config.Locations["stations"]) do
-		customped = CreatePed(0, 'csb_trafficwarden', station.coords.x, station.coords.y, station.coords.z-1.0, station.coords.w, false, true)
+		customped = CreatePed(0, 's_m_y_fireman_01', station.coords.x, station.coords.y, station.coords.z-1.0, station.coords.w, false, true)
 		TaskStartScenarioInPlace(customped, true)
 		FreezeEntityPosition(customped, true)
 		SetEntityInvincible(customped, true)

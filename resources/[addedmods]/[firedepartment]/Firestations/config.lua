@@ -4,6 +4,10 @@
 Config = {}
 
 -- for firescript (get it here: https://github.com/Wick89/FirescriptAddons )
+-- if you don't want to use ScbaGear as items set it to false or true is you will
+Config.Isconsumables = true
+-- is you dont have any firehose set it to true or false is you have
+Config.MYHose = true
 -- Sound Oxygen set it to true or false
 Config.PlaySound = true
 Config.hydrant = {200846641, 687935120, -366155374, -97646180}
@@ -14,7 +18,7 @@ Config.JobName = 'ambulance'
 -- is you use my Stations Blips set it to true or false
 Config.UseBlips = false
 
--- Put here your fuel system cdn-fuel by default
+-- Put here your fuel system LegacyFuel by default
 Config.FuelSystem = 'cdn-fuel'
 
 -- Config of vehicles players can interact with
@@ -136,9 +140,6 @@ Config.VehicleExtras = {
 		["livery"] = 1,
     }
 }
-
--- turnout Progressbar -- true or false
-Config.Progressbar = true
 
 -- your EUP setup here
 Config.turnout = {

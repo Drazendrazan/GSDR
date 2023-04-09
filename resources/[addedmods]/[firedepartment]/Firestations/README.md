@@ -1,7 +1,6 @@
 [![License GNU-GPL v3](https://img.shields.io/github/license/Wick89/FirescriptAddons?style=plastic)](https://github.com/Wick89/Firestations/blob/main/LICENSE "License")
 ![Latest release (latest by date)](https://img.shields.io/github/v/release/Wick89/Firestations?display_name=tag&style=plastic)
 
-![GitHub all releases](https://img.shields.io/github/downloads/Wick89/Firestations/1.3.0/total?color=984&label=Download&style=for-the-badge)
 ![Discord](https://img.shields.io/discord/1070103618511982643?label=discord&style=for-the-badge)
 
 # Firestations
@@ -18,17 +17,20 @@ FirefighterJob for QBCore
 - [My FireScript](https://github.com/Wick89/FirescriptAddons)
 
 ### New Features:
-- pager (done)
-- vehicle(done)
-- Turnout/scba (done)
-- Hose (done)
+- pager (Done)
+- vehicle(Done)
+- Turnout/scba (ReWork)
+- Hose (Done)
+- MyTools (DEV)
 
 ### Installation
-- Download the script and create a folder `[FirescriptAddons]`
+- Download the script and create a folder `[Firedepartment]`
 - rename Firestations-main to Firestations
-- put Firestations in `[FirescriptAddons]`
+- put Firestations in `[Firedepartment]`
 - setup your config.lua
-
+- add it in \qb-core\shared
+```['scbagear']                     = {['name'] = 'scbagear',                    	['label'] = 'SCBA Gear',               	['weight'] = 500,       ['type'] = 'item',      ['image'] = 'scott.png',                ['unique'] = true,      ['useable'] = true,     ['shouldClose'] = true,    ['combinable'] = nil,   ['description'] = 'SCBA'},```
+- only if you have Config.Isconsumables = true
 # You are free to help 
 
 ### New updated will be next Friday
