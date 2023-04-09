@@ -581,9 +581,11 @@ function LockpickFinishCallback(success)
 
         if GetPedInVehicleSeat(vehicle, -1) == PlayerPedId() then
             TriggerServerEvent('qb-vehiclekeys:server:AcquireVehicleKeys', QBCore.Functions.GetPlate(vehicle))
+            TriggerServerEvent("qb-platescan:client:AddStolenPlate", vehicle, plate)
         else
             QBCore.Functions.Notify(Lang:t("notify.vlockpick"), 'success')
             TriggerServerEvent('qb-vehiclekeys:server:setVehLockState', NetworkGetNetworkIdFromEntity(vehicle), 1)
+            TriggerServerEvent("qb-platescan:client:AddStolenPlate", vehicle, plate)
         end
 
     else
@@ -622,6 +624,7 @@ function Hotwire(vehicle, plate)
         StopAnimTask(ped, "anim@amb@clubhouse@tutorial@bkr_tut_ig3@", "machinic_loop_mechandplayer", 1.0)
         TriggerServerEvent('hud:server:GainStress', math.random(1, 4))
         if (math.random() <= Config.HotwireChance) then
+            TriggerServerEvent("qb-platescan:client:AddStolenPlate", vehicle, plate)
             TriggerServerEvent('qb-vehiclekeys:server:AcquireVehicleKeys', plate)
         else
             QBCore.Functions.Notify(Lang:t("notify.fvlockpick"), "error")
@@ -686,7 +689,7 @@ function CarjackVehicle(target)
                 end
                 TriggerServerEvent('hud:server:GainStress', math.random(1, 4))
                 TriggerServerEvent('qb-vehiclekeys:server:AcquireVehicleKeys', plate)
-                TriggerEvent("qb-platescan:client:AddStolenPlate", vehicle, plate)
+                TriggerServerEvent("qb-platescan:client:AddStolenPlate", vehicle, plate)
             else
                 QBCore.Functions.Notify(Lang:t("notify.cjackfail"), "error")
                 MakePedFlee(target)
