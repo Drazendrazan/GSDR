@@ -1,3 +1,5 @@
+local QBCore = exports['qb-core']:GetCoreObject()
+
 function GetFuel(vehicle)
 	return DecorGetFloat(vehicle, Config.FuelDecor)
 end
@@ -10,13 +12,33 @@ function SetFuel(vehicle, fuel)
 end
 
 function LoadAnimDict(dict)
-	if not HasAnimDictLoaded(dict) then
+	while (not HasAnimDictLoaded(dict)) do
 		RequestAnimDict(dict)
-
-		while not HasAnimDictLoaded(dict) do
-			Wait(1)
-		end
+		Wait(5)
 	end
+end
+
+function GlobalTax(value)
+	local tax = (value / 100 * Config.GlobalTax)
+	return tax
+end
+
+function Comma_Value(amount)
+	local formatted = amount
+	while true do  
+	  formatted, k = string.gsub(formatted, "^(-?%d+)(%d%d%d)", '%1,%2')
+	  if (k==0) then
+		break
+	  end
+	end
+	return formatted
+end
+
+function math.percent(percent, maxvalue)
+	if tonumber(percent) and tonumber(maxvalue) then
+		return (maxvalue*percent)/100
+	end
+	return false
 end
 
 function Round(num, numDecimalPlaces)
@@ -31,12 +53,10 @@ function GetCurrentVehicleType(vehicle)
 	if not vehicle then return false end
 	local vehiclename = GetEntityModel(vehicle)
 	for _, currentCar in pairs(Config.ElectricVehicles) do
-		if currentCar == vehiclename or GetHashKey(currentCar) == vehiclename then
-			if Config.FuelDebug then print('Car is climate friendly') end
+		if currentCar == vehiclename or joaat(currentCar) == vehiclename then
 		  	return 'electricvehicle'
 		end
 	end
-	if Config.FuelDebug then print("Car is economically unviable.") end
 	return 'gasvehicle'
 end
 
@@ -60,29 +80,14 @@ function CreateBlip(coords, label)
 	return blip
 end
 
-
-function isCloseVeh()
-    local ped = PlayerPedId()
-    coordA = GetEntityCoords(ped, 1)
-    coordB = GetOffsetFromEntityInWorldCoords(ped, 0.0, 200.0, 0.0)
-    vehicle = getVehicleInDirection(coordA, coordB)
-    if DoesEntityExist(vehicle) and NetworkHasControlOfEntity(vehicle) then
-        return true
-    end
-    return false
-end
-
-function getVehicleInDirection(coordFrom, coordTo)
-	local offset = 0
-	local rayHandle
-	local vehicle
-	for i = 0, 100 do
-		rayHandle = CastRayPointToPoint(coordFrom.x, coordFrom.y, coordFrom.z, coordTo.x, coordTo.y, coordTo.z + offset, 10, PlayerPedId(), 0)	
-		a, b, c, d, vehicle = GetRaycastResult(rayHandle)
-		offset = offset - 1
-		if vehicle ~= 0 then break end
+function IsPlayerNearVehicle()
+	if Config.FuelDebug then
+		print("Checking if player is near a vehicle!")
 	end
-	local distance = Vdist2(coordFrom, GetEntityCoords(vehicle))
-	if distance > 25 then vehicle = nil end
-    return vehicle ~= nil and vehicle or 0
+	local vehicle = QBCore.Functions.GetClosestVehicle()
+	local closestVehCoords = GetEntityCoords(vehicle)
+	if #(GetEntityCoords(PlayerPedId(), closestVehCoords)) > 3.0 then
+		return true
+	end
+	return false
 end
