@@ -995,3 +995,7 @@ RegisterNetEvent('qb-phone:RefreshPhone', function()
         })
     end)
 end)
+
+local function IsPhoneOpen()
+    return PhoneData.isOpen
+end exports("IsPhoneOpen", IsPhoneOpen)
