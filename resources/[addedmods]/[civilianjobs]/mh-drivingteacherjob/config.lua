@@ -26,7 +26,7 @@ Config.Locations = {
             blipSprite = 498,
             blipColour = 2,
             blipScale = 0.8,
-            showBlip = true,
+            showBlip = false,
         },
         [2] = {
             label = "Driving Exam",
@@ -35,7 +35,7 @@ Config.Locations = {
             blipSprite = 525,
             blipColour = 31,
             blipScale = 0.8,
-            showBlip = true,
+            showBlip = false,
         },
     },
 }

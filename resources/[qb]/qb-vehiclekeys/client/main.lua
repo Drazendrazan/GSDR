@@ -712,7 +712,7 @@ function AttemptPoliceAlert(type)
             chance = Config.PoliceNightAlertChance
         end
         if math.random() <= chance then
-           TriggerServerEvent('police:server:policeAlert', Lang:t("info.palert") .. type)
+           TriggerServerEvent(exports['ps-dispatch']:VehicleTheft(vehicle))
         end
         AlertSend = true
         SetTimeout(Config.AlertCooldown, function()

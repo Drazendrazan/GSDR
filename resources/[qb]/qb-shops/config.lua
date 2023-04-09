@@ -414,7 +414,7 @@ Config.Products = {
         },
         [7] = {
             name = "pistol_ammo",
-            price = 250,
+            price = 100,
             amount = 250,
             info = {},
             type = "item",
