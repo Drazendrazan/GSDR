@@ -587,7 +587,7 @@ TennisCourts = {
         isCollisionActive = false,
         courtCenter = vec3(-1945.170044, 478.676575, 101.709999),
         courtHeading = 97.82366598776,
-        courtWidth = 8.0,showBlip = false
+        courtWidth = 8.0,
         courtLength = 11.89,
         centerConstant = 0.09,
         showBlip = false,
