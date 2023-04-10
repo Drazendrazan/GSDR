@@ -8,11 +8,11 @@ Config.UpdateFrequency = 300                -- Seconds interval between removing
 
 Config.Notifications = true                 -- Notification played when skill is added (set to "false" to disable)
 
-Config.NotifyType = 'okok'                  -- Notification type: 'qb' for QBCore notification, 'okok' for okokNotify
+Config.NotifyType = 'qb'                  -- Notification type: 'qb' for QBCore notification, 'okok' for okokNotify
 
 Config.Debug = false                        -- Set to "true" to print debugging messages
 
-Config.UseOxMenu = true                     -- set to "true" to use ox_lib menu instead of qb-menu
+Config.UseOxMenu = false                     -- set to "true" to use ox_lib menu instead of qb-menu
 -- if "Config.UseOxMenu = true", then the following parameters apply:
 Config.XPBarColour = "cyan"                 -- Change the colour of your XP Bar.
 Config.SkillsTitle = "MZ-SKILLS"            -- Change this to label your skill system as you see fit.

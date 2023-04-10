@@ -35,7 +35,7 @@ Config.Timeout = 2 * (60 * 1000)        -- Time (in minutes) that it takes for t
 --------------------------------
 
 -- Set this to "true" if you want to enable a skill check for chopping wood (a different skill check applies for processing lumber products)
-Config.Axeskillcheck = false            -- Change to "false" if you do not want to have a skillcheck before cutting down a tree.
+Config.Axeskillcheck = true            -- Change to "false" if you do not want to have a skillcheck before cutting down a tree.
 --If "Config.Axeskillcheck" = true", then the following parameters apply:
 Config.lowparse = 1                     -- Lowest number of skillcheck parses per wood chop.
 Config.highparse = 2                    -- Highest number of skillcheck parses per wood chop.
@@ -48,7 +48,8 @@ Config.skillfailXP = 1                  -- amount of mz-skill (default is "Lumbe
 ----------------------
 
 Config.Axe = {
-    [`weapon_battleaxe`] = {}
+    [`weapon_battleaxe`] = {},
+	[`weapon_hatchet`] = {}
 }
 
 Config.ReqItem = "weapon_battleaxe"     -- Item required in order to be able to chop down trees.
