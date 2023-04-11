@@ -2,7 +2,7 @@ Config = {}
 
 Config.Language = "en"
 
-Config.Debug = true
+Config.Debug = false
 
 Config.RenderDistance = 100.0
 
