@@ -42,8 +42,12 @@ Locales = {
         ['drugsell'] = "Suspicious Handoff",
         ['carjacking'] = "Car Jacking", 
         ['vehicletheft'] = "Vehicle Theft", 
-        ['officerdown'] = "Officer is down",
-        ['emsdown'] = "EMS Down",
+        ['officerdown'] = "Officer Down URGENT!",
+        ['officerdown2'] = "Officer Down NOT URGENT!",
+        ['pdpanic'] = "Officer Distress Signal URGENT!",
+        ['emsdown'] = "EMS Down URGENT!",
+        ['emsdown2'] = "EMS Down NOT URGENT",
+        ['emspanic'] = "EMS Distress Signal URGENT!",
         ['artgalleryrobbery'] = "Art Gallery Robbery",
         ['humanerobbery'] = "Humane Labs Robbery",
         ['trainrobbery'] = "Train Robbery",
@@ -54,7 +58,6 @@ Locales = {
         ['carboosting'] = "Car Boosting In Progress",
         ['yachtheist'] = "Yacht Heist In Progress",
         ['susactivity'] = "Suspicious Activity",
-        ['hunting'] = "Possible Hunting Violation",
     },
 
     ['fr'] = {
