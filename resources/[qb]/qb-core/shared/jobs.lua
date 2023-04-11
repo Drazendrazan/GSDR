@@ -284,19 +284,19 @@ QBShared.Jobs = {
 		offDutyPay = false,
 		grades = {
             ['0'] = {
-                name = 'Trainee'
+                name = 'Trainee',
                 payment = 200
             },
 			['1'] = {
-                name = 'Mechanic'
+                name = 'Mechanic',
                 payment = 250
             },
 			['2'] = {
-                name = 'Snr. Mechanic'
+                name = 'Snr. Mechanic',
                 payment = 275
             },
 			['3'] = {
-                name = 'Supervisor'
+                name = 'Supervisor',
                 payment = 350
             },
 			['4'] = {
@@ -314,19 +314,19 @@ QBShared.Jobs = {
 		offDutyPay = false,
 		grades = {
             ['0'] = {
-                name = 'Trainee'
+                name = 'Trainee',
                 payment = 200
             },
 			['1'] = {
-                name = 'Mechanic'
+                name = 'Mechanic',
                 payment = 250
             },
 			['2'] = {
-                name = 'Snr. Mechanic'
+                name = 'Snr. Mechanic',
                 payment = 275
             },
 			['3'] = {
-                name = 'Supervisor'
+                name = 'Supervisor',
                 payment = 350
             },
 			['4'] = {
@@ -343,19 +343,19 @@ QBShared.Jobs = {
 		offDutyPay = false,
 		grades = {
             ['0'] = {
-                name = 'Trainee'
+                name = 'Trainee',
                 payment = 200
             },
 			['1'] = {
-                name = 'Mechanic'
+                name = 'Mechanic',
                 payment = 250
             },
 			['2'] = {
-                name = 'Snr. Mechanic'
+                name = 'Snr. Mechanic',
                 payment = 275
             },
 			['3'] = {
-                name = 'Supervisor'
+                name = 'Supervisor',
                 payment = 350
             },
 			['4'] = {
@@ -373,19 +373,19 @@ QBShared.Jobs = {
 		offDutyPay = false,
 		grades = {
             ['0'] = {
-                name = 'Trainee'
+                name = 'Trainee',
                 payment = 200
             },
 			['1'] = {
-                name = 'Mechanic'
+                name = 'Mechanic',
                 payment = 250
             },
 			['2'] = {
-                name = 'Snr. Mechanic'
+                name = 'Snr. Mechanic',
                 payment = 275
             },
 			['3'] = {
-                name = 'Supervisor'
+                name = 'Supervisor',
                 payment = 350
             },
 			['4'] = {
