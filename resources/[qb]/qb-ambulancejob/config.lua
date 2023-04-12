@@ -66,15 +66,18 @@ Config.Locations = { -- Edit the various interaction points for players or creat
         [1] = vector3(309.78, -596.6, 43.29),
     },
     ["beds"] = {
-        [1] = {coords = vector4(324.26, -582.77, 44.2, 158.15), taken = false, model = 1631638868},
-        [2] = {coords = vector4(322.59, -587.32, 44.2, 336.72), taken = false, model = 1631638868},
-        [3] = {coords = vector4(319.33, -581.15, 44.2, 158.61), taken = false, model = 1631638868},
-        [4] = {coords = vector4(317.67, -585.24, 44.2, 338.29), taken = false, model = 1631638868},
-        [5] = {coords = vector4(314.47, -584.23, 44.2, 339.52), taken = false, model = 1631638868}, 
-        [6] = {coords = vector4(313.81, -579.04, 44.2, 156.64), taken = false, model = 1631638868}, 
-        [7] = {coords = vector4(311.12, -582.9, 44.2, 338.82), taken = false, model = 1631638868}, 
-        [8] = {coords = vector4(309.33, -577.3, 44.2, 158.98), taken = false, model = 1631638868},
-        [9] = {coords = vector4(307.63, -581.9, 44.2, 336.67), taken = false, model = 1631638868},
+        [1] = {coords = vector4(311.13, -582.89, 43.53, 335.65), taken = false, model = 2117668672},
+        [2] = {coords = vector4(313.96, -579.05, 43.53, 164.5), taken = false, model = 2117668672},
+        [3] = {coords = vector4(314.58, -584.09, 43.53, 335.65), taken = false, model = 2117668672},
+        [4] = {coords = vector4(317.74, -585.29, 43.53, 335.65), taken = false, model = 2117668672},
+        [5] = {coords = vector4(319.47, -581.04, 43.53, 164.5), taken = false, model = 2117668672},
+        [6] = {coords = vector4(366.43, -581.54, 43.28, 66.5), taken = false, model = 2117668672},
+        [7] = {coords = vector4(364.93, -585.86, 43.28, 67.5), taken = false, model = 2117668672},
+        [8] = {coords = vector4(363.82, -589.09, 43.28, 68.5), taken = false, model = 2117668672},
+	--- paleto
+	    [9] = {coords = vector4(-252.43, 6312.25, 32.34, 313.48), taken = false, model = 2117668672},
+        [10] = {coords = vector4(-247.04, 6317.95, 32.34, 134.64), taken = false, model = 2117668672},
+        [11] = {coords = vector4(-255.98, 6315.67, 32.34, 313.91), taken = false, model = 2117668672},
     },
     ["jailbeds"] = {
         [1] = {coords = vector4(1761.96, 2597.74, 45.66, 270.14), taken = false, model = 2117668672},
@@ -165,6 +168,7 @@ Config.Items = { -- Items found in the ambulance shop for players with the ambul
         },
     }
 }
+
 
 Config.WeaponClasses = { -- Define gta weapon classe numbers
     ['SMALL_CALIBER'] = 1,
