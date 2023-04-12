@@ -12,7 +12,6 @@ shared_script {
 }
 
 client_scripts {
-    '@ox_lib/init.lua', -- Remove if not using ox_lib
     '@PolyZone/client.lua',
     '@PolyZone/BoxZone.lua',
     '@PolyZone/EntityZone.lua',
