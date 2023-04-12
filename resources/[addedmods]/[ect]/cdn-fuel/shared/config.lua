@@ -133,26 +133,26 @@ Config.NoFuelUsage = { -- This is for you to put vehicles that you don't want to
 
 Config.Classes = { -- Class multipliers. If you want SUVs to use less fuel, you can change it to anything under 1.0, and vise versa.
 	[0] = 1.0, -- Compacts
-	[1] = 1.0, -- Sedans
-	[2] = 1.0, -- SUVs
+	[1] = 1.1, -- Sedans
+	[2] = 1.5, -- SUVs
 	[3] = 1.0, -- Coupes
-	[4] = 1.0, -- Muscle
-	[5] = 1.0, -- Sports Classics
-	[6] = 1.0, -- Sports
-	[7] = 1.0, -- Super
-	[8] = 1.0, -- Motorcycles
+	[4] = 1.2, -- Muscle
+	[5] = 1.2, -- Sports Classics
+	[6] = 1.2, -- Sports
+	[7] = 1.3, -- Super
+	[8] = 0.7, -- Motorcycles
 	[9] = 1.0, -- Off-road
-	[10] = 1.0, -- Industrial
-	[11] = 1.0, -- Utility
-	[12] = 1.0, -- Vans
+	[10] = 1.2, -- Industrial
+	[11] = 1.2, -- Utility
+	[12] = 1.2, -- Vans
 	[13] = 0.0, -- Cycles
 	[14] = 1.0, -- Boats
-	[15] = 1.0, -- Helicopters
-	[16] = 1.0, -- Planes
+	[15] = 1.5, -- Helicopters
+	[16] = 1.5, -- Planes
 	[17] = 1.0, -- Service
 	[18] = 1.0, -- Emergency
 	[19] = 1.0, -- Military
-	[20] = 1.0, -- Commercial
+	[20] = 1.2, -- Commercial
 	[21] = 1.0, -- Trains
 }
 
@@ -740,7 +740,7 @@ Config.GasStations = { -- Configuration options for various gas station related 
         minz = 28.2,
         maxz = 30.3,
         pedmodel = "a_m_m_indian_01",
-        cost = 100000,
+        cost = 400000,
         shutoff = false,
         pedcoords = {
             x = 167.06, 
@@ -763,7 +763,7 @@ Config.GasStations = { -- Configuration options for various gas station related 
         minz = 28.2,
         maxz = 30.4,
         pedmodel = "a_m_m_indian_01",
-        cost = 100000,
+        cost = 600000,
         shutoff = false,
         pedcoords = {
             x = -40.94, 
@@ -785,7 +785,7 @@ Config.GasStations = { -- Configuration options for various gas station related 
         minz = 17.4,
         maxz = 21.04,
         pedmodel = "a_m_m_indian_01",
-        cost = 100000,
+        cost = 500000,
         shutoff = false,
         pedcoords = {
             x = -531.2, 
@@ -808,7 +808,7 @@ Config.GasStations = { -- Configuration options for various gas station related 
         minz = 18.0,
         maxz = 20.4,
         pedmodel = "a_m_m_indian_01",
-        cost = 100000,
+        cost = 600000,
         shutoff = false,
         pedcoords = {
             x = -705.66, 
@@ -830,7 +830,7 @@ Config.GasStations = { -- Configuration options for various gas station related 
         minz = 28.1,
         maxz = 30.3,
         pedmodel = "a_m_m_indian_01",
-        cost = 100000,
+        cost = 500000,
         shutoff = false,
         pedcoords = {
             x = 288.83, 
@@ -853,7 +853,7 @@ Config.GasStations = { -- Configuration options for various gas station related 
         minz = 25.1,
         maxz = 28.1,
         pedmodel = "a_m_m_indian_01",
-        cost = 100000,
+        cost = 400000,
         shutoff = false,
         pedcoords = {
             x = 816.42, 
@@ -877,7 +877,7 @@ Config.GasStations = { -- Configuration options for various gas station related 
         minz = 34.1,
         maxz = 36.3,
         pedmodel = "a_m_m_indian_01",
-        cost = 100000,
+        cost = 400000,
         shutoff = false,
         pedcoords = {
             x = 1211.13, 
@@ -900,7 +900,7 @@ Config.GasStations = { -- Configuration options for various gas station related 
         minz = 68.1,
         maxz = 70.2,
         pedmodel = "a_m_m_indian_01",
-        cost = 100000,
+        cost = 500000,
         shutoff = false,
         pedcoords = {
             x = 1163.64, 
@@ -924,7 +924,7 @@ Config.GasStations = { -- Configuration options for various gas station related 
         minz = 101.9,
         maxz = 104.8,
         pedmodel = "a_m_m_indian_01",
-        cost = 100000,
+        cost = 400000,
         shutoff = false,
         pedcoords = {
             x = 642.08, 
@@ -946,7 +946,7 @@ Config.GasStations = { -- Configuration options for various gas station related 
         minz = 45.0,
         maxz = 47.3,
         pedmodel = "a_m_m_indian_01",
-        cost = 100000,
+        cost = 400000,
         shutoff = false,
         pedcoords = {
             x = -1428.4, 
@@ -970,7 +970,7 @@ Config.GasStations = { -- Configuration options for various gas station related 
         minz = 12.0,
         maxz = 14.3,
         pedmodel = "a_m_m_indian_01",
-        cost = 100000,
+        cost = 400000,
         shutoff = false,
         pedcoords = {
             x = -2074.28, 
@@ -993,7 +993,7 @@ Config.GasStations = { -- Configuration options for various gas station related 
         maxz = 32.5,
         pumpheightadd = 1.5, --  For Config.PumpHose
         pedmodel = "a_m_m_indian_01",
-        cost = 100000,
+        cost = 300000,
         shutoff = false,
         pedcoords = {
             x = -93.02, 
@@ -1017,13 +1017,13 @@ Config.GasStations = { -- Configuration options for various gas station related 
         minz = 30.7,
         maxz = 33.4,
         pedmodel = "a_m_m_indian_01",
-        cost = 100000,
+        cost = 400000,
         shutoff = false,
         pedcoords = {
-            x = 170.44, 
-            y = 6633.74,
-            z = 30.59,
-            h = 221.95,
+            x = 169.42, 
+            y = 6638.16,
+            z = 31.7,
+            h = 97.6,
         },
         electriccharger = nil,
         electricchargercoords = vector4(181.14, 6636.17, 30.61, 179.96),
@@ -1039,7 +1039,7 @@ Config.GasStations = { -- Configuration options for various gas station related 
         minz = 31.4,
         maxz = 34.2,
         pedmodel = "a_m_m_indian_01",
-        cost = 100000,
+        cost = 300000,
         shutoff = false,
         pedcoords = {
             x = 1698.62, 
@@ -1063,7 +1063,7 @@ Config.GasStations = { -- Configuration options for various gas station related 
         maxz = 43.17,
         pumpheightadd = 1.5, --  For Config.PumpHose
         pedmodel = "a_m_m_indian_01",
-        cost = 100000,
+        cost = 300000,
         shutoff = false, 
         pedcoords = {
             x = 1704.59, 
@@ -1086,7 +1086,7 @@ Config.GasStations = { -- Configuration options for various gas station related 
         maxz = 33.60, 
         pumpheightadd = 1.5, --  For Config.PumpHose
         pedmodel = "a_m_m_indian_01",
-        cost = 100000,
+        cost = 400000,
         shutoff = false, 
         pedcoords = {
             x = 2001.33, 
@@ -1100,29 +1100,6 @@ Config.GasStations = { -- Configuration options for various gas station related 
     },
     [17] = {
         zones = {
-            vector2(1774.24, 3308.71),
-            vector2(1752.65, 3345.83),
-            vector2(1784.47, 3357.95),
-            vector2(1808.71, 3321.21)
-        },
-        minz = 39.0,
-        maxz = 44.6,
-        pumpheightadd = 1.5, --  For Config.PumpHose
-        pedmodel = "a_m_m_indian_01",
-        cost = 100000,
-        shutoff = false,
-        pedcoords = {
-            x = 1776.57, 
-            y = 3327.36,
-            z = 40.43,
-            h = 297.57,
-        },
-        electriccharger = nil,
-        electricchargercoords = vector4(1770.86, 3337.97, 40.43, 301.1),
-        label = "Sandy Shores Globe Oil",
-    },
-    [18] = {
-        zones = {
             vector2(2671.21, 3290.53),
             vector2(2649.62, 3254.55),
             vector2(2682.95, 3237.50),
@@ -1132,7 +1109,7 @@ Config.GasStations = { -- Configuration options for various gas station related 
         maxz = 56.4,
         pumpheightadd = 1.5, --  For Config.PumpHose
         pedmodel = "a_m_m_indian_01",
-        cost = 100000,
+        cost = 300000,
         shutoff = false, 
         pedcoords = {
             x = 2673.98, 
@@ -1144,32 +1121,7 @@ Config.GasStations = { -- Configuration options for various gas station related 
         electricchargercoords = vector4(2690.25, 3265.62, 54.24, 58.98),
         label = "Senora Freeway Xero",
     },
-    [19] = {
-        zones = {
-            vector2(1188.64, 2651.89),
-            vector2(1202.27, 2663.64),
-            vector2(1212.50, 2661.74),
-            vector2(1217.05, 2651.52),
-            vector2(1210.61, 2633.33),
-            vector2(1201.52, 2638.26)
-        },
-        minz = 36.7,
-        maxz = 38.85,
-        pumpheightadd = 1.5, --  For Config.PumpHose
-        pedmodel = "a_m_m_indian_01",
-        cost = 100000,
-        shutoff = false,
-        pedcoords = {
-            x = 1201.68, 
-            y = 2655.24,
-            z = 36.85,
-            h = 322.97,
-        },
-        electriccharger = nil,
-        electricchargercoords  = vector4(1208.26, 2649.46, 36.85, 222.32),
-        label = "Harmony Globe Oil",
-    },
-    [20] = {
+    [18] = {
         zones = {
             vector2(1026.14, 2669.70),
             vector2(1028.03, 2640.91),
@@ -1180,7 +1132,7 @@ Config.GasStations = { -- Configuration options for various gas station related 
         maxz = 40.55,
         pumpheightadd = 1.5, --  For Config.PumpHose
         pedmodel = "a_m_m_indian_01",
-        cost = 100000,
+        cost = 300000,
         shutoff = false,
         pedcoords = {
             x = 1039.44, 
@@ -1192,7 +1144,7 @@ Config.GasStations = { -- Configuration options for various gas station related 
         electricchargercoords = vector4(1033.32, 2662.91, 38.55, 95.38),
         label = "Route 68 Globe Oil",
     },
-    [21] = {
+    [19] = {
         zones = {
             vector2(269.70, 2606.44),
             vector2(275.38, 2585.23),
@@ -1204,7 +1156,7 @@ Config.GasStations = { -- Configuration options for various gas station related 
         maxz = 45.95,
         pumpheightadd = 1.5, --  For Config.PumpHose
         pedmodel = "a_m_m_indian_01",
-        cost = 100000,
+        cost = 300000,
         shutoff = false,
         pedcoords = {
             x = 265.89, 
@@ -1216,30 +1168,7 @@ Config.GasStations = { -- Configuration options for various gas station related 
         electricchargercoords = vector4(267.96, 2599.47, 43.69, 5.8),
         label = "Route 68 Workshop Globe Oil",
     },
-    [22] = {
-        zones = {
-            vector2(46.59, 2795.45),
-            vector2(27.65, 2775.76),
-            vector2(49.24, 2754.55),
-            vector2(68.56, 2778.03)
-        },
-        minz = 56.8,
-        maxz = 58.9,
-        pumpheightadd = 1.5, --  For Config.PumpHose
-        pedmodel = "a_m_m_indian_01",
-        cost = 100000,
-        shutoff = false,
-        pedcoords = {
-            x = 46.53, 
-            y = 2789.05,
-            z = 56.88,
-            h = 143.93,
-        },
-        electriccharger = nil,
-        electricchargercoords = vector4(50.21, 2787.38, 56.88, 147.2),
-        label = "Route 68 Xero",
-    },
-    [23] = {
+    [20] = {
         zones = {
             vector2(-2562.12, 2340.53),
             vector2(-2560.98, 2299.62),
@@ -1250,7 +1179,7 @@ Config.GasStations = { -- Configuration options for various gas station related 
         minz = 32.05,
         maxz = 34.08,
         pedmodel = "a_m_m_indian_01",
-        cost = 100000,
+        cost = 300000,
         shutoff = false,
         pedcoords = {
             x = -2544.04,
@@ -1262,31 +1191,7 @@ Config.GasStations = { -- Configuration options for various gas station related 
         electricchargercoords = vector4(-2570.04, 2317.1, 32.22, 21.29),
         label = "Route 68 Ron",
     },
-    [24] = {
-        zones = {
-            vector2(2545.08, 2601.14),
-            vector2(2556.06, 2573.11),
-            vector2(2545.83, 2568.56),
-            vector2(2531.06, 2601.14),
-            vector2(2540.91, 2599.24)
-        },
-        minz = 36.94,
-        maxz = 38.94,
-        pumpheightadd = 1.5, --  For Config.PumpHose
-        pedmodel = "a_m_m_indian_01",
-        cost = 100000,
-        shutoff = false,
-        pedcoords = {
-            x = 2545.02, 
-            y = 2591.72,
-            z = 36.96,
-            h = 113.52,
-        },
-        electriccharger = nil,
-        electricchargercoords = vector4(2545.81, 2586.18, 36.94, 83.74),
-        label = "Rex's Diner Globe Oil",
-    },
-    [25] = {
+    [21] = {
         zones = {
             vector2(2540.15, 373.86),
             vector2(2538.26, 345.83),
@@ -1297,19 +1202,19 @@ Config.GasStations = { -- Configuration options for various gas station related 
         minz = 107.4,
         maxz = 109.4,
         pedmodel = "a_m_m_indian_01",
-        cost = 100000,
+        cost = 400000,
         shutoff = false,
         pedcoords = {
-            x = 2559.36,
-            y = 373.68,
-            z = 107.62,
-            h = 272.2,
+            x = 2553.6,
+            y = 389.77,
+            z = 108.62,
+            h = 233.79,
         },
         electriccharger = nil,
         electricchargercoords = vector4(2561.24, 357.3, 107.62, 266.65),
         label = "Palmino Freeway Ron",
     },
-    [26] = {
+    [22] = {
         zones = {
             vector2(-1838.64, 787.12),
             vector2(-1796.97, 821.97),
@@ -1319,7 +1224,7 @@ Config.GasStations = { -- Configuration options for various gas station related 
         minz = 136.64,
         maxz = 139.9,
         pedmodel = "a_m_m_indian_01",
-        cost = 100000,
+        cost = 400000,
         shutoff = false,
         pedcoords = {
             x = -1825.33,
@@ -1331,7 +1236,7 @@ Config.GasStations = { -- Configuration options for various gas station related 
         electricchargercoords = vector4(-1819.22, 798.51, 137.16, 315.13),
         label = "North Rockford LTD",
     },
-    [27] = {
+    [23] = {
         zones = {
             vector2(-354.55, -1452.65),
             vector2(-354.17, -1499.62),
@@ -1341,7 +1246,7 @@ Config.GasStations = { -- Configuration options for various gas station related 
         minz = 29.5,
         maxz = 31.9,
         pedmodel = "a_m_m_indian_01",
-        cost = 100000,
+        cost = 300000,
         shutoff = false,
         pedcoords = {
             x = -342.37,

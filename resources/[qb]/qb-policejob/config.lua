@@ -14,41 +14,85 @@ Config.HandCuffItem = 'handcuffs'
 
 Config.LicenseRank = 2
 
+Config.mzskills = true -- set to false if you don't want the break cuff xp system feature turned on
+
 Config.UseTarget = GetConvar('UseTarget', 'false') == 'true'
 Config.Locations = {
     ["duty"] = {
-        [1] = vector3(440.085, -974.924, 30.689),
-        [2] = vector3(-449.811, 6012.909, 31.815),
+        -- MRPD
+        {
+            ped = vector4(442.78, -981.93, 30.69, 91.85)
+        },
+        -- Paleto
+        {
+            ped = vector4(-448.39, 6013.96, 32.29, 216.59)
+        }
     },
-    ["vehicle"] = {
-        [1] = vector4(448.159, -1017.41, 28.562, 90.654),
-        [2] = vector4(471.13, -1024.05, 28.17, 274.5),
-        [3] = vector4(-455.39, 6002.02, 31.34, 87.93),
+    -- Following the formula below you can add as many locations as you want coords = where the Ped spawns, spawn = where the vehicle spawns
+    ["vehicleped"] = {
+        -- MRPD
+        {
+            coords = vector4(441.57, -974.77, 25.7, 181.71),
+            spawn = vector4(445.41, -988.94, 25.7, 273.0),
+        },
+        -- Paleto
+        {
+            coords = vector4(-463.23, 6025.33, 31.34, 138.98),
+            spawn = vector4(-476.49, 6032.56, 31.34, 222.19),
+        }
     },
     ["stash"] = {
-        [1] = vector3(453.075, -980.124, 30.889),
+        -- MRPD
+        {
+            stash = vector4(446.79, -996.93, 30.69, 268.43),
+        }
     },
     ["impound"] = {
-        [1] = vector3(436.68, -1007.42, 27.32),
-        [2] = vector3(-436.14, 5982.63, 31.34),
+        -- MRPD
+        {
+            impound = vector4(426.54, -986.62, 25.7, 273.91),
+            vehicle =  vector4(425.67, -981.85, 25.7, 270.58),
+        }
     },
     ["helicopter"] = {
-        [1] = vector4(449.168, -981.325, 43.691, 87.234),
-        [2] = vector4(-475.43, 5988.353, 31.716, 31.34),
+        -- MRPD
+        {
+            heliped = vector4(455.23, -986.67, 43.69, 303.94),
+            helispawn = vector4(449.62, -981.25, 43.69, 86.89),
+        }
     },
     ["armory"] = {
-        [1] = vector3(462.23, -981.12, 30.68),
+        -- MRPD
+        {
+            armory = vector4(480.38, -996.54, 30.69, 92.53),
+        },
+        -- Paleto
+        {
+            armory = vector4(-445.89, 6014.78, 37.0, 233.33),
+        }
     },
     ["trash"] = {
         [1] = vector3(439.0907, -976.746, 30.776),
     },
     ["fingerprint"] = {
-        [1] = vector3(460.9667, -989.180, 24.92),
+        -- MRPD
+        {
+            finger = vector4(473.1, -1005.89, 26.27, 171.9),
+        }
     },
     ["evidence"] = {
-        [1] = vector3(442.1722, -996.067, 30.689),
-        [2] = vector3(451.7031, -973.232, 30.689),
-        [3] = vector3(455.1456, -985.462, 30.689),
+ 
+        { -- MRPD
+            evidence = vector4(472.29, -1000.34, 26.27, 312.07)
+        },
+ 
+        { -- MRPD 
+            evidence = vector4(472.54, -991.21, 26.27, 290.73)
+        },      
+
+        { -- MRPD 
+            evidence = vector4(446.83, -997.53, 30.69, 321.53)
+        },     
     },
     ["stations"] = {
         [1] = {label = "Police Station", coords = vector4(428.23, -984.28, 29.76, 3.5)},
@@ -388,6 +432,15 @@ Config.Items = {
             info = {},
             type = "item",
             slot = 17,
+            authorizedJobGrades = {0, 1, 2, 3, 4}
+        },
+        [18] = {
+            name = "policetablet",
+            price = 0,
+            amount = 5,
+            info = {},
+            type = "item",
+            slot = 18,
             authorizedJobGrades = {0, 1, 2, 3, 4}
         }
     }
