@@ -86,42 +86,38 @@ Garbage.Locations = {
         coords = vector4(21.65, 375.44, 112.67, 323.5),
     },
     [12] = {
-        name = "miltonroad",
-        coords = vector4(-546.9, 286.57, 82.85, 127.5),
-    },
-    [13] = {
         name = "eastbourneway",
         coords = vector4(-683.23, -169.62, 37.74, 267.5),
     },
-    [14] = {
+    [13] = {
         name = "eastbourneway2",
         coords = vector4(-771.02, -218.06, 37.05, 277.5),
     },
-    [15] = {
+    [14] = {
         name = "industrypassage",
         coords = vector4(-1057.06, -515.45, 35.83, 61.5),
     },
-    [16] = {
+    [15] = {
         name = "boulevarddelperro",
         coords = vector4(-1558.64, -478.22, 35.18, 179.5),
     },
-    [17] = {
+    [16] = {
         name = "sandcastleway",
         coords = vector4(-1350.0, -895.64, 13.36, 17.5),
     },
-    [18] = {
+    [17] = {
         name = "magellanavenue",
         coords = vector4(-1243.73, -1359.72, 3.93, 287.5),
     },
-    [19] = {
+    [18] = {
         name = "palominoavenue",
         coords = vector4(-845.87, -1113.07, 6.91, 253.5),
     },
-    [20] = {
+    [19] = {
         name = "southrockforddrive",
         coords = vector4(-635.21, -1226.45, 11.8, 143.5),
     },
-    [21] = {
+    [20] = {
         name = "southarsenalstreet",
         coords = vector4(-587.74, -1739.13, 22.47, 339.5),
     },

@@ -10,7 +10,7 @@ Config.Locations = {
         Zone = { -- Polyzone Info
             name = "MRPD Front Desk", -- Name of the menu title
             coords = vector3(442.32, -982.06, 31.6), -- Boxzone Coords
-            length = 0.8, width = 0.6, -- Boxzone Length / Width
+            length = 1.5, width = 1, -- Boxzone Length / Width
             heading = 335, -- Boxzone Heading
             minZ = 30.49, -- Boxzone MinZ
             maxZ = 31.29 -- Boxzone MaxZ
