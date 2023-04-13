@@ -2442,6 +2442,8 @@ ultimate_block = {
 
 	["metal_wand"] = {["name"] = "metal_wand", ["label"] = "Metal Wand", ["weight"] = 1, ["type"] = "item", ["image"] = "metal_wand.png", ["unique"] = false, ["useable"] = true, ["shouldClose"] = true, ["combinable"] = nil, ["description"] = ""},
 
+	['camera'] 						 = {['name'] = 'camera', 			  	  		['label'] = 'Camera', 					['weight'] = 1000, 		['type'] = 'item', 		['image'] = 'camera.png', 				['unique'] = true, 	['useable'] = true, 	['shouldClose'] = true,   ['combinable'] = nil,   ['description'] = 'Camera to take pretty pictures.'},
+	['photo'] 				 		 = {['name'] = 'photo', 			  	  		['label'] = 'Saved Pic', 				['weight'] = 500, 		['type'] = 'item', 		['image'] = 'photo.png', 				['unique'] = true, 	['useable'] = true, 	['shouldClose'] = true,   ['combinable'] = nil,   ['description'] = 'Brand new picture saved!'},
 
 }
 		
