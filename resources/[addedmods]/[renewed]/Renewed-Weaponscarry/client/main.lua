@@ -85,6 +85,10 @@ local props = {
 	["microwave"]      = { carry = true, model = "prop_microwave_1", bone = 24817, x = -0.20, y = 0.43, z = 0.05, xr = 91.0,
 		yr = 0.0, zr = -265.0, blockAttack = true, blockCar = true, blockRun = true },
 
+	["carpart_hood"]               = { carry = true,   model = "imp_prop_impexp_bonnet_02a",   bone = 24817, x = 0.30, y = 0.40, z = 0.15, xr = 0.0, yr = -90.0,  zr = 280.0, blockAttack = true, blockCar = true, blockRun = true},
+	["carpart_trunk"]              = { carry = true,   model = "imp_prop_impexp_bonnet_02a",   bone = 24817, x = 0.30, y = 0.40, z = 0.15, xr = 0.0, yr = -90.0,  zr = 280.0, blockAttack = true, blockCar = true, blockRun = true},
+	["carpart_door"]               = { carry = true,   model = "imp_prop_impexp_car_door_04a", bone = 24817, x = 0.90, y = 0.50, z = 0.15, xr = 0.0, yr = -200.0, zr = 280.0, blockAttack = true, blockCar = true, blockRun = true},
+	["carpart_wheel"]              = { carry = true,   model = "v_ind_cm_tyre04",              bone = 24817, x = 0.20, y = 0.50, z = 0.05, xr = 0.0, yr = -180.0, zr = 280.0, blockAttack = true, blockCar = true, blockRun = true},
 }
 
 local items_attatched = {}
