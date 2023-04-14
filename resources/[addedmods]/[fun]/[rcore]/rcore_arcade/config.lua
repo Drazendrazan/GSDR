@@ -62,17 +62,17 @@ Config.Arcade = {
 -- ticket price, and time in arcade.
 Config.ticketPrice = {
     [1] = {
-        label = _U("Bronze"),
+        label = _U("bronz"),
         price = 1000,
         time = 10, -- in minutes
     },
     [2] = {
-        label = _U("Silver"),
+        label = _U("silver"),
         price = 2000,
         time = 20, -- in minutes
     },
     [3] = {
-        label = _U("Gold"),
+        label = _U("gold"),
         price = 3000,
         time = 30, -- in minutes
     },
