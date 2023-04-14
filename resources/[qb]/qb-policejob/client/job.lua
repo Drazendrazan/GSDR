@@ -1054,87 +1054,7 @@ else
         end
     end)
 
-    -- Helicopter
-    --local helicopterZones = {}
-    --for _, v in pairs(Config.Locations["helicopter"]) do
-    --    helicopterZones[#helicopterZones+1] = BoxZone:Create(
-    --        vector3(vector3(v.x, v.y, v.z)), 10, 10, {
-    --        name="box_zone",
-    --        debugPoly = true,
-    --        minZ = v.z - 1,
-    --        maxZ = v.z + 1,
-    --    })
-    --end
-
-    --local helicopterCombo = ComboZone:Create(helicopterZones, {name = "helicopterCombo", debugPoly = false})
-    --helicopterCombo:onPlayerInOut(function(isPointInside)
-    --    if isPointInside then
-    --        inHelicopter = true
-    --        if PlayerJob.type == 'leo' and PlayerJob.onduty then
-    --            if IsPedInAnyVehicle(PlayerPedId(), false) then
-    --                exports['qb-core']:HideText()
-    --                exports['qb-core']:DrawText(Lang:t('info.store_heli'), 'left')
-    --                heli()
-    --            else
-    --                exports['qb-core']:DrawText(Lang:t('info.take_heli'), 'left')
-    --                heli()
-    --            end
-    --        end
-    --    else
-    --        inHelicopter = false
-    --        exports['qb-core']:HideText()
-    --    end
-    --end)
-
-    -- Police Impound
---    local impoundZones = {}
---    for _, v in pairs(Config.Locations["impound"]) do
---        impoundZones[#impoundZones+1] = BoxZone:Create(
---            vector4(v.impound.x, v.impound.y, v.impound.z, v.impound.w), 1, 1, {
---            name="box_zone",
---            debugPoly = true,
---            minZ = v.impound.z - 1,
---            maxZ = v.impound.z + 1,
---            heading = 180,
---        })
---    end
-
---    local impoundCombo = ComboZone:Create(impoundZones, {name = "impoundCombo", debugPoly = false})
---    impoundCombo:onPlayerInOut(function(isPointInside, point)
---        if isPointInside then
---            inImpound = true
---            if PlayerJob.type == 'leo' and PlayerJob.onduty then
---                if IsPedInAnyVehicle(PlayerPedId(), false) then
---                    exports['qb-core']:DrawText(Lang:t('info.impound_veh'), 'left')
---                    impound()
---                else
---                    local currentSelection = 0
---
---                    for k, v in pairs(Config.Locations["impound"]) do
---                        if #(point - vector3(v.x, v.y, v.z)) < 4 then
---                            currentSelection = k
---                        end
---                    end
---                    exports['qb-menu']:showHeader({
---                        {
---                            header = Lang:t('menu.pol_impound'),
---                            params = {
---                                event = 'police:client:ImpoundMenuHeader',
---                                args = {
---                                    currentSelection = currentSelection,
---                                }
---                            }
---                        }
---                    })
---                end
---            end
---        else
---            inImpound = false
---            exports['qb-menu']:closeMenu()
---            exports['qb-core']:HideText()
---        end
---    end)
-
+end
 
     -- Police Garage
     CreateThread(function()
@@ -1388,6 +1308,7 @@ end
             end, vehicle.plate)
         end, vehicle.vehicle, coords, true)
     end)
+end)
 
 -- Helicopter
     CreateThread(function()
@@ -1501,7 +1422,6 @@ end)
 --            distance = 4.0
 --        })
 --    end)
-
 
 
 
