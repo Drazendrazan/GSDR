@@ -1054,8 +1054,6 @@ else
         end
     end)
 
-end
-
     -- Helicopter
     --local helicopterZones = {}
     --for _, v in pairs(Config.Locations["helicopter"]) do
