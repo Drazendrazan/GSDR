@@ -1388,7 +1388,7 @@ end
             end, vehicle.plate)
         end, vehicle.vehicle, coords, true)
     end)
-end)
+end
 
 -- Helicopter
     CreateThread(function()
